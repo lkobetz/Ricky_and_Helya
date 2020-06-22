@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import bouquet1 from "./images/bouquet-9a.png";
+import bouquet2 from "./images/bouquet-10.png";
+import header_photo from "./images/header_photo.png";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header id="flowers">
+        <img id="leftleftFlower" src={bouquet2} alt={""} />
+        <img id="leftFlower" src={bouquet1} alt={""} />
+        <img id="rightFlower" src={bouquet2} alt={""} />
+        <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
+      <img id="header_photo" src={header_photo} alt={""} />
     </div>
   );
 }

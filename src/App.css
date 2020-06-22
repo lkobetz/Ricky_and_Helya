@@ -13,19 +13,40 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#flowers {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: -250px;
 }
 
-.App-link {
-  color: #61dafb;
+#leftleftFlower {
+  transform: rotate(250deg);
+  height: 600px;
+  margin-right: -200px;
+}
+
+#leftFlower {
+  transform: rotate(250deg);
+  height: 600px;
+  margin-right: -90px;
+}
+
+#rightFlower {
+  transform: rotate(-15deg);
+  height: 600px;
+  margin-left: -90px;
+}
+
+#rightrightFlower {
+  transform: rotate(-15deg);
+  height: 600px;
+  margin-left: -200px;
+}
+
+#header_photo {
+  height: 500px;
+  border-radius: 50%;
+  margin-top: -235px;
 }
 
 @keyframes App-logo-spin {
