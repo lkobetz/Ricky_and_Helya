@@ -1,17 +1,10 @@
+// variables:
+$font: 'Rouge Script';
+$height600: 600px;
+
 .App {
   display: flex;
   flex-direction: column
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 #flowers {
@@ -22,25 +15,25 @@
 
 #leftleftFlower {
   transform: rotate(250deg);
-  height: 600px;
+  height: $height600;
   margin-right: -200px;
 }
 
 #leftFlower {
   transform: rotate(250deg);
-  height: 600px;
+  height: $height600;
   margin-right: -90px;
 }
 
 #rightFlower {
   transform: rotate(-15deg);
-  height: 600px;
+  height: $height600;
   margin-left: -90px;
 }
 
 #rightrightFlower {
   transform: rotate(-15deg);
-  height: 600px;
+  height: $height600;
   margin-left: -200px;
 }
 
@@ -53,20 +46,11 @@
   width: 500px;
   margin-top: -150px;
   border-radius: 50%;
-  box-shadow: 10px 20px 30px rgb(51, 50, 50);
+  box-shadow: 3px 14px 20px 0px dimgrey;
 }
 
 p {
-  font-family: 'Rouge Script';
+  font-family: $font;
   font-size: 80px;
-  margin-top: -5px;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  margin-top: 10px;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import bouquet1 from "./images/bouquet-9a.png";
 import bouquet2 from "./images/bouquet-10.png";
 import header_photo from "./images/header_photo.png";
