@@ -14,25 +14,25 @@
 
 #leftleftFlower {
   transform: rotate(250deg);
-  height: $height600;
+  height: $flower_header_height;
   margin-right: -200px;
 }
 
 #leftFlower {
   transform: rotate(250deg);
-  height: $height600;
+  height: $flower_header_height;
   margin-right: -90px;
 }
 
 #rightFlower {
   transform: rotate(-15deg);
-  height: $height600;
+  height: $flower_header_height;
   margin-left: -90px;
 }
 
 #rightrightFlower {
   transform: rotate(-15deg);
-  height: $height600;
+  height: $flower_header_height;
   margin-left: -200px;
 }
 
@@ -52,8 +52,4 @@
   font-family: $title_font;
   font-size: 80px;
   margin-top: -3px;
-}
-
-.section {
-  height: 600px;
 }

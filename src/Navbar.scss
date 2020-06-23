@@ -12,6 +12,7 @@
   padding-left: 20px;
   padding-right: 20px;
   height: 35px;
+  color: dimgrey;
 }
 
 .navbar_item {
@@ -20,12 +21,48 @@
 }
 
 a:link {
-  color: black;
+  color: dimgrey;
   text-decoration: none;
 }
 
 a:visited {
-  color: black;
+  color: dimgrey;
   text-decoration: none;
+}
+
+.section {
+  height: 600px;
+}
+
+.section_title {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+}
+
+.section_title > p {
+  font-family: $title_font;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.leftSmallFlower {
+  height:50px;
+  width: 50px;
+  align-self: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  // transform: rotate(150deg);
+}
+
+.rightSmallFlower {
+  height:50px;
+  width: 50px;
+  align-self: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  // transform: rotate(100deg);
+  transform: scaleY(-1);
+  transform:scaleX(-1)
 }
 
