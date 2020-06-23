@@ -1,0 +1,17 @@
+@import './vars.scss';
+
+#navbar_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.navbar_item {
+  font-family: $font;
+  font-size: 30px;
+}
+

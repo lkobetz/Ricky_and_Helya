@@ -1,6 +1,4 @@
-// variables:
-$font: 'Rouge Script';
-$height600: 600px;
+@import './vars.scss';
 
 .App {
   display: flex;
@@ -49,8 +47,12 @@ $height600: 600px;
   box-shadow: 3px 14px 20px 0px dimgrey;
 }
 
-p {
+#hero_title {
   font-family: $font;
   font-size: 80px;
   margin-top: 10px;
+}
+
+.section {
+  height: 600px;
 }

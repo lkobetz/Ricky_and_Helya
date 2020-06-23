@@ -3,6 +3,14 @@ import "./App.scss";
 import bouquet1 from "./images/bouquet-9a.png";
 import bouquet2 from "./images/bouquet-10.png";
 import header_photo from "./images/header_photo.png";
+import NavBar from "./Navbar";
+import RSVP from "./RSVP";
+import Schedule from "./Schedule";
+import Venue from "./Venue";
+import Registry from "./Registry";
+import Charity from "./Charity";
+import Photos from "./Photos";
+import FAQs from "./FAQs";
 
 function App() {
   return (
@@ -15,8 +23,16 @@ function App() {
       </header>
       <div id="hero">
         <img id="header_photo" src={header_photo} alt={""} />
-        <p>Helya and Ricky are Getting Married!</p>
+        <p id="hero_title">Helya and Ricky are Getting Married!</p>
       </div>
+      <NavBar />
+      <RSVP />
+      <Schedule />
+      <Venue />
+      <Registry />
+      <Charity />
+      <Photos />
+      <FAQs />
     </div>
   );
 }
