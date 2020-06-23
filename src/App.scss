@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   margin-top: -250px;
+  position: relative;
 }
 
 #leftleftFlower {
@@ -48,7 +49,7 @@
 }
 
 #hero_title {
-  font-family: $font;
+  font-family: $title_font;
   font-size: 80px;
   margin-top: 10px;
 }

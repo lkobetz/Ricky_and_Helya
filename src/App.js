@@ -15,6 +15,7 @@ import FAQs from "./FAQs";
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <header id="flowers">
         <img id="leftleftFlower" src={bouquet2} alt={""} />
         <img id="leftFlower" src={bouquet1} alt={""} />
@@ -25,7 +26,6 @@ function App() {
         <img id="header_photo" src={header_photo} alt={""} />
         <p id="hero_title">Helya and Ricky are Getting Married!</p>
       </div>
-      <NavBar />
       <RSVP />
       <Schedule />
       <Venue />
