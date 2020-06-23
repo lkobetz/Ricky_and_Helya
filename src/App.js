@@ -13,7 +13,10 @@ function App() {
         <img id="rightFlower" src={bouquet2} alt={""} />
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
-      <img id="header_photo" src={header_photo} alt={""} />
+      <div id="hero">
+        <img id="header_photo" src={header_photo} alt={""} />
+        <p>Helya and Ricky are Getting Married!</p>
+      </div>
     </div>
   );
 }
