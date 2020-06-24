@@ -11,7 +11,7 @@
   justify-content: center;
   margin-left: 20%;
   margin-right: 20%;
-  align-items: flex-start;
+  align-items: baseline;
 }
 
 .time {
@@ -20,6 +20,10 @@
   font-size: 25px;
   min-width: 100px;
   max-width: 100px;
+}
+
+.dot {
+  margin: -7.56px;
 }
 
 .description_container {

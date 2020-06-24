@@ -1,5 +1,5 @@
 import React from "react";
-import flower from "../images/flower-6 — копия.png";
+import flower from "../images/flower-5a.png";
 
 export default function Schedule() {
   return (
