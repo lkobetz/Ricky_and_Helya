@@ -1,12 +1,12 @@
 import React from "react";
-import flower from "./images/yello flower.png";
+import flower from "../images/flower-6 — копия.png";
 
 export default function Schedule() {
   return (
-    <div id="faqs" className="section">
+    <div id="registry" className="section">
       <div className="section_title">
         <img className="leftSmallFlower" src={flower} alt="" />
-        <p>FAQs</p>
+        <p>Registry</p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
     </div>

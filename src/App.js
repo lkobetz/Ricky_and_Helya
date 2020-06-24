@@ -4,13 +4,13 @@ import bouquet1 from "./images/bouquet-9a.png";
 import bouquet2 from "./images/bouquet-10.png";
 import header_photo from "./images/header_photo.png";
 import NavBar from "./Navbar";
-import RSVP from "./RSVP";
-import Schedule from "./Schedule";
-import Venue from "./Venue";
-import Registry from "./Registry";
-import Charity from "./Charity";
-import Photos from "./Photos";
-import FAQs from "./FAQs";
+import RSVP from "./sections/rsvp/RSVP";
+import Schedule from "./sections/schedule/Schedule";
+import Venue from "./sections/venue/Venue";
+import Registry from "./sections/registry/Registry";
+import Charity from "./sections/charity/Charity";
+import Photos from "./sections/photos/Photos";
+import FAQs from "./sections/faqs/FAQs";
 
 function App() {
   return (
