@@ -6,14 +6,16 @@ export default function RSVPform() {
   const [lastName, changeLastName] = useState("");
   const [email, changeEmail] = useState("");
   const [plusOne, changePlusOne] = useState("");
+  const [diet, changeDiet] = useState("");
 
   function logState(event) {
     event.preventDefault();
-    console.log(firstName, lastName, email, plusOne);
+    console.log(firstName, lastName, email, plusOne, diet);
     changeFirstName("");
     changeLastName("");
     changeEmail("");
     changePlusOne("");
+    changeDiet("");
   }
 
   return (
@@ -53,6 +55,15 @@ export default function RSVPform() {
             type="text"
             value={plusOne}
             onChange={(event) => changePlusOne(event.target.value)}
+          />
+        </div>
+        <div className="form_item">
+          <p>Dietary Restrictions</p>
+          <input
+            className={"form_input"}
+            type="text"
+            value={diet}
+            onChange={(event) => changeDiet(event.target.value)}
           />
         </div>
         <button type="submit" className="submit_button">

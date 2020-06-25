@@ -13,7 +13,19 @@ export default function Navbar() {
       </p>
       <p>|</p>
       <p className={"navbar_item"}>
+        <a href="#wedding_party">Wedding Party</a>
+      </p>
+      <p>|</p>
+      <p className={"navbar_item"}>
         <a href="#venue">Venue</a>
+      </p>
+      <p>|</p>
+      <p className={"navbar_item"}>
+        <a href="#transportation">Transportation</a>
+      </p>
+      <p>|</p>
+      <p className={"navbar_item"}>
+        <a href="#tourism">Tourism</a>
       </p>
       <p>|</p>
       <p className={"navbar_item"}>
@@ -21,15 +33,7 @@ export default function Navbar() {
       </p>
       <p>|</p>
       <p className={"navbar_item"}>
-        <a href="#charity">Charity</a>
-      </p>
-      <p>|</p>
-      <p className={"navbar_item"}>
         <a href="#photos">Photos</a>
-      </p>
-      <p>|</p>
-      <p className={"navbar_item"}>
-        <a href="#faqs">FAQs</a>
       </p>
     </div>
   );

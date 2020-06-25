@@ -7,7 +7,7 @@ export default function RSVP() {
     <div id="rsvp" className="section">
       <div className="section_title">
         <img className="leftSmallFlower" src={flower} alt="" />
-        <p>R S V P </p>
+        <p id="rsvp_title">Rsvp </p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
       <p className="info_text">
@@ -15,8 +15,7 @@ export default function RSVP() {
       </p>
       <RSVPform />
       <p className="info_text">
-        Alternatively, you can reply to the address on your physical invitation
-        or email Helya Ghaffari at ghelya1@gmail.com.
+        Alternatively, you can email Helya Ghaffari at ghelya1@gmail.com.
       </p>
       <p className="info_text">
         *Please note that due to space restrictions of the venue, all guests

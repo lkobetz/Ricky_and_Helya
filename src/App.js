@@ -8,9 +8,10 @@ import RSVP from "./sections/rsvp/RSVP";
 import Schedule from "./sections/schedule/Schedule";
 import Venue from "./sections/venue/Venue";
 import Registry from "./sections/registry/Registry";
-import Charity from "./sections/charity/Charity";
+import Transportation from "./sections/transportation/Transportation";
 import Photos from "./sections/photos/Photos";
-import FAQs from "./sections/faqs/FAQs";
+import Tourism from "./sections/tourism/Tourism";
+import WeddingParty from "./sections/weddingParty/WeddingParty";
 
 function App() {
   return (
@@ -25,14 +26,17 @@ function App() {
       <div id="hero">
         <img id="header_photo" src={header_photo} alt={""} />
         <p id="hero_title">Helya and Ricky are Getting Married!</p>
+        <p className="info_text">#AGhaffariTaleWedding</p>
+        <p id="date">October 10, 2021</p>
       </div>
       <RSVP />
       <Schedule />
+      <WeddingParty />
       <Venue />
+      <Transportation />
+      <Tourism />
       <Registry />
-      <Charity />
       <Photos />
-      <FAQs />
     </div>
   );
 }
