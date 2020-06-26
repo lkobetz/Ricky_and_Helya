@@ -14,7 +14,6 @@ import Tourism from "./sections/tourism/Tourism";
 import WeddingParty from "./sections/weddingParty/WeddingParty";
 
 function App() {
-  console.log(window.innerWidth);
   return (
     <div className="App">
       <NavBar />

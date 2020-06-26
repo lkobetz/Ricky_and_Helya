@@ -1,20 +1,16 @@
 import React from "react";
 
 export default function ScheduleItem(props) {
-  let name = Object.keys(props.item);
-  name = name.join("_");
+  let type = Object.keys(props.item);
+  type = type.join("_");
   return (
-    <div className={name}>
+    <div className={type}>
       {props.item.time ? (
-        <div className="schedule_time">
-          <p className="time">{props.item.time}</p>
-        </div>
+        <p className="time">{props.item.time}</p>
       ) : (
-        <div className="schedule_event">
-          <div className="description_container">
-            <p className="description_title">{props.item.title}</p>
-            <p className="description_text">{props.item.description}</p>
-          </div>
+        <div className="description_container">
+          <p className="description_title">{props.item.title}</p>
+          <p className="description_text">{props.item.description}</p>
         </div>
       )}
     </div>
