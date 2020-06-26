@@ -1,0 +1,24 @@
+@import '../../vars.scss';
+
+#tourism_content {
+  display: grid;
+  grid-template-columns: 30% 30%;
+  grid-template-rows: auto;
+  justify-content: center;
+  justify-items: center;
+}
+
+.category_item {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.category_image {
+  width: 400px;
+  height: 267px;
+  overflow-x: hidden;
+}
+
+.category_item > p {
+  font-family: $text_font;
+}
