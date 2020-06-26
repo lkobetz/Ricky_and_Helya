@@ -10,11 +10,15 @@ export default class Schedule extends React.Component {
       items: [
         {
           time: "12:00-1:00",
+        },
+        {
           title: "Ceremony",
           description: `Our ceremony will include both modern and traditional Persian elements. The following will provide some background information on the Persian traditions we've decided to include.`,
         },
         {
           time: "1:00-2:00",
+        },
+        {
           title: "Photos / Refreshments",
           description: `While the wedding party sticks around the garden for photos, all
           other guests may help themselves to refreshments in the
@@ -23,6 +27,8 @@ export default class Schedule extends React.Component {
         },
         {
           time: "2:00-12:00",
+        },
+        {
           title: "Reception",
           description: `There will be champagne, speeches, dinner and dancing! Bring your dancing shoes! Or take them off and go wild!`,
         },
@@ -39,7 +45,12 @@ export default class Schedule extends React.Component {
         </div>
         <div id="schedule_container">
           {this.state.items.map((item) => {
-            return <ScheduleItem item={item} key={item.title} />;
+            return (
+              <ScheduleItem
+                item={item}
+                key={item.title ? item.title : item.time}
+              />
+            );
           })}
         </div>
       </div>
