@@ -22,11 +22,10 @@
   align-items: center;
   justify-content: space-between;
   width: 500px;
-}
-
-.form_item > p {
-  font-family: $text_font;
-  margin-right: 5px;
+  p {
+    font-family: $text_font;
+    margin-right: 5px;
+  }
 }
 
 .form_input {

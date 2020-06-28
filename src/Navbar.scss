@@ -41,13 +41,12 @@ a:visited {
   display:flex;
   flex-direction:row;
   justify-content: center;
-}
-
-.section_title > p {
-  font-family: $title_font;
-  font-size: 50px;
-  margin-bottom: 30px;
-  text-align:center;
+  p {
+    font-family: $title_font;
+    font-size: 50px;
+    margin-bottom: 30px;
+    text-align:center;
+  }
 }
 
 .leftSmallFlower {
