@@ -12,6 +12,10 @@ import Transportation from "./sections/transportation/Transportation";
 import Photos from "./sections/photos/Photos";
 import Tourism from "./sections/tourism/Tourism";
 import WeddingParty from "./sections/weddingParty/WeddingParty";
+import HRgif from "./images/HR_gif.gif";
+import HRbeach from "./images/HR_kiss_beach.jpg";
+import HRsparkler from "./images/HR_sparkler.jpg";
+import CouplePhoto from "./CouplePhoto";
 
 function App() {
   return (
@@ -30,12 +34,19 @@ function App() {
         <p id="date">October 10, 2021</p>
       </div>
       <RSVP />
+      <CouplePhoto couple={HRbeach} bouquet1={bouquet1} bouquet2={bouquet2} />
       <Schedule />
       <WeddingParty />
+      <CouplePhoto couple={HRgif} bouquet1={bouquet1} bouquet2={bouquet2} />
       <Venue />
       <Transportation />
       <Tourism />
       <Registry />
+      <CouplePhoto
+        couple={HRsparkler}
+        bouquet1={bouquet1}
+        bouquet2={bouquet2}
+      />
       <Photos />
     </div>
   );
