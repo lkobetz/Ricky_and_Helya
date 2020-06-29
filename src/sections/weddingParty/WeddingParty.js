@@ -28,7 +28,7 @@ export default function Schedule() {
       title: "Officiant",
       name: "Larissa",
       description:
-        "Coming out of my cage And I've been doing just finevGotta gotta be down Because I want it all It started out with a kiss How did it end up like this? It was only a kiss, it was only a kiss Now I'm falling asleep And she's calling a cab",
+        "Coming out of my cage And I've been doing just fine Gotta gotta be down Because I want it all It started out with a kiss How did it end up like this? It was only a kiss, it was only a kiss",
     },
     {
       photo: rosie,
