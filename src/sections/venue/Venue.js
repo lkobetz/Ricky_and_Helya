@@ -1,5 +1,6 @@
 import React from "react";
 import flower from "../images/flower-11 — копия.png";
+import Map from "./Map";
 
 export default function Schedule() {
   return (
@@ -9,6 +10,7 @@ export default function Schedule() {
         <p>Venue</p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
+      <Map />
     </div>
   );
 }
