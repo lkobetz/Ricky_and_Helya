@@ -6,7 +6,7 @@ export default function Category(props) {
       <div className="image_container">
         <img className="category_image" src={props.item.image} alt="" />
       </div>
-      <p className="info_text">{props.item.name}</p>
+      <p className="category_name">{props.item.name}</p>
     </div>
   );
 }
