@@ -52,6 +52,12 @@ function App() {
         bouquet2={bouquet2}
       />
       <Photos />
+      <div id="footer">
+        <p>
+          This site was designed and built by{" "}
+          <a href="https://lkobetz.github.io/">Larissa Kobetz.</a>
+        </p>
+      </div>
     </div>
   );
 }

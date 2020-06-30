@@ -46,3 +46,19 @@
 .submit_button:focus {
   outline:none;
 }
+
+.submit_button:hover {
+  font-weight: bold;
+}
+
+.submit_button:active {
+  font-weight: bold;
+}
+
+.error_text {
+  font-family: $text_font;
+  font-size: 18px;
+  color: #32031a;
+  font-weight: bold;
+  text-align: center;
+}
