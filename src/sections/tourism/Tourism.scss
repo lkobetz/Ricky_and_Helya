@@ -11,6 +11,7 @@
 .category_item {
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: -20%;
   transition: opacity 0.5s ease;
   .category_name {
     opacity: 0;
@@ -39,7 +40,6 @@
   transform: translate(50%, 50%);
   }
 }
-
 
 .image_container {
   width: 100%;

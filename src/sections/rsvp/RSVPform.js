@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RSVP.scss";
+import firebase from "firebase";
 
 export default function RSVPform() {
   const [firstName, changeFirstName] = useState("");
@@ -11,6 +12,12 @@ export default function RSVPform() {
   function logState(event) {
     event.preventDefault();
     console.log(firstName, lastName, email, plusOne, diet);
+    firebase
+      .database()
+      .ref("guests")
+      .child(lastName)
+      .child(firstName)
+      .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
     changeFirstName("");
     changeLastName("");
     changeEmail("");

@@ -16,6 +16,10 @@ import HRgif from "./images/HR_gif.gif";
 import HRbeach from "./images/HR_kiss_beach.jpg";
 import HRsparkler from "./images/HR_sparkler.jpg";
 import CouplePhoto from "./CouplePhoto";
+import firebase from "firebase";
+import { firebaseConfig } from "./dbconfig";
+
+firebase.initializeApp(firebaseConfig);
 
 function App() {
   return (
