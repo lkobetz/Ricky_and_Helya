@@ -3,7 +3,7 @@ import "./Modal.scss";
 
 export default function Modal(props) {
   return (
-    <div className="show-modal">
+    <div className="modal_background">
       <div className="modal_content">
         <p className="info_text">
           Thank you for RSVPing, {props.name}! We look forward to seeing you!

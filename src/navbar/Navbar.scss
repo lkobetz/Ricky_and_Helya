@@ -58,12 +58,12 @@ a:visited {
 }
 
 .rightSmallFlower {
-  height:60px;
+  height: 60px;
   width: 60px;
   align-self: center;
   margin-left: 20px;
   margin-right: 15px;
-  transform: scaleY(-1);
-  transform:scaleX(-1)
+  transform: scaleX(-1);
+  z-index: -1;
 }
 

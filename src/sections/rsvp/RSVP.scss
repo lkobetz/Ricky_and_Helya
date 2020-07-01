@@ -32,6 +32,9 @@
   height: 20px;
   width: 300px;
 }
+.form_input:focus {
+  outline:none;
+}
 
 .submit_button {
   font-family: $text_font;
