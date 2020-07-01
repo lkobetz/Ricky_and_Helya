@@ -1,0 +1,43 @@
+@import '../../vars.scss';
+
+.modal_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -135%);
+    padding: 2.5rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+    margin-bottom: -100px;
+    box-shadow: 1px 1px 20px 0px dimgrey;
+    background-color: #f7f1f3;
+}
+.show-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal_button {
+  background-color:#f7f1f3;
+  width: 100px;
+  padding: 5px;
+  border-style: hidden;
+}
+
+.modal_button:focus {
+  outline:none;
+}
+
+.modal_button:hover {
+  font-weight: bold;
+}
+
+.modal_button:active {
+  font-weight: bold;
+}

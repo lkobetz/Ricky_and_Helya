@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./RSVP.scss";
 import { handleSubmit } from "./formFunctions";
+import Modal from "./Modal";
 
 export default function RSVPform() {
   const [firstName, changeFirstName] = useState("");
@@ -9,6 +10,8 @@ export default function RSVPform() {
   const [plusOne, changePlusOne] = useState("");
   const [diet, changeDiet] = useState("");
   const [error, changeError] = useState("");
+  const [modal, showModal] = useState(false);
+  const [modalName, changeModalName] = useState("");
 
   return (
     <div id="form_container">
@@ -26,7 +29,9 @@ export default function RSVPform() {
             changeLastName,
             changeEmail,
             changePlusOne,
-            changeDiet
+            changeDiet,
+            showModal,
+            changeModalName
           )
         }
         id="rsvpform"
@@ -81,6 +86,7 @@ export default function RSVPform() {
           Submit
         </button>
       </form>
+      {modal && <Modal name={modalName} showModal={showModal} />}
     </div>
   );
 }

@@ -12,7 +12,9 @@ export async function handleSubmit(
   changeLastName,
   changeEmail,
   changePlusOne,
-  changeDiet
+  changeDiet,
+  showModal,
+  changeModalName
 ) {
   event.preventDefault();
   if (!findErrors(firstName, lastName, email, changeError)) {
@@ -25,11 +27,13 @@ export async function handleSubmit(
         .child(lastName)
         .child(firstName)
         .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
+      changeModalName(firstName);
       changeFirstName("");
       changeLastName("");
       changeEmail("");
       changePlusOne("");
       changeDiet("");
+      showModal(true);
       // showModal(true);
     } else if (alreadyRSVPd) {
       changeError(`It looks like you've already RSVP'd, ${firstName}!`);
