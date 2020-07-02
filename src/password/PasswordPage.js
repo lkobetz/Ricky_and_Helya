@@ -21,7 +21,10 @@ export default function PasswordPage() {
         <img id="leftBouquet" src={bouquet1} alt="" />
         <div id="pw-box">
           <p className="info-text">
-            Please enter the password from your invitation to enter the site:
+            Welcome to Helya and Ricky's wedding website!
+          </p>{" "}
+          <p className="info-text">
+            Please enter the password from your invitation to enter:
           </p>
           <input
             className={"pw-input"}
