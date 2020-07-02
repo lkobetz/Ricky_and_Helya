@@ -1,6 +1,6 @@
 @import '../../vars.scss';
 
-#party_container {
+#party-container {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
@@ -8,7 +8,7 @@
   margin-right: 10%;
 }
 
-.person_photo {
+.person-photo {
   height: 100px;
   width: 100px;
   margin-left: 3%;
@@ -16,25 +16,25 @@
   margin-top: 0%;
 }
 
-.person_text_container {
+.person-text-container {
   flex-direction: column;
   margin-left: 2%;
 }
 
-.person_description {
-  font-family: $text_font;
+.person-description {
+  font-family: $text-font;
   width: 100%;
   margin-top: 3%;
 }
 
-.person_name {
-  font-family: $title_font;
+.person-name {
+  font-family: $title-font;
   font-size: 30px;
   margin: 0px;
 }
 
-.person_title {
-  font-family: $text_font;
+.person-title {
+  font-family: $text-font;
     font-size: 15px;
     margin: 0px;
     margin-top: -3%;

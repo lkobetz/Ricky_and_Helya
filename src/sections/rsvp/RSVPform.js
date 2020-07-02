@@ -14,7 +14,7 @@ export default function RSVPform() {
   const [modalName, changeModalName] = useState("");
 
   return (
-    <div id="form_container">
+    <div id="form-container">
       <form
         onSubmit={(event) =>
           handleSubmit(
@@ -36,53 +36,53 @@ export default function RSVPform() {
         }
         id="rsvpform"
       >
-        <div className="form_item">
+        <div className="form-item">
           <p>First Name</p>
           <input
-            className={"form_input"}
+            className={"form-input"}
             type="text"
             value={firstName}
             onChange={(event) => changeFirstName(event.target.value)}
           />
         </div>
-        <div className="form_item">
+        <div className="form-item">
           <p>Last Name</p>
           <input
-            className={"form_input"}
+            className={"form-input"}
             type="text"
             value={lastName}
             onChange={(event) => changeLastName(event.target.value)}
           />
         </div>
-        <div className="form_item">
+        <div className="form-item">
           <p>Email Address</p>
           <input
-            className={"form_input"}
+            className={"form-input"}
             type="text"
             value={email}
             onChange={(event) => changeEmail(event.target.value)}
           />
         </div>
-        <div className="form_item">
+        <div className="form-item">
           <p>Name of Your Plus One</p>
           <input
-            className={"form_input"}
+            className={"form-input"}
             type="text"
             value={plusOne}
             onChange={(event) => changePlusOne(event.target.value)}
           />
         </div>
-        <div className="form_item">
+        <div className="form-item">
           <p>Dietary Restrictions</p>
           <input
-            className={"form_input"}
+            className={"form-input"}
             type="text"
             value={diet}
             onChange={(event) => changeDiet(event.target.value)}
           />
         </div>
-        {error && <p className="error_text">{error}</p>}
-        <button type="submit" className="submit_button">
+        <p className="info-text">{error}</p>
+        <button type="submit" className="submit-button">
           Submit
         </button>
       </form>

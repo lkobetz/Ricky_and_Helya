@@ -39,13 +39,13 @@ export default function Schedule() {
     },
   ];
   return (
-    <div id="wedding_party" className="section">
-      <div className="section_title">
+    <div id="wedding-party" className="section">
+      <div className="section-title">
         <img className="leftSmallFlower" src={flower} alt="" />
         <p>Wedding Party</p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
-      <div id="party_container">
+      <div id="party-container">
         {bridePeople.map((person) => {
           return <PartyPerson person={person} key={person.name} />;
         })}

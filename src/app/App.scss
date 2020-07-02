@@ -15,25 +15,25 @@
 
 #leftleftFlower {
   transform: rotate(250deg);
-  height: $flower_header_height;
+  height: $flower-header-height;
   margin-right: -200px;
 }
 
 #leftFlower {
   transform: rotate(250deg);
-  height: $flower_header_height;
+  height: $flower-header-height;
   margin-right: -90px;
 }
 
 #rightFlower {
   transform: rotate(-15deg);
-  height: $flower_header_height;
+  height: $flower-header-height;
   margin-left: -90px;
 }
 
 #rightrightFlower {
   transform: rotate(-15deg);
-  height: $flower_header_height;
+  height: $flower-header-height;
   margin-left: -200px;
 }
 
@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-#header_photo {
+#header-photo {
   height: 500px;
   width: 500px;
   margin-top: -150px;
@@ -52,15 +52,15 @@
   box-shadow: $shadow;
 }
 
-#hero_title {
-  font-family: $title_font;
+#hero-title {
+  font-family: $title-font;
   font-size: 80px;
   margin-top: .5%;
   margin-bottom: 2%;
 }
 
 #date {
-  font-family: $text_font;
+  font-family: $text-font;
   font-size: 60px;
   margin-bottom:1%;
 }
@@ -83,8 +83,8 @@
   border-bottom: $border; /* This creates the border. Replace black with whatever color you want. */
 }
 
-.info_text {
-  font-family: $text_font;
+.info-text {
+  font-family: $text-font;
   font-size: 20px;
   text-align: center;
   margin-bottom: 5px;
@@ -93,11 +93,11 @@
   align-self: center;
 }
 
-#hero > .info_text {
+#hero > .info-text {
   color: dimgrey;
 }
 
-.couple_photo {
+.couple-photo {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -108,7 +108,7 @@
   margin-bottom: 5%;
 }
 
-.HR_photos {
+.HR-photos {
   height: 500px;
   width: 370px;
   margin-top: 5%;
@@ -116,14 +116,14 @@
   box-shadow: $shadow;
 }
 
-.background_flower {
+.background-flower {
   height: 500px;
   width: 500px;
 }
 
 #footer {
   p {
-  font-family: $text_font;
+  font-family: $text-font;
   font-size: 15px;
   text-align: center;
   }

@@ -23,7 +23,7 @@ class Map extends Component {
       ))
     );
     return (
-      <div id="map_container">
+      <div id="map-container">
         <GoogleMapComponent
           containerElement={<div id="map" />}
           mapElement={<div style={{ height: `100%` }} />}

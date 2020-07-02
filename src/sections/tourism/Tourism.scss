@@ -1,6 +1,6 @@
 @import '../../vars.scss';
 
-#tourism_content {
+#tourism-content {
   display: grid;
   grid-template-columns: 30% 30%;
   grid-template-rows: 55% 55%;
@@ -8,14 +8,14 @@
   justify-items: center;
 }
 
-.category_item {
+.category-item {
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: -20%;
   transition: opacity 0.5s ease;
-  .category_name {
+  .category-name {
     opacity: 0;
-    font-family: $text_font;
+    font-family: $text-font;
     font-size: 40px;
     position: relative;
   top: 50%;
@@ -24,15 +24,15 @@
   }
 }
 
-.category_item:hover {
-  .image_container {
+.category-item:hover {
+  .image-container {
     transition: opacity 0.5s ease;
     opacity: .2;
   }
-  .category_name {
+  .category-name {
     opacity: 1;
     transition: opacity 0.5s ease;
-    font-family: $text_font;
+    font-family: $text-font;
     font-size: 40px;
     position: relative;
   top: -40%;
@@ -41,7 +41,7 @@
   }
 }
 
-.image_container {
+.image-container {
   width: 100%;
   height: 70%;
   overflow-y: hidden;

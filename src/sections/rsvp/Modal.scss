@@ -1,6 +1,6 @@
 @import '../../vars.scss';
 
-.modal_background {
+.modal-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
 }
 
 
-.modal_content {
+.modal-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,23 +22,4 @@
   width: 24rem;
   border-radius: 0.5rem;
   background-color: #f7f1f3;
-}
-
-.modal_button {
-  background-color:#f7f1f3;
-  width: 100px;
-  padding: 5px;
-  border-style: hidden;
-}
-
-.modal_button:focus {
-  outline:none;
-}
-
-.modal_button:hover {
-  font-weight: bold;
-}
-
-.modal_button:active {
-  font-weight: bold;
 }

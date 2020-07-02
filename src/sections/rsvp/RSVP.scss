@@ -1,10 +1,10 @@
 @import '../../vars.scss';
 
-#rsvp_title {
-  font-family: $title_font;
+#rsvp-title {
+  font-family: $title-font;
 }
 
-#form_container {
+#form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,52 +16,44 @@
   flex-direction: column;
 }
 
-.form_item {
+.form-item {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 500px;
   p {
-    font-family: $text_font;
+    font-family: $text-font;
     margin-right: 5px;
   }
 }
 
-.form_input {
+.form-input {
   height: 20px;
   width: 300px;
 }
-.form_input:focus {
+.form-input:focus {
   outline:none;
 }
 
-.submit_button {
-  font-family: $text_font;
+.submit-button {
+  font-family: $text-font;
   font-size: 15px;
   width: 100px;
   align-self: center;
-  background-color: snow;
+  background-color: rgba(0, 0, 0, 0);
   padding: 5px;
   border-style: hidden;
 }
 
-.submit_button:focus {
+.submit-button:focus {
   outline:none;
 }
 
-.submit_button:hover {
-  font-weight: bold;
+.submit-button:hover {
+  color: dimgrey;
 }
 
-.submit_button:active {
+.submit-button:active {
   font-weight: bold;
-}
-
-.error_text {
-  font-family: $text_font;
-  font-size: 18px;
-  color: #32031a;
-  font-weight: bold;
-  text-align: center;
 }

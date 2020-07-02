@@ -32,9 +32,9 @@ function App() {
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
       <div id="hero">
-        <img id="header_photo" src={header_photo} alt={""} />
-        <p id="hero_title">Helya and Ricky are Getting Married!</p>
-        <p className="info_text">#AGhaffariTaleWedding</p>
+        <img id="header-photo" src={header_photo} alt={""} />
+        <p id="hero-title">Helya and Ricky are Getting Married!</p>
+        <p className="info-text">#AGhaffariTaleWedding</p>
         <p id="date">October 10, 2021</p>
       </div>
       <RSVP />

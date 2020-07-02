@@ -1,6 +1,6 @@
 @import '../../vars.scss';
 
-#venue_info_container {
+#venue-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,16 +10,16 @@
   }
 }
 
-#venue_title {
-  font-family: $text_font;
+#venue-title {
+  font-family: $text-font;
   font-size: 30px;
   margin-top: 2%;
   margin-bottom: 2%;
 }
 
-#venue_address_container {
+#venue-address-container {
   p {
-  font-family: $text_font;
+  font-family: $text-font;
   font-size: 20px;
   margin: 0%;
   }

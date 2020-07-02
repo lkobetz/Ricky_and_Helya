@@ -1,6 +1,6 @@
 @import '../vars.scss';
 
-#navbar_container {
+#navbar-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,12 +13,12 @@
   padding-right: 20px;
   height: 35px;
   color: dimgrey;
-  font-family: $text_font;
+  font-family: $text-font;
   font-size: 20px;
 }
 
-.navbar_item {
-  font-family: $text_font;
+.navbar-item {
+  font-family: $text-font;
   font-size: 20px;
 }
 
@@ -37,12 +37,12 @@ a:visited {
   flex-direction: column;
 }
 
-.section_title {
+.section-title {
   display:flex;
   flex-direction:row;
   justify-content: center;
   p {
-    font-family: $title_font;
+    font-family: $title-font;
     font-size: 60px;
     margin-bottom: 30px;
     text-align:center;

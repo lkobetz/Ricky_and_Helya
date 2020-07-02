@@ -7,19 +7,19 @@ import "./Venue.scss";
 export default function Schedule() {
   return (
     <div id="venue" className="section">
-      <div className="section_title">
+      <div className="section-title">
         <img className="leftSmallFlower" src={flower} alt="" />
         <p>Venue</p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
-      <div id="venue_info_container">
+      <div id="venue-info-container">
         <img src={mansion} alt="" />
-        <p id="venue_title">Strong Mansion</p>
-        <div id="venue_address_container">
+        <p id="venue-title">Strong Mansion</p>
+        <div id="venue-address-container">
           <p>7802B Comus Rd,</p>
           <p>Dickerson, MD 20842</p>
         </div>
-        <p className="info_text">
+        <p className="info-text">
           The mountain was used as a signal station during the Civil War.
           President Roosevelt made numerous trips to Sugarloaf to enjoy the
           views and tranquility. Gordon Strong, a native of Chicago,

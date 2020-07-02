@@ -38,12 +38,12 @@ export default class Schedule extends React.Component {
   render() {
     return (
       <div id="schedule" className="section">
-        <div className="section_title">
+        <div className="section-title">
           <img className="leftSmallFlower" src={flower} alt="" />
           <p>Schedule</p>
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
-        <div id="schedule_container">
+        <div id="schedule-container">
           {this.state.items.map((item) => {
             return (
               <ScheduleItem

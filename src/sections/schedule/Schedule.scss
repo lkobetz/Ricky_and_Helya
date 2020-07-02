@@ -1,18 +1,18 @@
 @import '../../vars.scss';
 
-#schedule_container {
+#schedule-container {
   display: grid;
   grid-template-columns: 20% 50%;
   grid-template-rows: auto;
   justify-content: center;
 }
 
-.title_description {
+.title-description {
   border-left: $border;
 }
 
 .time {
-  font-family: $text_font;
+  font-family: $text-font;
   margin-right: 2%;
   font-size: 25px;
   min-width: 100px;
@@ -24,17 +24,17 @@
   margin: -7.56px;
 }
 
-.description_container {
+.description-container {
   max-width: 500px;
   padding-left: 5%;
 }
 
-.description_title {
-  font-family: $text_font;
+.description-title {
+  font-family: $text-font;
   font-size: 25px;
 }
 
-.description_text {
-  font-family: $text_font;
+.description-text {
+  font-family: $text-font;
   font-size: 15px;
 }

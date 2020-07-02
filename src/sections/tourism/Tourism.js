@@ -19,12 +19,12 @@ export default function Schedule() {
   ];
   return (
     <div id="tourism" className="section">
-      <div className="section_title">
+      <div className="section-title">
         <img className="leftSmallFlower" src={flower} alt="" />
         <p>Tourism</p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
-      <div id="tourism_content">
+      <div id="tourism-content">
         {items.map((item) => {
           return <Category item={item} key={item.name} />;
         })}
