@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./app/App";
+// import App from "./app/App";
+import PasswordPage from "./password/PasswordPage";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <PasswordPage />
   </React.StrictMode>,
   document.getElementById("root")
 );
