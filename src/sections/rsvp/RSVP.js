@@ -10,9 +10,7 @@ export default function RSVP() {
         <p id="rsvp_title">Rsvp </p>
         <img className="rightSmallFlower" src={flower} alt="" />
       </div>
-      <p className="info_text">
-        To RSVP, complete and submit the following form:
-      </p>
+      <p className="info_text">To RSVP, submit the following form:</p>
       <RSVPform />
       <p className="info_text">
         Alternatively, you can email Helya Ghaffari at ghelya1@gmail.com.

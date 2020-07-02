@@ -24,8 +24,8 @@ export async function handleSubmit(
       firebase
         .database()
         .ref("guests")
-        .child(lastName)
-        .child(firstName)
+        .child(lastName.toLowerCase())
+        .child(firstName.toLowerCase())
         .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
       changeModalName(firstName);
       changeFirstName("");
@@ -34,7 +34,6 @@ export async function handleSubmit(
       changePlusOne("");
       changeDiet("");
       showModal(true);
-      // showModal(true);
     } else if (alreadyRSVPd) {
       changeError(`It looks like you've already RSVP'd, ${firstName}!`);
     }
@@ -65,8 +64,8 @@ async function isInDB(lastName, firstName) {
   const result = await firebase
     .database()
     .ref("guests")
-    .child(lastName)
-    .child(firstName)
+    .child(lastName.toLowerCase())
+    .child(firstName.toLowerCase())
     .once("value")
     .then(function (snapshot) {
       return snapshot.val();
