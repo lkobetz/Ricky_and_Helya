@@ -27,6 +27,7 @@ export async function handleSubmit(
         .child(lastName.toLowerCase())
         .child(firstName.toLowerCase())
         .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
+      incrementGuestCount();
       changeModalName(firstName);
       changeFirstName("");
       changeLastName("");
@@ -75,4 +76,16 @@ async function isInDB(lastName, firstName) {
 
 function emailIsValid(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+async function incrementGuestCount() {
+  const oldCount = await firebase
+    .database()
+    .ref("guestCount")
+    .once("value")
+    .then(function (snapshot) {
+      return snapshot.val();
+    });
+  const newCount = oldCount + 1;
+  await firebase.database().ref("guestCount").set(newCount);
 }
