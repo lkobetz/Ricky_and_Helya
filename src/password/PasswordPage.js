@@ -14,7 +14,8 @@ export default function PasswordPage() {
   const [text2, changeText2] = useState(
     `Please enter the password from your invitation to enter:`
   );
-  function checkPassword() {
+  function checkPassword(event) {
+    event.preventDefault();
     if (password === secretPassword) {
       changeCorrect(true);
     } else {
@@ -31,15 +32,17 @@ export default function PasswordPage() {
         <div id="pw-box">
           <p className="info-text">{text1}</p>{" "}
           <p className="info-text">{text2}</p>
-          <input
-            className={"pw-input"}
-            type="password"
-            value={password}
-            onChange={(event) => changePassword(event.target.value)}
-          />
-          <button className="submit-button" onClick={checkPassword}>
-            Enter
-          </button>
+          <form onSubmit={(event) => checkPassword(event)}>
+            <input
+              className={"pw-input"}
+              type="password"
+              value={password}
+              onChange={(event) => changePassword(event.target.value)}
+            />
+            <button className="submit-button" type="submit">
+              Enter
+            </button>
+          </form>
         </div>
         <img id="rightBouquet" src={bouquet2} alt="" />
       </div>
