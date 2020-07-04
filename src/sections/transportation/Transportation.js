@@ -12,3 +12,6 @@ export default function Schedule() {
     </div>
   );
 }
+
+// pickup at 3:30 and 4:30 from the hotel
+// air-conditioned minibus

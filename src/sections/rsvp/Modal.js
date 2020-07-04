@@ -6,7 +6,9 @@ export default function Modal(props) {
     <div className="modal-background">
       <div className="modal-content">
         <p className="info-text">
-          Thank you for RSVPing, {props.name}! We can't wait to see you!
+          {props.attending
+            ? `Thank you for RSVPing, ${props.name}! We can't wait to see you!`
+            : `We're sorry you can't make it, ${props.name}! Thank you for letting us know!`}
         </p>
         <button
           className="submit-button"

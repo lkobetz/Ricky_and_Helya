@@ -12,6 +12,9 @@ export default function RSVPform() {
   const [error, changeError] = useState("");
   const [modal, showModal] = useState(false);
   const [modalName, changeModalName] = useState("");
+  const [attending, going] = useState(false);
+  const [notAttending, notGoing] = useState(false);
+  const [modalAttending, changeModalAttending] = useState(false);
 
   return (
     <div id="form-container">
@@ -31,7 +34,12 @@ export default function RSVPform() {
             changePlusOne,
             changeDiet,
             showModal,
-            changeModalName
+            changeModalName,
+            attending,
+            notAttending,
+            going,
+            notGoing,
+            changeModalAttending
           )
         }
         id="rsvpform"
@@ -81,12 +89,36 @@ export default function RSVPform() {
             onChange={(event) => changeDiet(event.target.value)}
           />
         </div>
-        <p className="info-text">{error}</p>
+        <div className="form-checkbox">
+          <p>I can't wait to join you!</p>
+          <input
+            className={"checkbox"}
+            type="checkbox"
+            checked={attending}
+            onChange={() => going(!attending)}
+          />
+        </div>
+        <div className="form-checkbox">
+          <p>Unfortunately, I won't be able to make it.</p>
+          <input
+            className={"checkbox"}
+            type="checkbox"
+            checked={notAttending}
+            onChange={() => notGoing(!notAttending)}
+          />
+        </div>
+        <p className="error-text">{error}</p>
         <button type="submit" className="submit-button">
           Submit
         </button>
       </form>
-      {modal && <Modal name={modalName} showModal={showModal} />}
+      {modal && (
+        <Modal
+          name={modalName}
+          showModal={showModal}
+          attending={modalAttending}
+        />
+      )}
     </div>
   );
 }

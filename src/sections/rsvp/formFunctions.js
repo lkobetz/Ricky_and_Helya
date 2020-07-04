@@ -14,26 +14,52 @@ export async function handleSubmit(
   changePlusOne,
   changeDiet,
   showModal,
-  changeModalName
+  changeModalName,
+  attending,
+  notAttending,
+  going,
+  notGoing,
+  changeModalAttending
 ) {
   event.preventDefault();
-  if (!findErrors(firstName, lastName, email, changeError)) {
+  if (
+    !findErrors(
+      firstName,
+      lastName,
+      email,
+      changeError,
+      attending,
+      notAttending
+    )
+  ) {
     changeError("");
     const alreadyRSVPd = await isInDB(lastName, firstName);
     if (!alreadyRSVPd) {
-      firebase
-        .database()
-        .ref("guests")
-        .child(lastName.toLowerCase())
-        .child(firstName.toLowerCase())
-        .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
-      incrementGuestCount();
+      if (attending) {
+        firebase
+          .database()
+          .ref("guests")
+          .child(lastName.toLowerCase())
+          .child(firstName.toLowerCase())
+          .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
+        incrementGuestCount();
+      } else if (notAttending) {
+        firebase
+          .database()
+          .ref("notAttending")
+          .child(lastName.toLowerCase())
+          .child(firstName.toLowerCase())
+          .set({ email: email });
+      }
       changeModalName(firstName);
+      changeModalAttending(attending);
       changeFirstName("");
       changeLastName("");
       changeEmail("");
       changePlusOne("");
       changeDiet("");
+      going(false);
+      notGoing(false);
       showModal(true);
     } else if (alreadyRSVPd) {
       changeError(`It looks like you've already RSVP'd, ${firstName}!`);
@@ -41,7 +67,14 @@ export async function handleSubmit(
   }
 }
 
-function findErrors(firstName, lastName, email, changeError) {
+function findErrors(
+  firstName,
+  lastName,
+  email,
+  changeError,
+  attending,
+  notAttending
+) {
   if (!firstName) {
     changeError("Please enter your first name.");
     return true;
@@ -58,11 +91,19 @@ function findErrors(firstName, lastName, email, changeError) {
     changeError("The email address is not formatted correctly.");
     return true;
   }
+  if (!attending && !notAttending) {
+    changeError("Please check one of the boxes.");
+    return true;
+  }
+  if (attending && notAttending) {
+    changeError("Please select only one box.");
+    return true;
+  }
   return false;
 }
 
 async function isInDB(lastName, firstName) {
-  const result = await firebase
+  let result = await firebase
     .database()
     .ref("guests")
     .child(lastName.toLowerCase())
@@ -71,6 +112,17 @@ async function isInDB(lastName, firstName) {
     .then(function (snapshot) {
       return snapshot.val();
     });
+  if (!result) {
+    result = await firebase
+      .database()
+      .ref("notAttending")
+      .child(lastName.toLowerCase())
+      .child(firstName.toLowerCase())
+      .once("value")
+      .then(function (snapshot) {
+        return snapshot.val();
+      });
+  }
   return result;
 }
 

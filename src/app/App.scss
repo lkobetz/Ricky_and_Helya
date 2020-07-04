@@ -93,6 +93,12 @@
   align-self: center;
 }
 
+.error-text {
+  @extend .info-text;
+  color: maroon;
+  font-weight: bold;
+}
+
 #hero > .info-text {
   color: dimgrey;
 }
