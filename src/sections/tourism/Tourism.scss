@@ -2,8 +2,8 @@
 
 #tourism-content {
   display: grid;
-  grid-template-columns: 30% 30%;
-  grid-template-rows: 55% 55%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 45% 45%;
   justify-content: center;
   justify-items: center;
 }
@@ -18,9 +18,9 @@
     font-family: $text-font;
     font-size: 40px;
     position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    top: -40%;
+    left: -40%;
+    transform: translate(50%, 5%);
   }
 }
 
@@ -35,9 +35,9 @@
     font-family: $text-font;
     font-size: 40px;
     position: relative;
-  top: -40%;
+  top: -45%;
   left: -40%;
-  transform: translate(50%, 50%);
+  transform: translate(50%, 5%);
   }
 }
 

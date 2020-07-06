@@ -18,16 +18,19 @@ export default function Schedule() {
     { name: "Bars", image: drink, imageCred: "The Tasting Room" },
   ];
   return (
-    <div id="tourism" className="section">
-      <div className="section-title">
-        <img className="leftSmallFlower" src={flower} alt="" />
-        <p>Tourism</p>
-        <img className="rightSmallFlower" src={flower} alt="" />
-      </div>
-      <div id="tourism-content">
-        {items.map((item) => {
-          return <Category item={item} key={item.name} />;
-        })}
+    <div id="tourism" className="outer-container">
+      {" "}
+      <div className="section">
+        <div className="section-title">
+          <img className="leftSmallFlower" src={flower} alt="" />
+          <p>Tourism</p>
+          <img className="rightSmallFlower" src={flower} alt="" />
+        </div>
+        <div id="tourism-content">
+          {items.map((item) => {
+            return <Category item={item} key={item.name} />;
+          })}
+        </div>
       </div>
     </div>
   );

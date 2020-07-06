@@ -37,21 +37,23 @@ export default class Schedule extends React.Component {
   }
   render() {
     return (
-      <div id="schedule" className="section">
-        <div className="section-title">
-          <img className="leftSmallFlower" src={flower} alt="" />
-          <p>Schedule</p>
-          <img className="rightSmallFlower" src={flower} alt="" />
-        </div>
-        <div id="schedule-container">
-          {this.state.items.map((item) => {
-            return (
-              <ScheduleItem
-                item={item}
-                key={item.title ? item.title : item.time}
-              />
-            );
-          })}
+      <div id="schedule" className="outer-container">
+        <div className="section">
+          <div className="section-title">
+            <img className="leftSmallFlower" src={flower} alt="" />
+            <p>Schedule</p>
+            <img className="rightSmallFlower" src={flower} alt="" />
+          </div>
+          <div id="schedule-container">
+            {this.state.items.map((item) => {
+              return (
+                <ScheduleItem
+                  item={item}
+                  key={item.title ? item.title : item.time}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     );
