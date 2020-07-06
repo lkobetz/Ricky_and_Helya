@@ -35,6 +35,7 @@ a:visited {
 .outer-container {
   display: flex;
   justify-content: center;
+  padding: 4%;
 }
 
 .section {
@@ -43,7 +44,7 @@ a:visited {
   background-color: snow;
   width: 60%;
   align-self: center;
-  margin: 3%;
+  margin: 1%;
   padding: 1%;
   border: $border;
 }
@@ -52,11 +53,12 @@ a:visited {
   display:flex;
   flex-direction:row;
   justify-content: center;
+  margin-bottom: 1%;
   p {
     font-family: $title-font;
     font-size: 60px;
-    margin-bottom: -1%;
-    margin-top: 2%;
+    margin-bottom: -3%;
+    margin-top: 1%;
     text-align: center;
   }
 }
