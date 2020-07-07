@@ -1,49 +1,39 @@
 import React, { useState } from "react";
-import "./RSVP.scss";
-import { handleSubmit, deleteRSVP, addToDB, resetForm } from "./formFunctions";
 import Modal from "./Modal";
 
-export default function RSVPform() {
+export default function RSVPForm(props) {
   const [firstName, changeFirstName] = useState("");
   const [lastName, changeLastName] = useState("");
   const [email, changeEmail] = useState("");
   const [plusOne, changePlusOne] = useState("");
   const [diet, changeDiet] = useState("");
-  const [error, changeError] = useState("");
-  const [modal, showModal] = useState(false);
-  const [modalName, changeModalName] = useState("");
   const [attending, going] = useState(false);
   const [notAttending, notGoing] = useState(false);
-  const [modalAttending, changeModalAttending] = useState(false);
-  const [showUpdate, checkUpdate] = useState(false);
 
-  const submitProps = [
-    changeError,
-    lastName,
-    firstName,
-    diet,
-    plusOne,
-    email,
-    changeFirstName,
-    changeLastName,
-    changeEmail,
-    changePlusOne,
-    changeDiet,
-    showModal,
-    changeModalName,
-    attending,
-    notAttending,
-    going,
-    notGoing,
-    changeModalAttending,
-    checkUpdate,
-    false,
-  ];
-
+  function resetForm() {
+    changeFirstName("");
+    changeLastName("");
+    changeEmail("");
+    changePlusOne("");
+    changeDiet("");
+    going(false);
+    notGoing(false);
+  }
   return (
     <div id="form-container">
       <form
-        onSubmit={(event) => handleSubmit(event, ...submitProps)}
+        onSubmit={(event) => {
+          props.handleSubmit(
+            event,
+            firstName,
+            lastName,
+            email,
+            plusOne,
+            diet,
+            attending,
+            notAttending
+          );
+        }}
         id="rsvpform"
       >
         <div className="form-item">
@@ -109,60 +99,51 @@ export default function RSVPform() {
             onChange={() => notGoing(!notAttending)}
           />
         </div>
-        <p className="error-text">{error}</p>
-        {showUpdate && (
+        <p className="error-text">{props.error}</p>
+        {props.showUpdate && (
           <div id="update-buttons">
             <button
               onClick={() => {
-                deleteRSVP(firstName, lastName, changeError, checkUpdate)
+                props
+                  .deleteRSVP(firstName, lastName)
                   .then(() =>
-                    addToDB(
+                    props.addToDB(
                       attending,
                       firstName,
                       lastName,
                       diet,
                       plusOne,
                       email,
-                      notAttending,
-                      changeModalName,
-                      changeModalAttending,
-                      showModal
+                      notAttending
                     )
                   )
-                  .then(() =>
-                    resetForm(
-                      changeFirstName,
-                      changeLastName,
-                      changeEmail,
-                      changePlusOne,
-                      changeDiet,
-                      going,
-                      notGoing
-                    )
-                  );
+                  .then(() => resetForm());
               }}
             >
               Yes
             </button>
             <button
               onClick={() => {
-                checkUpdate(false);
-                changeError("");
+                props.checkUpdate(false);
+                props.changeError("");
               }}
             >
               No
             </button>
           </div>
         )}
-        <button type="submit" className="submit-button">
-          Submit
-        </button>
+        {!props.showUpdate && (
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
+        )}
       </form>
-      {modal && (
+      {props.modal && (
         <Modal
-          name={modalName}
-          showModal={showModal}
-          attending={modalAttending}
+          name={props.modalName}
+          showModal={props.showModal}
+          attending={props.modalAttending}
+          resetForm={resetForm}
         />
       )}
     </div>

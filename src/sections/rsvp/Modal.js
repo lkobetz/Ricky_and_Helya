@@ -12,7 +12,10 @@ export default function Modal(props) {
         </p>
         <button
           className="submit-button"
-          onClick={() => props.showModal(false)}
+          onClick={() => {
+            props.showModal(false);
+            props.resetForm();
+          }}
         >
           <p className="info-text">Close</p>
         </button>

@@ -1,6 +1,6 @@
 import React from "react";
 import flower from "../images/flower-6 — копия.png";
-import RSVPform from "./RSVPform";
+import RSVPform from "./RSVPFormFunctions";
 
 export default function RSVP() {
   return (
