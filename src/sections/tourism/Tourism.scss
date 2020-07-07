@@ -55,7 +55,11 @@
 
 .location-list {
   position: relative;
-  margin-bottom: 100px;
+}
+
+.list-text {
+  font-family: $text-font;
+  font-size: 20px;
 }
 
 

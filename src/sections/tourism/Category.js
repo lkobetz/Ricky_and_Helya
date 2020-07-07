@@ -15,7 +15,9 @@ export default function Category(props) {
         </div>
         <p className="category-name">{props.item.name}</p>
       </div>
-      {props.active === props.item.name && <LocationList />}
+      {props.active === props.item.name && (
+        <LocationList category={props.item.name} />
+      )}
     </div>
   );
 }

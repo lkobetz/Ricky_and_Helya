@@ -1,19 +1,14 @@
 import React from "react";
+import LocationItem from "./LocationItem";
+import { locations } from "./locations";
 
-export default function LocationList() {
+export default function LocationList(props) {
+  const category = props.category;
   return (
     <div className="location-list">
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
-      <p>This is the location list</p>
+      {locations[category].map((location) => {
+        return <LocationItem info={location} key={location.text} />;
+      })}
     </div>
   );
 }
