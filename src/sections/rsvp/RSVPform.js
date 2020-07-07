@@ -111,9 +111,8 @@ export default function RSVPform() {
         </div>
         <p className="error-text">{error}</p>
         {showUpdate && (
-          <div>
+          <div id="update-buttons">
             <button
-              className="submit-button"
               onClick={() => {
                 deleteRSVP(firstName, lastName, changeError, checkUpdate)
                   .then(() =>
@@ -146,7 +145,6 @@ export default function RSVPform() {
               Yes
             </button>
             <button
-              className="submit-button"
               onClick={() => {
                 checkUpdate(false);
                 changeError("");

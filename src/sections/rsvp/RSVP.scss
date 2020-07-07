@@ -42,6 +42,16 @@
   justify-content: flex-end;
 }
 
+#update-buttons {
+  flex-direction: row;
+  text-align: center;
+  button {
+    @extend .submit-button;
+    font-weight: bold;
+    color: maroon;
+  }
+}
+
 .submit-button {
   font-family: $text-font;
   font-size: 15px;
