@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RSVP.scss";
-import { handleSubmit } from "./formFunctions";
+import { handleSubmit, deleteRSVP, addToDB, resetForm } from "./formFunctions";
 import Modal from "./Modal";
 
 export default function RSVPform() {
@@ -15,33 +15,35 @@ export default function RSVPform() {
   const [attending, going] = useState(false);
   const [notAttending, notGoing] = useState(false);
   const [modalAttending, changeModalAttending] = useState(false);
+  const [showUpdate, checkUpdate] = useState(false);
+
+  const submitProps = [
+    changeError,
+    lastName,
+    firstName,
+    diet,
+    plusOne,
+    email,
+    changeFirstName,
+    changeLastName,
+    changeEmail,
+    changePlusOne,
+    changeDiet,
+    showModal,
+    changeModalName,
+    attending,
+    notAttending,
+    going,
+    notGoing,
+    changeModalAttending,
+    checkUpdate,
+    false,
+  ];
 
   return (
     <div id="form-container">
       <form
-        onSubmit={(event) =>
-          handleSubmit(
-            event,
-            changeError,
-            lastName,
-            firstName,
-            diet,
-            plusOne,
-            email,
-            changeFirstName,
-            changeLastName,
-            changeEmail,
-            changePlusOne,
-            changeDiet,
-            showModal,
-            changeModalName,
-            attending,
-            notAttending,
-            going,
-            notGoing,
-            changeModalAttending
-          )
-        }
+        onSubmit={(event) => handleSubmit(event, ...submitProps)}
         id="rsvpform"
       >
         <div className="form-item">
@@ -108,6 +110,52 @@ export default function RSVPform() {
           />
         </div>
         <p className="error-text">{error}</p>
+        {showUpdate && (
+          <div>
+            <button
+              className="submit-button"
+              onClick={() => {
+                deleteRSVP(firstName, lastName, changeError, checkUpdate)
+                  .then(() =>
+                    addToDB(
+                      attending,
+                      firstName,
+                      lastName,
+                      diet,
+                      plusOne,
+                      email,
+                      notAttending,
+                      changeModalName,
+                      changeModalAttending,
+                      showModal
+                    )
+                  )
+                  .then(() =>
+                    resetForm(
+                      changeFirstName,
+                      changeLastName,
+                      changeEmail,
+                      changePlusOne,
+                      changeDiet,
+                      going,
+                      notGoing
+                    )
+                  );
+              }}
+            >
+              Yes
+            </button>
+            <button
+              className="submit-button"
+              onClick={() => {
+                checkUpdate(false);
+                changeError("");
+              }}
+            >
+              No
+            </button>
+          </div>
+        )}
         <button type="submit" className="submit-button">
           Submit
         </button>

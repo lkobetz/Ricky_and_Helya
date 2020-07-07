@@ -24,13 +24,14 @@ class Map extends Component {
     );
     return (
       <div id="map-container">
-        <GoogleMapComponent
+        {/* <GoogleMapComponent
           containerElement={<div id="map" />}
           mapElement={<div style={{ height: `100%` }} />}
           loadingElement={<div style={{ height: `100%` }} />}
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${mapApiKey}`}
           isMarkerShown={true}
-        />
+        /> */}
+        <p>Map Component</p>
       </div>
     );
   }

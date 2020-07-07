@@ -44,6 +44,14 @@
   align-items: center;
 }
 
+#hero-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width:100%;
+}
+
 #header-photo {
   height: 500px;
   width: 500px;
@@ -61,11 +69,18 @@
 
 #date {
   font-family: $text-font;
-  font-size: 60px;
+  font-size: 20px;
   margin-bottom:1%;
 }
 
-#date:before {
+.hero-text {
+  font-family: $text-font;
+  font-size: 30px;
+  flex: 1;
+  margin-bottom: 10%;
+}
+
+.hero-text:before {
   content: ""; /* This is necessary for the pseudo element to work. */
   display: block; /* This will put the pseudo element on its own line. */
   margin: 0 auto; /* This will center the border. */
@@ -74,7 +89,7 @@
   border-top: $border; /* This creates the border. Replace black with whatever color you want. */
 }
 
-#date:after {
+.hero-text:after {
   content: ""; /* This is necessary for the pseudo element to work. */
   display: block; /* This will put the pseudo element on its own line. */
   margin: 0 auto; /* This will center the border. */

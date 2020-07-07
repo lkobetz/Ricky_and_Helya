@@ -32,10 +32,12 @@ function App() {
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
       <div id="hero">
-        <img id="header-photo" src={header_photo} alt={""} />
+        <div id="hero-row">
+          <p className="hero-text">October 10, 2021</p>
+          <img id="header-photo" src={header_photo} alt={""} />
+          <p className="hero-text">#AGhaffariTaleWedding</p>
+        </div>
         <p id="hero-title">Helya and Ricky are Getting Married!</p>
-        <p className="info-text">#AGhaffariTaleWedding</p>
-        <p id="date">October 10, 2021</p>
       </div>
       <RSVP />
       <CouplePhoto couple={HRbeach} bouquet1={bouquet1} bouquet2={bouquet2} />

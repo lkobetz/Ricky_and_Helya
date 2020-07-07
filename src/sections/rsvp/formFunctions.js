@@ -19,7 +19,8 @@ export async function handleSubmit(
   notAttending,
   going,
   notGoing,
-  changeModalAttending
+  changeModalAttending,
+  checkUpdate
 ) {
   event.preventDefault();
   if (
@@ -33,38 +34,99 @@ export async function handleSubmit(
     )
   ) {
     changeError("");
+    console.log("found no errors");
     const alreadyRSVPd = await isInDB(lastName, firstName);
-    if (!alreadyRSVPd) {
-      if (attending) {
-        firebase
-          .database()
-          .ref("guests")
-          .child(lastName.toLowerCase())
-          .child(firstName.toLowerCase())
-          .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
-        incrementGuestCount();
-      } else if (notAttending) {
-        firebase
-          .database()
-          .ref("notAttending")
-          .child(lastName.toLowerCase())
-          .child(firstName.toLowerCase())
-          .set({ email: email });
-      }
-      changeModalName(firstName);
-      changeModalAttending(attending);
-      changeFirstName("");
-      changeLastName("");
-      changeEmail("");
-      changePlusOne("");
-      changeDiet("");
-      going(false);
-      notGoing(false);
-      showModal(true);
-    } else if (alreadyRSVPd) {
-      changeError(`It looks like you've already RSVP'd, ${firstName}!`);
+    if (!alreadyRSVPd[0] && !alreadyRSVPd[1]) {
+      addToDB(
+        attending,
+        firstName,
+        lastName,
+        diet,
+        plusOne,
+        email,
+        notAttending,
+        changeModalName,
+        changeModalAttending,
+        showModal
+      );
+      resetForm(
+        changeFirstName,
+        changeLastName,
+        changeEmail,
+        changePlusOne,
+        changeDiet,
+        going,
+        notGoing
+      );
+    } else if (alreadyRSVPd[0] || alreadyRSVPd[1]) {
+      checkUpdate(true);
+      changeError(
+        `It looks like you've already RSVP'd, ${firstName}! Would you like to update your information?`
+      );
     }
   }
+}
+
+export function addToDB(
+  attending,
+  firstName,
+  lastName,
+  diet,
+  plusOne,
+  email,
+  notAttending,
+  changeModalName,
+  changeModalAttending,
+  showModal
+) {
+  if (attending) {
+    console.log("adding", firstName, lastName, "to guest list!");
+    firebase
+      .database()
+      .ref("guests")
+      .child(lastName.toLowerCase())
+      .child(firstName.toLowerCase())
+      .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
+    adjustGuestCount("add");
+  } else if (notAttending) {
+    console.log("adding", firstName, lastName, "to not attending list!");
+    firebase
+      .database()
+      .ref("notAttending")
+      .child(lastName.toLowerCase())
+      .child(firstName.toLowerCase())
+      .set({ email: email });
+  }
+  setModalInfo(changeModalName, changeModalAttending, firstName, attending);
+  showModal(true);
+}
+
+function setModalInfo(
+  changeModalName,
+  changeModalAttending,
+  firstName,
+  attending
+) {
+  changeModalName(firstName);
+  changeModalAttending(attending);
+}
+
+export function resetForm(
+  changeFirstName,
+  changeLastName,
+  changeEmail,
+  changePlusOne,
+  changeDiet,
+  going,
+  notGoing
+) {
+  changeFirstName("");
+  changeLastName("");
+  changeEmail("");
+  changePlusOne("");
+  changeDiet("");
+  going(false);
+  notGoing(false);
 }
 
 function findErrors(
@@ -103,7 +165,8 @@ function findErrors(
 }
 
 async function isInDB(lastName, firstName) {
-  let result = await firebase
+  let notAttending = null;
+  let attending = await firebase
     .database()
     .ref("guests")
     .child(lastName.toLowerCase())
@@ -112,8 +175,8 @@ async function isInDB(lastName, firstName) {
     .then(function (snapshot) {
       return snapshot.val();
     });
-  if (!result) {
-    result = await firebase
+  if (!attending) {
+    notAttending = await firebase
       .database()
       .ref("notAttending")
       .child(lastName.toLowerCase())
@@ -123,14 +186,14 @@ async function isInDB(lastName, firstName) {
         return snapshot.val();
       });
   }
-  return result;
+  return [attending, notAttending];
 }
 
 function emailIsValid(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-async function incrementGuestCount() {
+async function adjustGuestCount(op) {
   const oldCount = await firebase
     .database()
     .ref("guestCount")
@@ -138,6 +201,30 @@ async function incrementGuestCount() {
     .then(function (snapshot) {
       return snapshot.val();
     });
-  const newCount = oldCount + 1;
+  const newCount = op === "add" ? oldCount + 1 : oldCount - 1;
   await firebase.database().ref("guestCount").set(newCount);
+}
+
+export async function deleteRSVP(
+  firstName,
+  lastName,
+  changeError,
+  checkUpdate
+) {
+  const attending = await isInDB(lastName, firstName);
+  console.log("isInDB:", attending);
+  const ref = attending[0] ? "guests" : "notAttending";
+  console.log("ref:", ref);
+  const finished = await firebase
+    .database()
+    .ref(ref)
+    .child(lastName.toLowerCase())
+    .child(firstName.toLowerCase())
+    .remove();
+  console.log("finished removing:", finished);
+  if (ref === "guests") {
+    await adjustGuestCount("minus");
+  }
+  changeError("");
+  checkUpdate(false);
 }
