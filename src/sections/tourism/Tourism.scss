@@ -1,17 +1,15 @@
 @import '../../vars.scss';
 
 #tourism-content {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 45% 45%;
-  justify-content: center;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .category-item {
-  margin-left: 5%;
-  margin-right: 5%;
   margin-bottom: -20%;
+  width: 350px;
+  height: 300px;
   transition: opacity 0.5s ease;
   .category-name {
     opacity: 0;
@@ -25,6 +23,9 @@
 }
 
 .category-item:hover {
+  margin-bottom: -20%;
+  width: 350px;
+  height: 300px;
   .image-container {
     transition: opacity 0.5s ease;
     opacity: .2;
@@ -35,7 +36,7 @@
     font-family: $text-font;
     font-size: 40px;
     position: relative;
-  top: -45%;
+  top: -40%;
   left: -40%;
   transform: translate(50%, 5%);
   }
@@ -50,6 +51,11 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.location-list {
+  position: relative;
+  margin-bottom: 100px;
 }
 
 

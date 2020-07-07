@@ -32,7 +32,10 @@ export default function PasswordPage() {
         <div id="pw-box">
           <p className="info-text">{text1}</p>{" "}
           <p className="info-text">{text2}</p>
-          <form onSubmit={(event) => checkPassword(event)}>
+          <form
+            className={"password-form"}
+            onSubmit={(event) => checkPassword(event)}
+          >
             <input
               className={"pw-input"}
               type="password"

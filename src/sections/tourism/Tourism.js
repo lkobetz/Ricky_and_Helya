@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import flower from "../images/yello flower.png";
 import Category from "./Category.js";
 import "./Tourism.scss";
@@ -17,6 +17,7 @@ export default function Schedule() {
     { name: "Restaurants", image: food, imageCred: "Hooch and Banter" },
     { name: "Bars", image: drink, imageCred: "The Tasting Room" },
   ];
+  const [active, changeActive] = useState("");
   return (
     <div id="tourism" className="outer-container">
       {" "}
@@ -28,7 +29,14 @@ export default function Schedule() {
         </div>
         <div id="tourism-content">
           {items.map((item) => {
-            return <Category item={item} key={item.name} />;
+            return (
+              <Category
+                item={item}
+                key={item.name}
+                active={active}
+                changeActive={changeActive}
+              />
+            );
           })}
         </div>
       </div>
