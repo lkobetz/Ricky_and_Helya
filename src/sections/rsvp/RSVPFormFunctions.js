@@ -82,7 +82,7 @@ export default function RSVPform() {
   }
 
   function prepareModal(firstName, attending) {
-    changeModalName(firstName);
+    changeModalName(firstName[0].toUpperCase() + firstName.slice(1));
     changeModalAttending(attending);
     checkUpdate(false);
     changeError("");

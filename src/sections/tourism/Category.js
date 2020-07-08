@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import LocationList from "./LocationList";
 
 export default function Category(props) {
+  const [className, changeClass] = useState("location-list");
   function handleClick() {
     if (props.active !== props.item.name) {
       props.changeActive(props.item.name);
+      if (className === "location-list") {
+        changeClass("animate-list");
+      } else {
+        changeClass("location-list");
+      }
     } else props.changeActive("");
   }
   return (
@@ -15,9 +21,9 @@ export default function Category(props) {
         </div>
         <p className="category-name">{props.item.name}</p>
       </div>
-      {props.active === props.item.name && (
-        <LocationList category={props.item.name} />
-      )}
+      {/* {props.active === props.item.name && ( */}
+      <LocationList category={props.item.name} class={className} />
+      {/* )} */}
     </div>
   );
 }
