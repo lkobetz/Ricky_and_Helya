@@ -43,6 +43,13 @@ export default function RSVPform() {
     }
   }
 
+  function parseName(name) {
+    return name
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z]/g, "");
+  }
+
   function addToDB(
     attending,
     firstName,
@@ -52,20 +59,23 @@ export default function RSVPform() {
     email,
     notAttending
   ) {
+    firstName = parseName(firstName);
+    lastName = parseName(lastName);
+    console.log(firstName, lastName);
     if (attending) {
       firebase
         .database()
         .ref("guests")
-        .child(lastName.toLowerCase())
-        .child(firstName.toLowerCase())
+        .child(lastName)
+        .child(firstName)
         .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
       adjustGuestCount("add");
     } else if (notAttending) {
       firebase
         .database()
         .ref("notAttending")
-        .child(lastName.toLowerCase())
-        .child(firstName.toLowerCase())
+        .child(lastName)
+        .child(firstName)
         .set({ email: email });
     }
     prepareModal(firstName, attending);
@@ -108,12 +118,14 @@ export default function RSVPform() {
   }
 
   async function isInDB(lastName, firstName) {
+    lastName = parseName(lastName);
+    firstName = parseName(firstName);
     let notAttending = null;
     let attending = await firebase
       .database()
       .ref("guests")
-      .child(lastName.toLowerCase())
-      .child(firstName.toLowerCase())
+      .child(lastName)
+      .child(firstName)
       .once("value")
       .then(function (snapshot) {
         return snapshot.val();
@@ -122,8 +134,8 @@ export default function RSVPform() {
       notAttending = await firebase
         .database()
         .ref("notAttending")
-        .child(lastName.toLowerCase())
-        .child(firstName.toLowerCase())
+        .child(lastName)
+        .child(firstName)
         .once("value")
         .then(function (snapshot) {
           return snapshot.val();
@@ -149,14 +161,11 @@ export default function RSVPform() {
   }
 
   async function deleteRSVP(firstName, lastName) {
+    firstName = parseName(firstName);
+    lastName = parseName(lastName);
     const attending = await isInDB(lastName, firstName);
     const ref = attending[0] ? "guests" : "notAttending";
-    firebase
-      .database()
-      .ref(ref)
-      .child(lastName.toLowerCase())
-      .child(firstName.toLowerCase())
-      .remove();
+    firebase.database().ref(ref).child(lastName).child(firstName).remove();
     if (ref === "guests") {
       await adjustGuestCount("minus");
     }

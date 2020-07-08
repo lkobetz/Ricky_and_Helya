@@ -1,7 +1,17 @@
 export const locations = {
   Restaurants: [
-    { text: "Volt", url: "https://www.voltrestaurant.com/" },
-    { text: "Hooch and Banter", url: "https://hootchandbanter.com/" },
+    {
+      text: "Volt",
+      url: "https://www.voltrestaurant.com/",
+      map:
+        "https://www.google.com/maps/place/VOLT/@39.4172271,-77.4125407,17z/data=!3m2!4b1!5s0x89c9da585c26685f:0x9e84613b9b15a5d4!4m5!3m4!1s0x89c9da585ce1552d:0x59c41fa7fb3b1054!8m2!3d39.417223!4d-77.410352",
+    },
+    {
+      text: "Hootch and Banter",
+      url: "https://hootchandbanter.com/",
+      map:
+        "https://www.google.com/maps/place/Hootch+and+Banter/@39.4130082,-77.4135957,17z/data=!3m1!4b1!4m5!3m4!1s0x89c9da5a3d6ecff1:0x4ca04a7c4b68a746!8m2!3d39.4130041!4d-77.411407",
+    },
   ],
   Nature: [
     {
