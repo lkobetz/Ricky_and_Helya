@@ -55,16 +55,18 @@
   z-index: -1;
   opacity: 0;
   margin-top: -200px;
-  transition: all .5s ease-in;
+  transition: all 1s;
+  height:150px;
 }
 
 .animate-list {
   @extend .location-list;
   z-index: 0;
   opacity: 1;
-  margin-top: -200px;
+  margin-top: -140px;
   margin-bottom: 100px;
   transform: translateY(100px);
+  height: auto;
 }
 
 .list-item {
