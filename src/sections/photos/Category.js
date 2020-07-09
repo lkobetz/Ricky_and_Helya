@@ -1,6 +1,7 @@
 import React from "react";
 import { source } from "./source";
 import SinglePhoto from "./SinglePhoto";
+import UploadForm from "./UploadForm";
 
 export default function Category(props) {
   const photos = source[props.type];
@@ -12,6 +13,7 @@ export default function Category(props) {
           return <SinglePhoto photo={photo} />;
         })}
       </div>
+      {props.type === "uploads" && <UploadForm />}
     </div>
   );
 }

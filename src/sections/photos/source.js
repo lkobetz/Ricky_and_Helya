@@ -20,6 +20,5 @@ export const source = {
     { src: halloween },
     { src: wedding_dance },
     { src: halloween },
-    { src: wedding_dance },
   ],
 };
