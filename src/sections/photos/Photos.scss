@@ -24,8 +24,17 @@
   width: 200px;
   height: 200px;
   margin: 2%;
+  transition: transform, .5s;
   img {
     overflow-y: hidden;
     object-fit: cover;
+  }
+}
+
+.single-photo-container:hover {
+  transform: scale(2);
+  img {
+    overflow: visible;
+    height: 300px;
   }
 }
