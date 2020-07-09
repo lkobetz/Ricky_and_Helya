@@ -1,7 +1,10 @@
 import React from "react";
 import flower from "../images/flower-4.png";
+import Category from "./Category";
+import "./Photos.scss";
 
 export default function Schedule() {
+  const photoTypes = ["wedding", "instagram", "uploads"];
   return (
     <div id="photos" className="outer-container">
       <div className="section">
@@ -10,6 +13,9 @@ export default function Schedule() {
           <p>Photos</p>
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
+        {photoTypes.map((type) => {
+          return <Category type={type} />;
+        })}
       </div>
     </div>
   );

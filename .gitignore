@@ -25,3 +25,4 @@ yarn-error.log*
 secrets.js
 dbconfig.js
 secretPassword.js
+**/images

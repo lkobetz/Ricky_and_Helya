@@ -1,0 +1,31 @@
+@import '../../vars.scss';
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-type-title {
+  font-family: $text-font;
+  font-size:30px;
+  border-bottom: $border;
+}
+
+.photo-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.single-photo-container {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  margin: 2%;
+  img {
+    overflow-y: hidden;
+    object-fit: cover;
+  }
+}
