@@ -31,7 +31,8 @@
   }
 }
 
-.single-photo-container:hover {
+.active-photo {
+  transition: transform, .5s;
   transform: scale(2);
   img {
     overflow: visible;
