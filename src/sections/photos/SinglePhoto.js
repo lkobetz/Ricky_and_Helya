@@ -9,7 +9,6 @@ export default function SinglePhoto(props) {
       changeClass("single-photo-container");
     }
   }
-  console.log(props.photo);
   return (
     <div className={className} onClick={handleClick}>
       <img src={props.photo} alt="" />

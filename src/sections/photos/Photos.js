@@ -4,7 +4,7 @@ import Category from "./Category";
 import "./Photos.scss";
 
 export default function Schedule() {
-  const photoTypes = ["wedding", "instagram", "uploads"];
+  const photoTypes = ["instagram", "wedding"];
   return (
     <div id="photos" className="outer-container">
       <div className="section">

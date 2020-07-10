@@ -1,4 +1,5 @@
 @import '../../vars.scss';
+@import '../../app/App.scss';
 
 .category-container {
   display: flex;
@@ -38,4 +39,19 @@
     overflow: visible;
     height: 300px;
   }
+}
+
+.upload-form {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-text {
+  @extend .info-text;
+  display: flex;
+}
+
+.upload-input {
+  margin-left: 5%;
+  margin-right: -50%;
 }

@@ -12,7 +12,7 @@ export default class Category extends React.Component {
     };
   }
   async componentDidMount() {
-    if (this.props.type === "uploads") {
+    if (this.props.type === "wedding") {
       const photosObj = await firebase
         .database()
         .ref("photos")
@@ -41,7 +41,7 @@ export default class Category extends React.Component {
               return <SinglePhoto photo={photo} />;
             })}
         </div>
-        {this.props.type === "uploads" && <UploadForm />}
+        {this.props.type === "wedding" && <UploadForm />}
       </div>
     );
   }
