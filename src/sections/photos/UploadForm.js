@@ -5,8 +5,9 @@ export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
   async function handleSubmit(event) {
     event.preventDefault();
+    const name = photo.name.replace(/[^a-zA-Z0-9 ]/g, "");
     const storageRef = firebase.storage().ref();
-    const uploadTask = storageRef.child(`photos/${photo.name}`).put(photo);
+    const uploadTask = storageRef.child(`photos/${name}`).put(photo);
     // Register three observers:
     // 1. 'state_changed' observer, called any time the state changes
     // 2. Error observer, called on failure
@@ -35,10 +36,8 @@ export default function UploadForm(props) {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         //   console.log('File available at', downloadURL);
-        const url = await storageRef
-          .child(`photos/${photo.name}`)
-          .getDownloadURL();
-        firebase.database().ref("photos").push(url);
+        const url = await storageRef.child(`photos/${name}`).getDownloadURL();
+        firebase.database().ref("photos").child(name).set({ url });
         props.setPhotos([]);
       }
     );

@@ -17,8 +17,8 @@ export default function Category(props) {
             return snapshot.val();
           });
         let photosArr = [];
-        for (let id in photosObj) {
-          photosArr.push(photosObj[id]);
+        for (let name in photosObj) {
+          photosArr.push(photosObj[name].url);
         }
         if (!photos.length) {
           setPhotos(photosArr);
@@ -29,14 +29,13 @@ export default function Category(props) {
     }
     getPhotos();
   }, [photos, props]);
-
   return (
     <div className="category-container">
       <p className="photo-type-title">{props.type}</p>
       <div className="photo-container">
         {photos.length &&
           photos.map((photo) => {
-            return <SinglePhoto photo={photo} />;
+            return <SinglePhoto photo={photo} key={photo} />;
           })}
       </div>
       {props.type === "wedding" && <UploadForm setPhotos={setPhotos} />}

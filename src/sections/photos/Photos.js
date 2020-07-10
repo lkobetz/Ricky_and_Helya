@@ -14,7 +14,7 @@ export default function Schedule() {
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
         {photoTypes.map((type) => {
-          return <Category type={type} />;
+          return <Category type={type} key={type} />;
         })}
       </div>
     </div>
