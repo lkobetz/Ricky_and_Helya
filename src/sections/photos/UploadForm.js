@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import firebase from "firebase";
 
-export default function UploadForm() {
+export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
   async function handleSubmit(event) {
     event.preventDefault();
@@ -28,7 +28,7 @@ export default function UploadForm() {
         }
       },
       function (error) {
-        // Handle unsuccessful uploads
+        console.log(error);
       },
       async function () {
         // Handle successful uploads on complete
@@ -39,6 +39,7 @@ export default function UploadForm() {
           .child(`photos/${photo.name}`)
           .getDownloadURL();
         firebase.database().ref("photos").push(url);
+        props.setPhotos([]);
       }
     );
   }
