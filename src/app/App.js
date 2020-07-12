@@ -2,7 +2,6 @@ import React from "react";
 import "./App.scss";
 import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";
-import header_photo from "../images/header_photo.png";
 import NavBar from "../navbar/Navbar";
 import RSVP from "../sections/rsvp/RSVP";
 import Schedule from "../sections/schedule/Schedule";
@@ -18,6 +17,7 @@ import HRsparkler from "../images/HR_sparkler.jpg";
 import CouplePhoto from "./CouplePhoto";
 import firebase from "firebase";
 import { firebaseConfig } from "../dbconfig";
+import Hero from "./Hero";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -31,14 +31,7 @@ function App() {
         <img id="rightFlower" src={bouquet2} alt={""} />
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
-      <div id="hero">
-        <div id="hero-row">
-          <p className="hero-text">October 10, 2021</p>
-          <img id="header-photo" src={header_photo} alt={""} />
-          <p className="hero-text">#AGhaffariTaleWedding</p>
-        </div>
-        <p id="hero-title">Helya and Ricky are Getting Married!</p>
-      </div>
+      <Hero />
       <RSVP />
       <CouplePhoto couple={HRbeach} bouquet1={bouquet1} bouquet2={bouquet2} />
       <Schedule />

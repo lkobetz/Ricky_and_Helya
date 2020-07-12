@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./Navbar.scss";
-import useWindowDimensions from "./useWindowDimensions";
+import useWindowDimensions from "../useWindowDimensions";
 import Menu from "./Menu";
 
 export default function Navbar() {
   const { width, height } = useWindowDimensions();
-  const [orientation, changeOrientation] = useState("landscape");
-  const [menu, toggleMenu] = useState(false);
-  if (height > width && orientation !== "portrait") {
-    changeOrientation("portrait");
-  } else if (height < width && orientation !== "landscape") {
-    changeOrientation("landscape");
+  const [portrait, changeOrientation] = useState(false);
+  if (height > width && !portrait) {
+    changeOrientation(true);
+  } else if (height < width && portrait) {
+    changeOrientation(false);
   }
+  const [menu, toggleMenu] = useState(false);
   return (
     <div id="nav-outer-container">
-      {orientation === "landscape" ? (
+      {!portrait ? (
         <div id={"navbar-container"}>
           <p className={"navbar-item"}>
             <a href="#rsvp">RSVP</a>
@@ -58,7 +58,7 @@ export default function Navbar() {
           </p>
         </div>
       )}
-      {menu && orientation === "portrait" && <Menu />}
+      {menu && portrait && <Menu />}
     </div>
   );
 }
