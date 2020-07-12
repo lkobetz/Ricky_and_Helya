@@ -110,16 +110,32 @@ a:visited {
   height:60px;
   width: 60px;
   align-self: center;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .rightSmallFlower {
   height: 60px;
   width: 60px;
   align-self: center;
-  margin-left: 20px;
-  margin-right: 15px;
+  margin-left: 2.5%;
+  margin-right: 2%;
   transform: scaleX(-1);
+}
+
+@media screen and (max-width: 600px) {
+  .section-title {
+    p {
+      font-size:30px;
+    }
+  }
+  .leftSmallFlower {
+    height:30px;
+    width: 30px;
+  }
+  .rightSmallFlower {
+    height:30px;
+    width: 30px;
+  }
 }
 

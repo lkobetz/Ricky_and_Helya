@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import header_photo from "../images/header_photo.png";
 import useWindowDimensions from "../useWindowDimensions";
+import "./Hero.scss";
 
 export default function Hero() {
   const { width, height } = useWindowDimensions();

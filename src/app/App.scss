@@ -9,7 +9,7 @@
 #flowers {
   display: flex;
   justify-content: center;
-  margin-top: -280px;
+  margin-top: -290px;
   position: relative;
 }
 
@@ -35,67 +35,6 @@
   transform: rotate(-15deg);
   height: $flower-header-height;
   margin-left: -200px;
-}
-
-#hero {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#hero-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width:100%;
-}
-
-#header-photo {
-  height: 500px;
-  width: 500px;
-  margin-top: -150px;
-  border-radius: 50%;
-  box-shadow: $shadow;
-}
-
-#hero-title {
-  font-family: $title-font;
-  font-size: 80px;
-  margin-top: .5%;
-  margin-bottom: 2%;
-}
-
-#date {
-  font-family: $text-font;
-  font-size: 20px;
-  margin-bottom:1%;
-}
-
-.hero-text {
-  font-family: $text-font;
-  font-size: 30px;
-  flex: 1;
-  margin-bottom: 10%;
-}
-
-.hero-text:before {
-  content: ""; /* This is necessary for the pseudo element to work. */
-  display: block; /* This will put the pseudo element on its own line. */
-  margin: 0 auto; /* This will center the border. */
-  width: 55%; /* Change this to whatever width you want. */
-  padding-top: 20px; /* This creates some space between the element and the border. */
-  border-top: $border; /* This creates the border. Replace black with whatever color you want. */
-}
-
-.hero-text:after {
-  content: ""; /* This is necessary for the pseudo element to work. */
-  display: block; /* This will put the pseudo element on its own line. */
-  margin: 0 auto; /* This will center the border. */
-  width: 55%; /* Change this to whatever width you want. */
-  padding-top: 20px; /* This creates some space between the element and the border. */
-  border-bottom: $border; /* This creates the border. Replace black with whatever color you want. */
 }
 
 .info-text {
@@ -130,10 +69,6 @@
   @extend .info-text;
   color: maroon;
   font-weight: bold;
-}
-
-#hero > .info-text {
-  color: dimgrey;
 }
 
 .couple-photo {
