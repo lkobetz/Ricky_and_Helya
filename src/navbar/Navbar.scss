@@ -3,23 +3,21 @@
 #navbar-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   z-index: 5;
   position:fixed;
-  width: 98%;
+  width: 100%;
   background-color: snow;
-  padding-left: 20px;
-  padding-right: 20px;
   height: 35px;
-  color: dimgrey;
-  font-family: $text-font;
-  font-size: 20px;
-}
-
-.navbar-item {
-  font-family: $text-font;
-  font-size: 20px;
+  p {
+    font-size: 1.5vw;
+    font-family: $text-font;
+    color: dimgrey;
+    a {
+      color: dimgrey;
+    }
+  }
 }
 
 a:link {
@@ -32,10 +30,48 @@ a:visited {
   text-decoration: none;
 }
 
+#navbar-container-portrait {
+  @extend #navbar-container;
+  p {
+    font-size: 3vw;
+  }
+}
+
+#menu-container {
+  position: fixed;
+  top: 30px;
+  background-color: snow;
+  z-index: 1;
+  width: 10%;
+  min-width: 150px;
+  padding-left: 2%;
+  padding-right: 2%;
+  p {
+    font-size: 3.5vw;
+    font-family: $text-font;
+    color: dimgrey;
+    a {
+      color: dimgrey;
+    }
+  }
+}
+
+.initials {
+  font-family: $text-font;
+  font-size: 30px;
+}
+
+// section styling:
+
 .outer-container {
   display: flex;
   justify-content: center;
   padding: 4%;
+}
+
+#nav-outer-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .section {
@@ -48,6 +84,12 @@ a:visited {
   margin: 1%;
   padding: 1%;
   border: $border;
+}
+
+@media screen and (max-width: 994px) {
+  .section {
+    width: 100%;
+  }
 }
 
 .section-title {
@@ -79,31 +121,5 @@ a:visited {
   margin-left: 20px;
   margin-right: 15px;
   transform: scaleX(-1);
-}
-
-#nav-outer-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#navbar-container-portrait {
-  @extend #navbar-container;
-}
-
-#menu-container {
-  position: fixed;
-  top: 30px;
-  background-color: snow;
-  z-index: 1;
-  width: 10%;
-  min-width: 150px;
-  padding-left: 3%;
-  border: $border;
-}
-
-.initials {
-  font-family: $title-font;
-  font-size: 30px;
-  margin-bottom: 3%;
 }
 

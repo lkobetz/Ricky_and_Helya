@@ -60,7 +60,7 @@ export default function UploadForm(props) {
           />
         </label>
         <button className="submit-button" type="submit">
-          Upload
+          Submit
         </button>
       </form>
       {photo && <img src={photo} alt="" />}
