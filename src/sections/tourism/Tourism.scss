@@ -12,7 +12,7 @@
   margin-bottom: -20%;
   width: 350px;
   height: 300px;
-  transition: opacity 0.5s ease;
+  transition: all 0.5s ease;
   .category-name {
     opacity: 0;
     font-family: $text-font;
@@ -28,13 +28,13 @@
   @extend .category-item;
   .image-container {
     position: relative;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
     opacity: .2;
   }
   .category-name {
     @extend .category-name;
     opacity: 1;
-    transition: opacity 0.5s ease;
+    transition: all 0.5s ease;
   }
 }
 
@@ -84,6 +84,20 @@
   color:  #3a013a;
   text-decoration: underline;
   margin-left: 100%;
+}
+
+@media screen and (max-width: 400px) {
+  .category-item {
+    width: 250px;
+    height: 200px;
+  }
+  .category-name {
+    font-size: 30px;
+    top:-45%;
+  }
+  .list-text {
+    font-size: 15px;
+  }
 }
 
 

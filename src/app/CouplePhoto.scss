@@ -1,0 +1,37 @@
+@import '../vars.scss';
+
+.couple-photo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.HR-photos {
+  height: 500px;
+  width: 370px;
+  margin-top: 5%;
+  border-radius: 50%;
+  box-shadow: $shadow;
+}
+
+.background-flower {
+  height: 500px;
+  width: 500px;
+}
+
+.couple-photo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.HR-photos-portrait {
+  height: 400px;
+  width: 300px;
+  box-shadow: $shadow;
+  border-radius: 25px;
+}

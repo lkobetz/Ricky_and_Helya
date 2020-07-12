@@ -71,30 +71,6 @@
   font-weight: bold;
 }
 
-.couple-photo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.HR-photos {
-  height: 500px;
-  width: 370px;
-  margin-top: 5%;
-  border-radius: 50%;
-  box-shadow: $shadow;
-}
-
-.background-flower {
-  height: 500px;
-  width: 500px;
-}
-
 #footer {
   p {
   font-family: $text-font;

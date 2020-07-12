@@ -58,7 +58,7 @@ export default function Navbar() {
           </p>
         </div>
       )}
-      {menu && portrait && <Menu />}
+      <Menu menu={menu} portrait={portrait} toggleMenu={toggleMenu} />
     </div>
   );
 }
