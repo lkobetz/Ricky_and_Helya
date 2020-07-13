@@ -1,6 +1,6 @@
 @import '../vars.scss';
 
-#hero {
+.hero {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,8 @@
 #hero-title {
   font-family: $title-font;
   font-size: 6vw;
-  margin-top: 1%;
-  margin-bottom: 2%;
+  margin-top: 3vh;
+  margin-bottom: 0%;
 }
 
 @media screen and (max-width: 600px) {
@@ -48,7 +48,7 @@
 
 .hero-text {
   font-family: $text-font;
-  font-size: 30px;
+  font-size: 3vh;
   flex: 1;
   margin-bottom: 10%;
 }
@@ -71,6 +71,8 @@
   border-bottom: $border; /* This creates the border. Replace black with whatever color you want. */
 }
 
-#hero > .info-text {
+#hashtag {
+  font-family: $text-font;
   color: dimgrey;
+  margin-top: 0%;
 }
