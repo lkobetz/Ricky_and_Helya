@@ -63,7 +63,7 @@
 
 .person-description {
   font-family: $text-font;
-  font-size: 1.3vw;
+  font-size: 16px;
   width: 75%;
   margin-top: 0%;
 }
@@ -83,7 +83,6 @@
   }
   .person-description {
     width: 100%;
-    font-size: 1.8vw;
   }
   .person-title {
     font-size: 2.5vw;
@@ -95,9 +94,6 @@
     width: 98%;
     font-size: 8vw;
   }
-  .person-description {
-    font-size: 2.5vw;
-  }
   .person-title {
     font-size: 4vw;
   }
@@ -107,9 +103,6 @@
   .person-photo {
     height: 100px;
     width: 100px;
-  }
-  .person-description {
-    font-size: 3.5vw;
   }
 }
 

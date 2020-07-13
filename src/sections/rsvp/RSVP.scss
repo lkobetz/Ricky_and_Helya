@@ -8,13 +8,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px;
+  margin: 1%;
 }
 
 #rsvpform {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 600px;
 }
 
 .form-item {
@@ -22,7 +23,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 95%;
+  width: 98%;
   p {
     font-family: $text-font;
     margin-right: 5px;
@@ -32,7 +33,7 @@
 
 @media screen and (min-width: 1050px) {
   #rsvpform {
-    width: 65%;
+    width: 70%;
   }
 }
 
@@ -48,6 +49,9 @@
 .form-checkbox {
   @extend .form-item;
   justify-content: flex-end;
+  p {
+    text-align: end;
+  }
 }
 
 #update-buttons {
