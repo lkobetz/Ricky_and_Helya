@@ -97,6 +97,24 @@ a:visited {
   padding: 4%;
 }
 
+@media screen and (max-width: 750px) {
+  .outer-container {
+    padding: 6%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .outer-container {
+    padding: 8%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .outer-container {
+    padding: 10%;
+  }
+}
+
 .section {
   display: flex;
   flex-direction: column;

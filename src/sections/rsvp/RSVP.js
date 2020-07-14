@@ -18,6 +18,9 @@ export default function RSVP() {
           Alternatively, you can email Helya Ghaffari at ghelya1@gmail.com.
         </p>
         <p className="info-text">
+          If you need to edit your information, just resubmit the form.
+        </p>
+        <p className="info-text">
           *Please note that due to space restrictions of the venue, all guests
           must be 16 or over.
         </p>
