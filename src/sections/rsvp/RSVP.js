@@ -1,6 +1,6 @@
 import React from "react";
 import flower from "../images/flower-6 — копия.png";
-import RSVPform from "./RSVPFormFunctions";
+import RSVPFormFunctions from "./RSVPFormFunctions";
 
 export default function RSVP(props) {
   return (
@@ -13,7 +13,7 @@ export default function RSVP(props) {
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
         <p className="info-text">To RSVP, submit the following information:</p>
-        <RSVPform password={props.password} />
+        <RSVPFormFunctions />
         <p className="info-text">
           Alternatively, you can email Helya at ghelya1@gmail.com.
         </p>

@@ -6,6 +6,9 @@ import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";
 import firebase from "firebase";
 
+import { firebaseConfig } from "../dbconfig";
+firebase.initializeApp(firebaseConfig);
+
 export default function PasswordPage() {
   const [password, changePassword] = useState("");
   const [correct, changeCorrect] = useState(false);
@@ -37,7 +40,6 @@ export default function PasswordPage() {
       changeText1(`Sorry, that password is incorrect!`);
       changeText2(`Please try again:`);
     }
-    console.log("current user:", firebase.auth().currentUser.email);
   }
   return correct ? (
     <App password={password} />

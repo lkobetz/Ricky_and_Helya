@@ -15,11 +15,7 @@ import HRgif from "../images/HR_gif.gif";
 import HRbeach from "../images/HR_kiss_beach.jpg";
 import HRsparkler from "../images/HR_sparkler.jpg";
 import CouplePhoto from "./CouplePhoto";
-import firebase from "firebase";
-import { firebaseConfig } from "../dbconfig";
 import Hero from "./Hero";
-
-firebase.initializeApp(firebaseConfig);
 
 function App(props) {
   return (
@@ -32,7 +28,7 @@ function App(props) {
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
       <Hero />
-      <RSVP password={props.password} />
+      <RSVP />
       <CouplePhoto couple={HRbeach} bouquet1={bouquet1} bouquet2={bouquet2} />
       <Schedule />
       <WeddingParty />
@@ -46,7 +42,7 @@ function App(props) {
         bouquet1={bouquet1}
         bouquet2={bouquet2}
       />
-      <Photos password={props.password} />
+      <Photos />
       <div id="footer">
         <p>
           This website was designed and built by{" "}

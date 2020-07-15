@@ -25,3 +25,19 @@
   background-color: #f7f1f3;
   z-index: 6;
 }
+
+@media screen and (max-width: 800px) {
+  .modal-content {
+    top: 30vh;
+    left: 20vw;
+    width: 55vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .modal-content {
+    top: 30vh;
+    left: 16vw;
+    width: 55vw;
+  }
+}

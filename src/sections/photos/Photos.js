@@ -14,7 +14,7 @@ export default function Photos(props) {
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
         {photoTypes.map((type) => {
-          return <Category type={type} key={type} password={props.password} />;
+          return <Category type={type} key={type} />;
         })}
       </div>
     </div>

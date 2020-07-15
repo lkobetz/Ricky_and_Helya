@@ -3,6 +3,10 @@ import "./RSVP.scss";
 import firebase from "firebase";
 import RSVPForm from "./RSVPForm";
 
+function user() {
+  return firebase.auth().currentUser.email;
+}
+
 export default function RSVPform(props) {
   const [error, changeError] = useState("");
   const [modal, showModal] = useState(false);
@@ -21,19 +25,14 @@ export default function RSVPform(props) {
     notAttending
   ) {
     event.preventDefault();
-    if (
-      !findErrors(
-        firstName,
-        lastName,
-        email,
-        attending,
-        notAttending,
-        props.password
-      )
-    ) {
+    if (!findErrors(firstName, lastName, email, attending, notAttending)) {
       changeError("");
       const alreadyRSVPd = await isInDB(lastName, firstName);
-      if (!alreadyRSVPd[0] && !alreadyRSVPd[1]) {
+      if (
+        !alreadyRSVPd[0] &&
+        !alreadyRSVPd[1] &&
+        user() === "guest@email.com"
+      ) {
         addToDB(
           attending,
           firstName,
@@ -97,15 +96,8 @@ export default function RSVPform(props) {
     showModal(true);
   }
 
-  function findErrors(
-    firstName,
-    lastName,
-    email,
-    attending,
-    notAttending,
-    password
-  ) {
-    if (password === "portfolio") {
+  function findErrors(firstName, lastName, email, attending, notAttending) {
+    if (firebase.auth().currentUser.email === "viewer@email.com") {
       changeError("Sorry, you don't appear to be on the guest list!");
       return true;
     }
