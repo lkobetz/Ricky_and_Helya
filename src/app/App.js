@@ -21,7 +21,7 @@ import Hero from "./Hero";
 
 firebase.initializeApp(firebaseConfig);
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <NavBar />
@@ -32,7 +32,7 @@ function App() {
         <img id="rightrightFlower" src={bouquet1} alt={""} />
       </header>
       <Hero />
-      <RSVP />
+      <RSVP password={props.password} />
       <CouplePhoto couple={HRbeach} bouquet1={bouquet1} bouquet2={bouquet2} />
       <Schedule />
       <WeddingParty />
@@ -46,7 +46,7 @@ function App() {
         bouquet1={bouquet1}
         bouquet2={bouquet2}
       />
-      <Photos />
+      <Photos password={props.password} />
       <div id="footer">
         <p>
           This website was designed and built by{" "}

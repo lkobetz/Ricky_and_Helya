@@ -16,7 +16,7 @@ export default function PasswordPage() {
   );
   function checkPassword(event) {
     event.preventDefault();
-    if (password === secretPassword) {
+    if (password === secretPassword || password === "portfolio") {
       changeCorrect(true);
     } else {
       changeText1(`Sorry, that password is incorrect!`);
@@ -24,7 +24,7 @@ export default function PasswordPage() {
     }
   }
   return correct ? (
-    <App />
+    <App password={password} />
   ) : (
     <div id="pw-container">
       <div id="pw-flowers">

@@ -3,7 +3,7 @@ import "./RSVP.scss";
 import firebase from "firebase";
 import RSVPForm from "./RSVPForm";
 
-export default function RSVPform() {
+export default function RSVPform(props) {
   const [error, changeError] = useState("");
   const [modal, showModal] = useState(false);
   const [modalName, changeModalName] = useState("");
@@ -21,7 +21,16 @@ export default function RSVPform() {
     notAttending
   ) {
     event.preventDefault();
-    if (!findErrors(firstName, lastName, email, attending, notAttending)) {
+    if (
+      !findErrors(
+        firstName,
+        lastName,
+        email,
+        attending,
+        notAttending,
+        props.password
+      )
+    ) {
       changeError("");
       const alreadyRSVPd = await isInDB(lastName, firstName);
       if (!alreadyRSVPd[0] && !alreadyRSVPd[1]) {
@@ -61,7 +70,6 @@ export default function RSVPform() {
   ) {
     firstName = parseName(firstName);
     lastName = parseName(lastName);
-    console.log(firstName, lastName);
     if (attending) {
       firebase
         .database()
@@ -89,7 +97,18 @@ export default function RSVPform() {
     showModal(true);
   }
 
-  function findErrors(firstName, lastName, email, attending, notAttending) {
+  function findErrors(
+    firstName,
+    lastName,
+    email,
+    attending,
+    notAttending,
+    password
+  ) {
+    if (password === "portfolio") {
+      changeError("Sorry, you don't appear to be on the guest list!");
+      return true;
+    }
     if (!firstName) {
       changeError("Please enter your first name.");
       return true;

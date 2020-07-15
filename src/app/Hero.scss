@@ -31,6 +31,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .hero {
+    margin-top: 20%;
+  }
   #hero-title {
     font-size: 8vw;
   }
@@ -51,6 +54,7 @@
   font-size: 3vh;
   flex: 1;
   margin-bottom: 10%;
+  color: dimgrey;
 }
 
 .hero-text:before {
@@ -59,7 +63,7 @@
   margin: 0 auto; /* This will center the border. */
   width: 55%; /* Change this to whatever width you want. */
   padding-top: 20px; /* This creates some space between the element and the border. */
-  border-top: $border; /* This creates the border. Replace black with whatever color you want. */
+  border-top: 1px solid dimgrey; /* This creates the border. Replace black with whatever color you want. */
 }
 
 .hero-text:after {
@@ -68,7 +72,7 @@
   margin: 0 auto; /* This will center the border. */
   width: 55%; /* Change this to whatever width you want. */
   padding-top: 20px; /* This creates some space between the element and the border. */
-  border-bottom: $border; /* This creates the border. Replace black with whatever color you want. */
+  border-bottom: 1px solid dimgrey; /* This creates the border. Replace black with whatever color you want. */
 }
 
 #hashtag {

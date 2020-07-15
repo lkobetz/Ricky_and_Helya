@@ -40,3 +40,12 @@
   font-family: $text-font;
   font-size: 16px;
 }
+
+@media screen and (max-width: 600px) {
+  .description-text {
+    width: 125%
+  }
+  .time {
+    padding-left: 10%;
+  }
+}

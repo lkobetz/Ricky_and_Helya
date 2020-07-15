@@ -63,3 +63,21 @@
     color: maroon;
   }
 }
+
+@media screen and (max-width: 600px) {
+  #flowers {
+    margin-top: -150px;
+  }
+  #leftleftFlower {
+    height: 300px;
+  }
+  #leftFlower {
+    height: 300px;
+  }
+  #rightFlower {
+    height: 300px;
+  }
+  #rightrightFlower {
+    height: 300px;
+  }
+}

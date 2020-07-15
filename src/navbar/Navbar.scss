@@ -37,8 +37,17 @@ a:visited {
 
 #navbar-container-portrait {
   @extend #navbar-container;
+  justify-content: space-between;
+  height: 5vw;
   p {
     font-size: 3vw;
+    max-height: 3vw;
+  }
+  :first-child {
+    padding-left: 1%;
+  }
+  :last-child {
+    padding-right: 1%;
   }
 }
 
@@ -94,7 +103,7 @@ a:visited {
 .outer-container {
   display: flex;
   justify-content: center;
-  padding: 4%;
+  padding-top: 4%;
 }
 
 @media screen and (max-width: 750px) {

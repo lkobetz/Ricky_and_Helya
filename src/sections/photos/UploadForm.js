@@ -3,8 +3,13 @@ import firebase from "firebase";
 
 export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
+  const [error, changeError] = useState("");
   async function handleSubmit(event) {
     event.preventDefault();
+    if (props.password === "portfolio") {
+      changeError("Sorry, you are not authorized to upload photos!");
+      return;
+    }
     const name = photo.name.replace(/[^a-zA-Z0-9 ]/g, "");
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(`photos/${name}`).put(photo);
@@ -26,10 +31,12 @@ export default function UploadForm(props) {
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log("Upload is running");
             break;
+          default:
+            break;
         }
       },
       function (error) {
-        console.log(error);
+        changeError(error);
       },
       async function () {
         // Handle successful uploads on complete
@@ -64,6 +71,7 @@ export default function UploadForm(props) {
         </button>
       </form>
       {photo && <img src={photo} alt="" />}
+      {error && <p className="error-text">{error}</p>}
     </div>
   );
 }

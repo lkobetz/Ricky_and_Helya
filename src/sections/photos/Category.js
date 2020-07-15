@@ -38,7 +38,9 @@ export default function Category(props) {
             return <SinglePhoto photo={photo} key={photo} />;
           })}
       </div>
-      {props.type === "wedding" && <UploadForm setPhotos={setPhotos} />}
+      {props.type === "wedding" && (
+        <UploadForm setPhotos={setPhotos} password={props.password} />
+      )}
     </div>
   );
 }
