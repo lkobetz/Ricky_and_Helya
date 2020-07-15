@@ -1,7 +1,7 @@
 import React from "react";
 import flower from "../images/flower-6.png";
 
-export default function Schedule() {
+export default function Transportation() {
   return (
     <div id="transportation" className="outer-container">
       <div className="section">

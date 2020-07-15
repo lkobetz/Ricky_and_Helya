@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./Password.scss";
-import { secretPassword } from "./secretPassword";
+// import { secretPassword } from "./secretPassword";
 import App from "../app/App";
 import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";
+import firebase from "firebase";
 
 export default function PasswordPage() {
   const [password, changePassword] = useState("");
@@ -14,14 +15,29 @@ export default function PasswordPage() {
   const [text2, changeText2] = useState(
     `Please enter the password from your invitation to enter:`
   );
-  function checkPassword(event) {
+  async function checkPassword(event) {
     event.preventDefault();
-    if (password === secretPassword || password === "portfolio") {
+    let user = null;
+    try {
+      user = await firebase
+        .auth()
+        .signInWithEmailAndPassword("guest@email.com", password);
+    } catch (error) {
+      try {
+        user = await firebase
+          .auth()
+          .signInWithEmailAndPassword("viewer@email.com", password);
+      } catch (error) {
+        return error;
+      }
+    }
+    if (user) {
       changeCorrect(true);
     } else {
       changeText1(`Sorry, that password is incorrect!`);
       changeText2(`Please try again:`);
     }
+    console.log("current user:", firebase.auth().currentUser.email);
   }
   return correct ? (
     <App password={password} />

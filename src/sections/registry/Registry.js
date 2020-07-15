@@ -1,7 +1,7 @@
 import React from "react";
 import flower from "../images/flower-8.png";
 
-export default function Schedule() {
+export default function Registry() {
   return (
     <div id="registry" className="outer-container">
       <div className="section">

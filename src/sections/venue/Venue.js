@@ -4,7 +4,7 @@ import Map from "./Map";
 import mansion from "./images/strong_mansion.jpg";
 import "./Venue.scss";
 
-export default function Schedule() {
+export default function Venue() {
   return (
     <div id="venue" className="outer-container">
       <div className="section">

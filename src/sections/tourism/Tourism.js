@@ -7,7 +7,7 @@ import annapolis from "./images/annapolis_rock.jpg";
 import food from "./images/hooch_food.jpg";
 import drink from "./images/tasting_room.jpg";
 
-export default function Schedule() {
+export default function Tourism() {
   const items = [
     {
       name: "Downtown",
