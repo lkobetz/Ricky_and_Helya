@@ -38,7 +38,10 @@ export default function Category(props) {
             return <SinglePhoto photo={photo} key={photo} />;
           })}
       </div>
-      {props.type === "wedding" && <UploadForm setPhotos={setPhotos} />}
+      {props.type === "wedding" &&
+        firebase.auth().currentUser.email === "guest@email.com" && (
+          <UploadForm setPhotos={setPhotos} />
+        )}
     </div>
   );
 }

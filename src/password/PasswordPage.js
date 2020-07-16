@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Password.scss";
-// import { secretPassword } from "./secretPassword";
 import App from "../app/App";
 import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";

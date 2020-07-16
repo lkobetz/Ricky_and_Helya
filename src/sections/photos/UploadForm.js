@@ -6,10 +6,7 @@ export default function UploadForm(props) {
   const [error, changeError] = useState("");
   async function handleSubmit(event) {
     event.preventDefault();
-    if (firebase.auth().currentUser.email === "viewer@email.com") {
-      changeError("Sorry, you are not authorized to upload photos!");
-      return;
-    } else if (firebase.auth().currentUser.email === "guest@email.com") {
+    if (firebase.auth().currentUser.email === "guest@email.com") {
       const name = photo.name.replace(/[^a-zA-Z0-9 ]/g, "");
       const storageRef = firebase.storage().ref();
       const uploadTask = storageRef.child(`photos/${name}`).put(photo);
