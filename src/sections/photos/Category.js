@@ -8,23 +8,25 @@ export default function Category(props) {
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     async function getPhotos() {
-      if (props.type === "wedding") {
-        const photosObj = await firebase
-          .database()
-          .ref("photos")
-          .once("value")
-          .then(function (snapshot) {
-            return snapshot.val();
-          });
-        let photosArr = [];
-        for (let name in photosObj) {
-          photosArr.push(photosObj[name].url);
+      if (!photos.length) {
+        if (props.type === "wedding") {
+          const photosObj = await firebase
+            .database()
+            .ref("photos")
+            .once("value")
+            .then(function (snapshot) {
+              return snapshot.val();
+            });
+          let photosArr = [];
+          for (let name in photosObj) {
+            photosArr.push(photosObj[name].url);
+          }
+          if (!photos.length) {
+            setPhotos(photosArr);
+          }
+        } else {
+          setPhotos(source[props.type]);
         }
-        if (!photos.length) {
-          setPhotos(photosArr);
-        }
-      } else {
-        setPhotos(source[props.type]);
       }
     }
     getPhotos();
@@ -40,7 +42,7 @@ export default function Category(props) {
       </div>
       {props.type === "wedding" &&
         firebase.auth().currentUser.email === "guest@email.com" && (
-          <UploadForm setPhotos={setPhotos} />
+          <UploadForm setPhotos={setPhotos} photos={photos} />
         )}
     </div>
   );

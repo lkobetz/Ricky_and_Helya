@@ -44,7 +44,7 @@ export default function UploadForm(props) {
           //   console.log('File available at', downloadURL);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
           firebase.database().ref("photos").child(name).set({ url });
-          props.setPhotos([]);
+          props.setPhotos([...props.photos, url]);
         }
       );
     }
