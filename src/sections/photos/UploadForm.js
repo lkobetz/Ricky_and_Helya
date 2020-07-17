@@ -4,6 +4,7 @@ import firebase from "firebase";
 export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
   const [error, changeError] = useState("");
+  const [loading, changeLoading] = useState(null);
   async function handleSubmit(event) {
     event.preventDefault();
     if (firebase.auth().currentUser.email === "guest@email.com") {
@@ -23,6 +24,7 @@ export default function UploadForm(props) {
           var progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
+          changeLoading(Math.round(progress));
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED: // or 'paused'
               console.log("Upload is paused");
@@ -42,8 +44,9 @@ export default function UploadForm(props) {
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
           //   console.log('File available at', downloadURL);
+          changeLoading(null);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
-          firebase.database().ref("photos").child(name).set({ url });
+          firebase.database().ref("photos").push({ url, name });
           props.setPhotos([...props.photos, url]);
         }
       );
@@ -72,6 +75,9 @@ export default function UploadForm(props) {
       </form>
       {photo && <img src={photo} alt="" />}
       {error && <p className="error-text">{error}</p>}
+      {loading !== null && loading < 101 && (
+        <p className="info-text">{loading}% loaded</p>
+      )}
     </div>
   );
 }
