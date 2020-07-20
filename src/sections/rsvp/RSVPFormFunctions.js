@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./RSVP.scss";
-import firebase from "firebase";
 import RSVPForm from "./RSVPForm";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
 function user() {
   return firebase.auth().currentUser.email;

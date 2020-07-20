@@ -3,10 +3,8 @@ import "./Password.scss";
 import App from "../app/App";
 import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";
-import firebase from "firebase";
-
-import { firebaseConfig } from "../dbconfig";
-firebase.initializeApp(firebaseConfig);
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 export default function PasswordPage() {
   const [password, changePassword] = useState("");
@@ -19,25 +17,22 @@ export default function PasswordPage() {
   );
   async function checkPassword(event) {
     event.preventDefault();
-    let user = null;
-    try {
-      user = await firebase
-        .auth()
-        .signInWithEmailAndPassword("guest@email.com", password);
-    } catch (error) {
-      try {
-        user = await firebase
-          .auth()
-          .signInWithEmailAndPassword("viewer@email.com", password);
-      } catch (error) {
-        return error;
-      }
-    }
-    if (user) {
-      changeCorrect(true);
-    } else {
+    let email = "";
+    if (password[1] === "e") email = "guest@email.com";
+    if (password[1] === "o") email = "viewer@email.com";
+    else if (!email) {
       changeText1(`Sorry, that password is incorrect!`);
       changeText2(`Please try again:`);
+    }
+    if (email) {
+      try {
+        await firebase.auth().signInWithEmailAndPassword(email, password);
+      } catch (error) {
+        changeText1(`Sorry, that password is incorrect!`);
+        changeText2(`Please try again:`);
+        return error;
+      }
+      changeCorrect(true);
     }
   }
   return correct ? (

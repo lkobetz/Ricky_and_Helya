@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { source } from "./source";
 import SinglePhoto from "./SinglePhoto";
 import UploadForm from "./UploadForm";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/database";
 
 export default function Category(props) {
   const [photos, setPhotos] = useState([]);
@@ -35,10 +36,13 @@ export default function Category(props) {
     <div className="category-container">
       <p className="photo-type-title">{props.type}</p>
       <div className="photo-container">
-        {photos.length &&
+        {photos.length ? (
           photos.map((photo) => {
             return <SinglePhoto photo={photo} key={photo} />;
-          })}
+          })
+        ) : (
+          <p className="info-text">No photos yet</p>
+        )}
       </div>
       {props.type === "wedding" &&
         firebase.auth().currentUser.email === "guest@email.com" && (

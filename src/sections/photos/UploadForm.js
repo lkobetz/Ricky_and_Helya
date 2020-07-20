@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
+import "firebase/storage";
 
 export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
@@ -76,7 +79,7 @@ export default function UploadForm(props) {
       {photo && <img src={photo} alt="" />}
       {error && <p className="error-text">{error}</p>}
       {loading !== null && loading < 101 && (
-        <p className="info-text">{loading}% loaded</p>
+        <p className="info-text">loading... {loading}%</p>
       )}
     </div>
   );
