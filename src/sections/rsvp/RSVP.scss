@@ -58,30 +58,30 @@
   flex-direction: row;
   text-align: center;
   button {
-    @extend .submit-button;
+    // @extend .submit-button;
     font-weight: bold;
     color: maroon;
   }
 }
 
-.submit-button {
-  font-family: $text-font;
-  font-size: 15px;
-  width: 100px;
-  align-self: center;
-  background-color: rgba(0, 0, 0, 0);
-  padding: 5px;
-  border-style: hidden;
-}
+// .submit-button {
+//   font-family: $text-font;
+//   font-size: 15px;
+//   width: 100px;
+//   align-self: center;
+//   background-color: rgba(0, 0, 0, 0);
+//   padding: 5px;
+//   border-style: hidden;
+// }
 
-.submit-button:focus {
-  outline:none;
-}
+// .submit-button:focus {
+//   outline:none;
+// }
 
-.submit-button:hover {
-  color: dimgrey;
-}
+// .submit-button:hover {
+//   color: dimgrey;
+// }
 
-.submit-button:active {
-  font-weight: bold;
-}
+// .submit-button:active {
+//   font-weight: bold;
+// }

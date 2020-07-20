@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { source } from "./source";
 import SinglePhoto from "./SinglePhoto";
 import UploadForm from "./UploadForm";
+import Pagination from "./Pagination";
 import firebase from "firebase/app";
 import "firebase/database";
 
 export default function Category(props) {
   const [photos, setPhotos] = useState([]);
-  const [currentPage, setPage] = useState(0);
+  const [currentPage, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
   const [lastIdx, setLastIdx] = useState(0);
   useEffect(() => {
     async function getPhotos() {
@@ -30,9 +32,23 @@ export default function Category(props) {
         }
       }
     }
+    async function getLastPage() {
+      if (photos.length) {
+        const lastPage = await firebase
+          .database()
+          .ref("photos")
+          .child("lastPage")
+          .once("value")
+          .then(function (snapshot) {
+            return snapshot.val();
+          });
+        if (lastPage) setLastPage(lastPage);
+      }
+    }
+    getLastPage();
     getPhotos();
     if (photos.length) setLastIdx(photos.length - 1);
-  }, [photos, props, currentPage]);
+  }, [photos, props, currentPage, lastPage]);
   return (
     <div className="category-container">
       <p className="photo-type-title">{props.type}</p>
@@ -45,10 +61,11 @@ export default function Category(props) {
           <p className="info-text">No photos yet</p>
         )}
       </div>
-      <div>
-        <button onClick={() => setPage(currentPage - 1)}>Back</button>
-        <button onClick={() => setPage(currentPage + 1)}>Next</button>
-      </div>
+      <Pagination
+        setPage={setPage}
+        currentPage={currentPage}
+        lastPage={lastPage}
+      />
       {props.type === "wedding" &&
         firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
@@ -57,6 +74,7 @@ export default function Category(props) {
             lastIdx={lastIdx}
             currentPage={currentPage}
             setPage={setPage}
+            setLastPage={setLastPage}
           />
         )}
     </div>

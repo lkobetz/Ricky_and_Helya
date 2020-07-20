@@ -53,6 +53,28 @@
   font-weight: bold;
 }
 
+button {
+  margin: 2%;
+  background-color: #f9f1f5;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-family: "Poiret One";
+  max-width: 100px;
+  align-self: center;
+}
+
+button:focus {
+  outline:none;
+}
+
+button:hover {
+  color: dimgrey;
+}
+
+button:active {
+  font-weight: bold;
+}
+
 #footer {
   p {
   font-family: $text-font;

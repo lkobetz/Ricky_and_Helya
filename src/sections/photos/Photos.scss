@@ -41,6 +41,25 @@
   }
 }
 
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pagination-buttons-container {
+  @extend .pagination-container;
+  flex-direction: row;
+}
+
+.pages-container {
+  display: flex;
+  justify-content: center;
+  p {
+    margin: 2%;
+  }
+}
+
 .upload-form {
   display: flex;
   flex-direction: column;
@@ -56,3 +75,4 @@
   margin-left: 5%;
   margin-right: -50%;
 }
+
