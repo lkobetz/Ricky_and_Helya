@@ -11,7 +11,7 @@ export default function SinglePhoto(props) {
   }
   return (
     <div className={className} onClick={handleClick}>
-      <img src={props.photo} alt="" />
+      <img src={props.photo.url} alt="" />
     </div>
   );
 }

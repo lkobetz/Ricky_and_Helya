@@ -7,46 +7,57 @@ import "firebase/database";
 
 export default function Category(props) {
   const [photos, setPhotos] = useState([]);
+  const [currentPage, setPage] = useState(0);
+  const [lastIdx, setLastIdx] = useState(0);
   useEffect(() => {
     async function getPhotos() {
-      if (!photos.length) {
+      if (!photos.length || photos[photos.length - 1].page !== currentPage) {
         if (props.type === "wedding") {
-          const photosObj = await firebase
-            .database()
-            .ref("photos")
+          const photosRef = await firebase.database().ref("photos");
+          const photosObj = await photosRef
+            .child(currentPage)
             .once("value")
             .then(function (snapshot) {
               return snapshot.val();
             });
           let photosArr = [];
           for (let name in photosObj) {
-            photosArr.push(photosObj[name].url);
+            photosArr.push(photosObj[name]);
           }
-          if (!photos.length) {
-            setPhotos(photosArr);
-          }
+          setPhotos(photosArr);
         } else {
           setPhotos(source[props.type]);
         }
       }
     }
     getPhotos();
-  }, [photos, props]);
+    if (photos.length) setLastIdx(photos.length - 1);
+  }, [photos, props, currentPage]);
   return (
     <div className="category-container">
       <p className="photo-type-title">{props.type}</p>
       <div className="photo-container">
         {photos.length ? (
           photos.map((photo) => {
-            return <SinglePhoto photo={photo} key={photo} />;
+            return <SinglePhoto photo={photo} key={photo.name} />;
           })
         ) : (
           <p className="info-text">No photos yet</p>
         )}
       </div>
+      <div>
+        <button onClick={() => setPage(currentPage - 1)}>Back</button>
+        <button onClick={() => setPage(currentPage + 1)}>Next</button>
+      </div>
       {props.type === "wedding" &&
         firebase.auth().currentUser.email === "guest@email.com" && (
-          <UploadForm setPhotos={setPhotos} photos={photos} />
+          <UploadForm
+            setPhotos={setPhotos}
+            photos={photos}
+            lastIdx={lastIdx}
+            currentPage={currentPage}
+            setPage={setPage}
+          />
         )}
     </div>
   );

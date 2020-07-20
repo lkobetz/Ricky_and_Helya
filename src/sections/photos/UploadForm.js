@@ -49,8 +49,19 @@ export default function UploadForm(props) {
           //   console.log('File available at', downloadURL);
           changeLoading(null);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
-          firebase.database().ref("photos").push({ url, name });
-          props.setPhotos([...props.photos, url]);
+          let index = props.lastIdx + 1;
+          let page = props.currentPage;
+          if (index > 8) {
+            page = props.currentPage + 1;
+            props.incrementPage(page);
+            index = 0;
+          }
+          firebase
+            .database()
+            .ref("photos")
+            .child(page)
+            .push({ url, name, index, page });
+          props.setPhotos([...props.photos, { url, name, index, page }]);
         }
       );
     }
