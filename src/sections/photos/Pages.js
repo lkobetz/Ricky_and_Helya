@@ -1,4 +1,5 @@
 import React from "react";
+import PageNumber from "./PageNumber";
 
 export default function Pages(props) {
   const lastPage = props.lastPage;
@@ -20,22 +21,29 @@ export default function Pages(props) {
     second = currentPage;
     third = currentPage + 1;
   }
+  const pages = [first, second, third];
   return (
     <div className="pages-container">
       {currentPage !== first && first !== 1 && lastPage > 3 && (
-        <p className="info-text">...</p>
+        <div className="pages-container">
+          <p className="info-text" onClick={() => setPage(1)}>
+            1
+          </p>
+          <p className="info-text">...</p>
+        </div>
       )}
-      <p className="info-text" onClick={() => setPage(first)}>
-        {first}
-      </p>
-      <p className="info-text" onClick={() => setPage(second)}>
-        {second}
-      </p>
-      <p className="info-text" onClick={() => setPage(third)}>
-        {third}
-      </p>
+      {pages.map((page) => {
+        return (
+          <PageNumber page={page} setPage={setPage} currentPage={currentPage} />
+        );
+      })}
       {currentPage !== third && lastPage !== third && lastPage > 3 && (
-        <p className="info-text">...</p>
+        <div className="pages-container">
+          <p className="info-text">...</p>
+          <p className="info-text" onClick={() => setPage(lastPage)}>
+            {lastPage}
+          </p>
+        </div>
       )}
     </div>
   );

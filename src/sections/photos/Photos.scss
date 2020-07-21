@@ -56,8 +56,17 @@
   display: flex;
   justify-content: center;
   p {
-    margin: 2%;
+    margin: 1rem;
   }
+  p:hover {
+    color: dimgrey;
+  }
+}
+
+.currentPage {
+  @extend .info-text;
+  border: $border;
+  padding: 1rem;
 }
 
 .upload-form {
