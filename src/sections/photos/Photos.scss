@@ -12,11 +12,26 @@
   border-bottom: $border;
 }
 
+// with flexbox:
+// .photo-container {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: space-around;
+// }
+
 .photo-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 300px 300px;
+}
+
+@media screen and (max-width: 600px) {
+  .photo-container {
+    display: grid;
+  grid-template-columns: 95%;
+  grid-template-rows: repeat(6, 265px);
+  }
 }
 
 .photo-and-caption-container {
@@ -44,6 +59,11 @@
 }
 
 .active-photo {
+  margin-left: 35vw;
+  margin-top: 20vw;
+  position: fixed;
+  top: 0;
+  left: 0;
   img {
     transition: transform, .5s;
     transform: scale(2);
