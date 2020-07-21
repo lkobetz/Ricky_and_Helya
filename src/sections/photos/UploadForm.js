@@ -5,7 +5,7 @@ import "firebase/database";
 import "firebase/storage";
 
 export default function UploadForm(props) {
-  const [photo, setPhoto] = useState({});
+  const [photo, setPhoto] = useState(null);
   const [error, changeError] = useState("");
   const [loading, changeLoading] = useState(null);
   const [submitter, changeSubmitter] = useState("");
@@ -76,6 +76,7 @@ export default function UploadForm(props) {
           ]);
           changeSubmitter("");
           changeCaption("");
+          setPhoto(null);
           props.setPage(lastPage);
         }
       );

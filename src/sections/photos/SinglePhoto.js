@@ -20,7 +20,7 @@ export default function SinglePhoto(props) {
         </p>
       )}
       {props.photo.submitter && (
-        <p className="caption-text">-{props.photo.submitter}</p>
+        <p className="caption-text">- {props.photo.submitter}</p>
       )}
     </div>
   );

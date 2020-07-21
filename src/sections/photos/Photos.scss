@@ -36,17 +36,17 @@
   width: 200px;
   height: 200px;
   align-self: center;
-  transition: transform, .5s;
   img {
+    transition: transform, .5s;
     overflow-y: hidden;
     object-fit: cover;
   }
 }
 
 .active-photo {
-  transition: transform, .5s;
-  transform: scale(2);
   img {
+    transition: transform, .5s;
+    transform: scale(2);
     overflow: visible;
     height: 300px;
   }
