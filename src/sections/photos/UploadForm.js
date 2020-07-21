@@ -51,22 +51,32 @@ export default function UploadForm(props) {
           //   console.log('File available at', downloadURL);
           changeLoading(null);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
-          let page = props.currentPage;
+          let lastPage = props.lastPage;
           if (props.lastIdx > 4) {
-            page = props.currentPage + 1;
-            props.setPage(page);
-            firebase.database().ref("photos").child("lastPage").set(page);
-            props.setLastPage(page);
+            lastPage = props.lastPage + 1;
+            firebase.database().ref("photos").child("lastPage").set(lastPage);
+            props.setLastPage(lastPage);
+            firebase.database().ref("photos").child("lastIdx").set(0);
+            props.setLastIdx(0);
+          } else {
+            firebase
+              .database()
+              .ref("photos")
+              .child("lastIdx")
+              .set(props.lastIdx + 1);
           }
           firebase
             .database()
             .ref("photos")
-            .child(page)
-            .push({ url, name, page, submitter, caption });
+            .child(lastPage)
+            .push({ url, name, lastPage, submitter, caption });
           props.setPhotos([
             ...props.photos,
-            { url, name, page, submitter, caption },
+            { url, name, lastPage, submitter, caption },
           ]);
+          changeSubmitter("");
+          changeCaption("");
+          props.setPage(lastPage);
         }
       );
     }

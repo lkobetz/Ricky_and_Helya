@@ -32,7 +32,7 @@ export default function Category(props) {
         }
       }
     }
-    async function getLastPage() {
+    async function getLastItem() {
       if (photos.length) {
         const lastPage = await firebase
           .database()
@@ -43,11 +43,19 @@ export default function Category(props) {
             return snapshot.val();
           });
         if (lastPage) setLastPage(lastPage);
+        const lastIdx = await firebase
+          .database()
+          .ref("photos")
+          .child("lastIdx")
+          .once("value")
+          .then(function (snapshot) {
+            return snapshot.val();
+          });
+        if (lastIdx) setLastIdx(lastIdx);
       }
     }
-    getLastPage();
+    getLastItem();
     getPhotos();
-    if (photos.length) setLastIdx(photos.length - 1);
   }, [photos, props, currentPage, lastPage]);
   return (
     <div className="category-container">
@@ -67,21 +75,37 @@ export default function Category(props) {
         lastPage={lastPage}
       />
       {props.type === "wedding" &&
-        firebase.auth().currentUser.email === "guest@email.com" &&
-        (currentPage === lastPage ? (
+        firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
             setPhotos={setPhotos}
             photos={photos}
             lastIdx={lastIdx}
+            lastPage={lastPage}
+            setLastIdx={setLastIdx}
             currentPage={currentPage}
             setPage={setPage}
             setLastPage={setLastPage}
           />
-        ) : (
-          <p className="photo-button" onClick={() => setPage(lastPage)}>
-            Upload a photo →
-          </p>
-        ))}
+        )}
     </div>
   );
 }
+
+// {props.type === "wedding" &&
+//         firebase.auth().currentUser.email === "guest@email.com" &&
+//         (currentPage === lastPage ? (
+//           <UploadForm
+//             setPhotos={setPhotos}
+//             photos={photos}
+//             lastIdx={lastIdx}
+//             lastPage={lastPage}
+//             setLastIdx={setLastIdx}
+//             currentPage={currentPage}
+//             setPage={setPage}
+//             setLastPage={setLastPage}
+//           />
+//         ) : (
+//           <p className="photo-button" onClick={() => setPage(lastPage)}>
+//             Upload a photo →
+//           </p>
+//         ))}
