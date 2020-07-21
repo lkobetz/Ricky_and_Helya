@@ -77,19 +77,19 @@ export default function UploadForm(props) {
   }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={(event) => handleSubmit(event)} className="upload-form">
-        <label className="upload-text">
-          Upload a photo:
+        <div className="input-container">
+          <p className="upload-text">Upload a photo:</p>
           <input
             className="upload-input"
             type="file"
             name="photo"
             onChange={(event) => fileChange(event)}
           />
-        </label>
-        <label className="upload-text">
-          Your Name:
+        </div>
+        <div className="input-container">
+          <p className="upload-text">Your Name:</p>
           <input
             className="form-input"
             type="text"
@@ -97,9 +97,9 @@ export default function UploadForm(props) {
             value={submitter}
             onChange={(event) => changeSubmitter(event.target.value)}
           />
-        </label>
-        <label className="upload-text">
-          Caption:
+        </div>
+        <div className="input-container">
+          <p className="upload-text">Caption:</p>
           <input
             className="form-input"
             type="text"
@@ -108,7 +108,7 @@ export default function UploadForm(props) {
             maxLength="60"
             onChange={(event) => changeCaption(event.target.value)}
           />
-        </label>
+        </div>
         <button className="submit-button" type="submit">
           Submit
         </button>
