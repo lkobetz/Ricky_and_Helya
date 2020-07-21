@@ -8,6 +8,8 @@ export default function UploadForm(props) {
   const [photo, setPhoto] = useState({});
   const [error, changeError] = useState("");
   const [loading, changeLoading] = useState(null);
+  const [submitter, changeSubmitter] = useState("");
+  const [caption, changeCaption] = useState("");
   async function handleSubmit(event) {
     event.preventDefault();
     if (firebase.auth().currentUser.email === "guest@email.com") {
@@ -60,8 +62,11 @@ export default function UploadForm(props) {
             .database()
             .ref("photos")
             .child(page)
-            .push({ url, name, page });
-          props.setPhotos([...props.photos, { url, name, page }]);
+            .push({ url, name, page, submitter, caption });
+          props.setPhotos([
+            ...props.photos,
+            { url, name, page, submitter, caption },
+          ]);
         }
       );
     }
@@ -81,6 +86,27 @@ export default function UploadForm(props) {
             type="file"
             name="photo"
             onChange={(event) => fileChange(event)}
+          />
+        </label>
+        <label className="upload-text">
+          Your Name:
+          <input
+            className="form-input"
+            type="text"
+            name="submitter"
+            value={submitter}
+            onChange={(event) => changeSubmitter(event.target.value)}
+          />
+        </label>
+        <label className="upload-text">
+          Caption:
+          <input
+            className="form-input"
+            type="text"
+            name="caption"
+            value={caption}
+            maxLength="60"
+            onChange={(event) => changeCaption(event.target.value)}
           />
         </label>
         <button className="submit-button" type="submit">

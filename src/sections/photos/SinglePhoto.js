@@ -10,8 +10,18 @@ export default function SinglePhoto(props) {
     }
   }
   return (
-    <div className={className} onClick={handleClick}>
-      <img src={props.photo.url} alt="" />
+    <div className="photo-and-caption-container">
+      <div className={className} onClick={handleClick}>
+        <img src={props.photo.url} alt="" />
+      </div>
+      {props.photo.caption && (
+        <p className="caption-text">
+          <i>"{props.photo.caption}"</i>
+        </p>
+      )}
+      {props.photo.submitter && (
+        <p className="caption-text">-{props.photo.submitter}</p>
+      )}
     </div>
   );
 }

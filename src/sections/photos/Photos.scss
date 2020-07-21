@@ -19,12 +19,23 @@
   justify-content: space-around;
 }
 
+.photo-and-caption-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
 .single-photo-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 200px;
   height: 200px;
-  margin: 2%;
+  align-self: center;
   transition: transform, .5s;
   img {
     overflow-y: hidden;
@@ -39,6 +50,11 @@
     overflow: visible;
     height: 300px;
   }
+}
+
+.caption-text {
+  @extend .info-text;
+  font-size: .8rem;
 }
 
 .pagination-container {
@@ -56,10 +72,16 @@
   display: flex;
   justify-content: center;
   p {
-    margin: 1rem;
+    margin: .3rem;
+    padding: 1rem;
+  }
+  h6 {
+    margin: .3rem;
+    padding: 1rem;
   }
   p:hover {
     color: dimgrey;
+    background-color: $background;
   }
 }
 

@@ -29,7 +29,7 @@ export default function Pages(props) {
           <p className="info-text" onClick={() => setPage(1)}>
             1
           </p>
-          <p className="info-text">...</p>
+          <h6 className="info-text">. . .</h6>
         </div>
       )}
       {pages.map((page) => {
@@ -39,7 +39,7 @@ export default function Pages(props) {
       })}
       {currentPage !== third && lastPage !== third && lastPage > 3 && (
         <div className="pages-container">
-          <p className="info-text">...</p>
+          <h6 className="info-text">. . .</h6>
           <p className="info-text" onClick={() => setPage(lastPage)}>
             {lastPage}
           </p>

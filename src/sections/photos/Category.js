@@ -67,6 +67,7 @@ export default function Category(props) {
         lastPage={lastPage}
       />
       {props.type === "wedding" &&
+        currentPage === lastPage &&
         firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
             setPhotos={setPhotos}
