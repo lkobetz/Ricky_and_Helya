@@ -87,6 +87,13 @@
 }
 
 @media screen and (max-width: 450px) {
+  .location-list {
+    margin-top: -125px;
+    height: 100px;
+  }
+  .animate-list {
+    height: auto;
+  }
   .category-item {
     width: 250px;
     height: 200px;
