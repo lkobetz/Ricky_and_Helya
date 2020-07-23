@@ -27,6 +27,8 @@ export default function RSVPform(props) {
     notAttending
   ) {
     event.preventDefault();
+    firstName = parseName(firstName);
+    lastName = parseName(lastName);
     if (!findErrors(firstName, lastName, email, attending, notAttending)) {
       changeError("");
       const alreadyRSVPd = await isInDB(lastName, firstName);
@@ -69,8 +71,6 @@ export default function RSVPform(props) {
     email,
     notAttending
   ) {
-    firstName = parseName(firstName);
-    lastName = parseName(lastName);
     if (attending) {
       firebase
         .database()
