@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import PageNumber from "./PageNumber";
 
 export default function Pages(props) {
-  const lastPage = props.lastPage;
-  const currentPage = props.currentPage;
-  const setPage = props.setPage;
+  const { lastPage } = props;
+  const { currentPage } = props;
+  const { setPage } = props;
   let first = 0;
   let second = 0;
   let third = 0;
@@ -26,9 +27,14 @@ export default function Pages(props) {
     <div className="pages-container">
       {currentPage !== first && first !== 1 && lastPage > 3 && (
         <div className="pages-container">
-          <p className="info-text" onClick={() => setPage(1)}>
-            1
-          </p>
+          <div
+            onClick={() => setPage(1)}
+            role="button"
+            tabIndex={0}
+            onKeyPress={() => setPage(lastPage)}
+          >
+            <p className="info-text">1</p>
+          </div>
           <h6 className="info-text">. . .</h6>
         </div>
       )}
@@ -45,11 +51,22 @@ export default function Pages(props) {
       {currentPage !== third && lastPage !== third && lastPage > 3 && (
         <div className="pages-container">
           <h6 className="info-text">. . .</h6>
-          <p className="info-text" onClick={() => setPage(lastPage)}>
-            {lastPage}
-          </p>
+          <div
+            onClick={() => setPage(lastPage)}
+            onKeyPress={() => setPage(lastPage)}
+            role="button"
+            tabIndex={0}
+          >
+            <p className="info-text">{lastPage}</p>
+          </div>
         </div>
       )}
     </div>
   );
 }
+
+Pages.propTypes = {
+  lastPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+};
