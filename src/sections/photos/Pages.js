@@ -34,7 +34,12 @@ export default function Pages(props) {
       )}
       {pages.map((page) => {
         return (
-          <PageNumber page={page} setPage={setPage} currentPage={currentPage} />
+          <PageNumber
+            page={page}
+            setPage={setPage}
+            currentPage={currentPage}
+            key={page}
+          />
         );
       })}
       {currentPage !== third && lastPage !== third && lastPage > 3 && (
