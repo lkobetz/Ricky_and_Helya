@@ -2,11 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./app/App";
+import firebase from "firebase/app";
 import PasswordPage from "./password/PasswordPage";
 import * as serviceWorker from "./serviceWorker";
-import firebase from "firebase/app";
 
 import { firebaseConfig } from "./dbconfig";
+
 firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(

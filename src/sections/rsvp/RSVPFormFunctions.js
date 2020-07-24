@@ -1,58 +1,19 @@
 import React, { useState } from "react";
 import "./RSVP.scss";
-import RSVPForm from "./RSVPForm";
 import firebase from "firebase/app";
+import RSVPForm from "./RSVPForm";
 import "firebase/auth";
 import "firebase/database";
 
-function user() {
-  return firebase.auth().currentUser.email;
-}
-
-export default function RSVPform(props) {
+export default function RSVPform() {
   const [error, changeError] = useState("");
   const [modal, showModal] = useState(false);
   const [modalName, changeModalName] = useState("");
   const [modalAttending, changeModalAttending] = useState(false);
   const [showUpdate, checkUpdate] = useState(false);
 
-  async function handleSubmit(
-    event,
-    firstName,
-    lastName,
-    email,
-    plusOne,
-    diet,
-    attending,
-    notAttending
-  ) {
-    event.preventDefault();
-    firstName = parseName(firstName);
-    lastName = parseName(lastName);
-    if (!findErrors(firstName, lastName, email, attending, notAttending)) {
-      changeError("");
-      const alreadyRSVPd = await isInDB(lastName, firstName);
-      if (
-        !alreadyRSVPd[0] &&
-        !alreadyRSVPd[1] &&
-        user() === "guest@email.com"
-      ) {
-        addToDB(
-          attending,
-          firstName,
-          lastName,
-          diet,
-          plusOne,
-          email,
-          notAttending
-        );
-      } else if (alreadyRSVPd[0] || alreadyRSVPd[1]) {
-        checkUpdate(true);
-        changeError(
-          `It looks like you've already RSVP'd, ${firstName}! Would you like to update your information?`
-        );
-      }
-    }
+  function user() {
+    return firebase.auth().currentUser.email;
   }
 
   function parseName(name) {
@@ -62,40 +23,8 @@ export default function RSVPform(props) {
       .replace(/[^a-z]/g, "");
   }
 
-  function addToDB(
-    attending,
-    firstName,
-    lastName,
-    diet,
-    plusOne,
-    email,
-    notAttending
-  ) {
-    if (attending) {
-      firebase
-        .database()
-        .ref("guests")
-        .child(lastName)
-        .child(firstName)
-        .set({ dietaryRestrictions: diet, plusOne: plusOne, email: email });
-      adjustGuestCount("add");
-    } else if (notAttending) {
-      firebase
-        .database()
-        .ref("notAttending")
-        .child(lastName)
-        .child(firstName)
-        .set({ email: email });
-    }
-    prepareModal(firstName, attending);
-  }
-
-  function prepareModal(firstName, attending) {
-    changeModalName(firstName[0].toUpperCase() + firstName.slice(1));
-    changeModalAttending(attending);
-    checkUpdate(false);
-    changeError("");
-    showModal(true);
+  function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   function findErrors(firstName, lastName, email, attending, notAttending) {
@@ -130,17 +59,17 @@ export default function RSVPform(props) {
     return false;
   }
 
-  async function isInDB(lastName, firstName) {
-    lastName = parseName(lastName);
-    firstName = parseName(firstName);
+  async function isInDB(ln, fn) {
+    const lastName = parseName(ln);
+    const firstName = parseName(fn);
     let notAttending = null;
-    let attending = await firebase
+    const attending = await firebase
       .database()
       .ref("guests")
       .child(lastName)
       .child(firstName)
       .once("value")
-      .then(function (snapshot) {
+      .then((snapshot) => {
         return snapshot.val();
       });
     if (!attending) {
@@ -150,15 +79,11 @@ export default function RSVPform(props) {
         .child(lastName)
         .child(firstName)
         .once("value")
-        .then(function (snapshot) {
+        .then((snapshot) => {
           return snapshot.val();
         });
     }
     return [attending, notAttending];
-  }
-
-  function emailIsValid(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
   async function adjustGuestCount(op) {
@@ -166,16 +91,90 @@ export default function RSVPform(props) {
       .database()
       .ref("guestCount")
       .once("value")
-      .then(function (snapshot) {
+      .then((snapshot) => {
         return snapshot.val();
       });
     const newCount = op === "add" ? oldCount + 1 : oldCount - 1;
     await firebase.database().ref("guestCount").set(newCount);
   }
 
-  async function deleteRSVP(firstName, lastName) {
-    firstName = parseName(firstName);
-    lastName = parseName(lastName);
+  function prepareModal(firstName, attending) {
+    changeModalName(firstName[0].toUpperCase() + firstName.slice(1));
+    changeModalAttending(attending);
+    checkUpdate(false);
+    changeError("");
+    showModal(true);
+  }
+
+  function addToDB(
+    attending,
+    firstName,
+    lastName,
+    diet,
+    plusOne,
+    email,
+    notAttending
+  ) {
+    if (attending) {
+      firebase
+        .database()
+        .ref("guests")
+        .child(lastName)
+        .child(firstName)
+        .set({ dietaryRestrictions: diet, plusOne, email });
+      adjustGuestCount("add");
+    } else if (notAttending) {
+      firebase
+        .database()
+        .ref("notAttending")
+        .child(lastName)
+        .child(firstName)
+        .set({ email });
+    }
+    prepareModal(firstName, attending);
+  }
+  async function handleSubmit(
+    event,
+    fn,
+    ln,
+    email,
+    plusOne,
+    diet,
+    attending,
+    notAttending
+  ) {
+    event.preventDefault();
+    const firstName = parseName(fn);
+    const lastName = parseName(ln);
+    if (!findErrors(firstName, lastName, email, attending, notAttending)) {
+      changeError("");
+      const alreadyRSVPd = await isInDB(lastName, firstName);
+      if (
+        !alreadyRSVPd[0] &&
+        !alreadyRSVPd[1] &&
+        user() === "guest@email.com"
+      ) {
+        addToDB(
+          attending,
+          firstName,
+          lastName,
+          diet,
+          plusOne,
+          email,
+          notAttending
+        );
+      } else if (alreadyRSVPd[0] || alreadyRSVPd[1]) {
+        checkUpdate(true);
+        changeError(
+          `It looks like you've already RSVP'd, ${firstName}! Would you like to update your information?`
+        );
+      }
+    }
+  }
+
+  async function deleteRSVP(fn, ln) {
+    const firstName = parseName(fn);
+    const lastName = parseName(ln);
     const attending = await isInDB(lastName, firstName);
     const ref = attending[0] ? "guests" : "notAttending";
     firebase.database().ref(ref).child(lastName).child(firstName).remove();
