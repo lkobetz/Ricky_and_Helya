@@ -17,15 +17,15 @@ import HRsparkler from "../images/HR_sparkler.jpg";
 import CouplePhoto from "./CouplePhoto";
 import Hero from "./Hero";
 
-function App(props) {
+function App() {
   return (
     <div className="App">
       <NavBar />
       <header id="flowers">
-        <img id="leftleftFlower" src={bouquet2} alt={""} />
-        <img id="leftFlower" src={bouquet1} alt={""} />
-        <img id="rightFlower" src={bouquet2} alt={""} />
-        <img id="rightrightFlower" src={bouquet1} alt={""} />
+        <img id="leftleftFlower" src={bouquet2} alt="" />
+        <img id="leftFlower" src={bouquet1} alt="" />
+        <img id="rightFlower" src={bouquet2} alt="" />
+        <img id="rightrightFlower" src={bouquet1} alt="" />
       </header>
       <Hero />
       <RSVP />

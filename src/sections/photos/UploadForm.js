@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import firebase from "firebase/app";
+import PropTypes from "prop-types";
 import "firebase/auth";
 import "firebase/database";
 import "firebase/storage";
@@ -10,74 +11,68 @@ export default function UploadForm(props) {
   const [loading, changeLoading] = useState(null);
   const [submitter, changeSubmitter] = useState("");
   const [caption, changeCaption] = useState("");
+  let { lastPage } = props;
+  const {
+    lastIdx,
+    setLastPage,
+    setLastIdx,
+    photos,
+    setPhotos,
+    setPage,
+  } = props;
   async function handleSubmit(event) {
     event.preventDefault();
     if (firebase.auth().currentUser.email === "guest@email.com") {
       const name = photo.name.replace(/[^a-zA-Z0-9 ]/g, "");
       const storageRef = firebase.storage().ref();
       const uploadTask = storageRef.child(`photos/${name}`).put(photo);
-
-      // Register three observers:
-      // 1. 'state_changed' observer, called any time the state changes
-      // 2. Error observer, called on failure
-      // 3. Completion observer, called on successful completion
       uploadTask.on(
         "state_changed",
-        function (snapshot) {
-          // Observe state change events such as progress, pause, and resume
-          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          var progress =
+        (snapshot) => {
+          const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
+          // console.log("Upload is " + progress + "% done");
           changeLoading(Math.round(progress));
           switch (snapshot.state) {
             case firebase.storage.TaskState.PAUSED: // or 'paused'
-              console.log("Upload is paused");
+              // console.log("Upload is paused");
               break;
             case firebase.storage.TaskState.RUNNING: // or 'running'
-              console.log("Upload is running");
+              // console.log("Upload is running");
               break;
             default:
               break;
           }
         },
-        function (error) {
-          changeError(error);
+        function catchError(err) {
+          changeError(err);
         },
-        async function () {
-          // Handle successful uploads on complete
-          // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-          // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-          //   console.log('File available at', downloadURL);
+        async function onSuccess() {
           changeLoading(null);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
-          let lastPage = props.lastPage;
-          if (props.lastIdx > 4) {
-            lastPage = props.lastPage + 1;
+          if (lastIdx > 4) {
+            lastPage += 1;
             firebase.database().ref("photos").child("lastPage").set(lastPage);
-            props.setLastPage(lastPage);
+            setLastPage(lastPage);
             firebase.database().ref("photos").child("lastIdx").set(0);
-            props.setLastIdx(0);
+            setLastIdx(0);
           } else {
             firebase
               .database()
               .ref("photos")
               .child("lastIdx")
-              .set(props.lastIdx + 1);
+              .set(lastIdx + 1);
           }
           firebase
             .database()
             .ref("photos")
             .child(lastPage)
             .push({ url, name, lastPage, submitter, caption });
-          props.setPhotos([
-            ...props.photos,
-            { url, name, lastPage, submitter, caption },
-          ]);
+          setPhotos([...photos, { url, name, lastPage, submitter, caption }]);
           changeSubmitter("");
           changeCaption("");
           setPhoto(null);
-          props.setPage(lastPage);
+          setPage(lastPage);
         }
       );
     }
@@ -132,3 +127,21 @@ export default function UploadForm(props) {
     </div>
   );
 }
+
+UploadForm.propTypes = {
+  lastPage: PropTypes.number.isRequired,
+  lastIdx: PropTypes.number.isRequired,
+  setLastPage: PropTypes.func.isRequired,
+  setLastIdx: PropTypes.func.isRequired,
+  photos: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      lastPage: PropTypes.number.isRequired,
+      submitter: PropTypes.string,
+      caption: PropTypes.string,
+    })
+  ).isRequired,
+  setPhotos: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
+};
