@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Modal from "./Modal";
 
 export default function RSVPForm(props) {
+  const {
+    error,
+    showUpdate,
+    modal,
+    modalName,
+    showModal,
+    modalAttending,
+  } = props;
+
   const [firstName, changeFirstName] = useState("");
   const [lastName, changeLastName] = useState("");
   const [email, changeEmail] = useState("");
@@ -39,7 +49,7 @@ export default function RSVPForm(props) {
         <div className="form-item">
           <p>First Name</p>
           <input
-            className={"form-input"}
+            className="form-input"
             type="text"
             value={firstName}
             onChange={(event) => changeFirstName(event.target.value)}
@@ -48,7 +58,7 @@ export default function RSVPForm(props) {
         <div className="form-item">
           <p>Last Name</p>
           <input
-            className={"form-input"}
+            className="form-input"
             type="text"
             value={lastName}
             onChange={(event) => changeLastName(event.target.value)}
@@ -57,7 +67,7 @@ export default function RSVPForm(props) {
         <div className="form-item">
           <p>Email Address</p>
           <input
-            className={"form-input"}
+            className="form-input"
             type="text"
             value={email}
             onChange={(event) => changeEmail(event.target.value)}
@@ -66,7 +76,7 @@ export default function RSVPForm(props) {
         <div className="form-item">
           <p>Name of Your Plus One</p>
           <input
-            className={"form-input"}
+            className="form-input"
             type="text"
             value={plusOne}
             onChange={(event) => changePlusOne(event.target.value)}
@@ -75,34 +85,35 @@ export default function RSVPForm(props) {
         <div className="form-item">
           <p>Dietary Restrictions</p>
           <input
-            className={"form-input"}
+            className="form-input"
             type="text"
             value={diet}
             onChange={(event) => changeDiet(event.target.value)}
           />
         </div>
         <div className="form-checkbox">
-          <p>I can't wait to join you!</p>
+          <p>I can&apos;t wait to join you!</p>
           <input
-            className={"checkbox"}
+            className="checkbox"
             type="checkbox"
             checked={attending}
             onChange={() => going(!attending)}
           />
         </div>
         <div className="form-checkbox">
-          <p>Unfortunately, I won't be able to make it.</p>
+          <p>Unfortunately, I won&apos;t be able to make it.</p>
           <input
-            className={"checkbox"}
+            className="checkbox"
             type="checkbox"
             checked={notAttending}
             onChange={() => notGoing(!notAttending)}
           />
         </div>
-        <p className="error-text">{props.error}</p>
-        {props.showUpdate && (
+        <p className="error-text">{error}</p>
+        {showUpdate && (
           <div id="update-buttons">
             <button
+              type="submit"
               onClick={() => {
                 props
                   .deleteRSVP(firstName, lastName)
@@ -123,6 +134,7 @@ export default function RSVPForm(props) {
               Yes
             </button>
             <button
+              type="submit"
               onClick={() => {
                 props.checkUpdate(false);
                 props.changeError("");
@@ -132,20 +144,34 @@ export default function RSVPForm(props) {
             </button>
           </div>
         )}
-        {!props.showUpdate && (
+        {!showUpdate && (
           <button type="submit" className="submit-button">
             Submit
           </button>
         )}
       </form>
-      {props.modal && (
+      {modal && (
         <Modal
-          name={props.modalName}
-          showModal={props.showModal}
-          attending={props.modalAttending}
+          name={modalName}
+          showModal={showModal}
+          attending={modalAttending}
           resetForm={resetForm}
         />
       )}
     </div>
   );
 }
+
+RSVPForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired,
+  showUpdate: PropTypes.bool.isRequired,
+  deleteRSVP: PropTypes.func.isRequired,
+  addToDB: PropTypes.func.isRequired,
+  checkUpdate: PropTypes.func.isRequired,
+  changeError: PropTypes.func.isRequired,
+  modal: PropTypes.bool.isRequired,
+  modalName: PropTypes.string.isRequired,
+  showModal: PropTypes.func.isRequired,
+  modalAttending: PropTypes.bool.isRequired,
+};
