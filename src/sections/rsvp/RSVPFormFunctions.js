@@ -60,14 +60,12 @@ export default function RSVPform() {
   }
 
   async function isInDB(ln, fn) {
-    const lastName = parseName(ln);
-    const firstName = parseName(fn);
     let notAttending = null;
     const attending = await firebase
       .database()
       .ref("guests")
-      .child(lastName)
-      .child(firstName)
+      .child(ln)
+      .child(fn)
       .once("value")
       .then((snapshot) => {
         return snapshot.val();
@@ -76,8 +74,8 @@ export default function RSVPform() {
       notAttending = await firebase
         .database()
         .ref("notAttending")
-        .child(lastName)
-        .child(firstName)
+        .child(ln)
+        .child(fn)
         .once("value")
         .then((snapshot) => {
           return snapshot.val();
@@ -106,15 +104,9 @@ export default function RSVPform() {
     showModal(true);
   }
 
-  function addToDB(
-    attending,
-    firstName,
-    lastName,
-    diet,
-    plusOne,
-    email,
-    notAttending
-  ) {
+  function addToDB(attending, fn, ln, diet, plusOne, email, notAttending) {
+    const firstName = parseName(fn);
+    const lastName = parseName(ln);
     if (attending) {
       firebase
         .database()
@@ -166,7 +158,9 @@ export default function RSVPform() {
       } else if (alreadyRSVPd[0] || alreadyRSVPd[1]) {
         checkUpdate(true);
         changeError(
-          `It looks like you've already RSVP'd, ${firstName}! Would you like to update your information?`
+          `It looks like you've already RSVP'd, ${
+            firstName[0].toUpperCase() + firstName.slice(1)
+          }! Would you like to update your information?`
         );
       }
     }
