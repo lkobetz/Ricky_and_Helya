@@ -47,6 +47,10 @@
   align-self: center;
 }
 
+.info-text:focus {
+  outline: 0;
+}
+
 .error-text {
   @extend .info-text;
   color: maroon;

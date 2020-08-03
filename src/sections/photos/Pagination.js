@@ -1,14 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Pages from "./Pages";
 
 export default function Pagination(props) {
-  const setPage = props.setPage;
-  const currentPage = props.currentPage;
-  const lastPage = props.lastPage;
+  const { setPage, currentPage, lastPage } = props;
   return (
     <div className="pagination-container">
       <div className="pagination-buttons-container">
-        <button onClick={() => currentPage > 1 && setPage(currentPage - 1)}>
+        <button
+          onClick={() => currentPage > 1 && setPage(currentPage - 1)}
+          type="button"
+        >
           Back
         </button>
         <p className="info-text">
@@ -16,6 +18,7 @@ export default function Pagination(props) {
         </p>
         <button
           onClick={() => currentPage < lastPage && setPage(currentPage + 1)}
+          type="button"
         >
           Next
         </button>
@@ -30,3 +33,9 @@ export default function Pagination(props) {
     </div>
   );
 }
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  lastPage: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+};

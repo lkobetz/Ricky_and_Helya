@@ -1,4 +1,4 @@
-export const source = {
+export default {
   wedding: [],
   instagram: [],
 };

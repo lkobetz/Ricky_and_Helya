@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { source } from "./source";
+import PropTypes from "prop-types";
+import firebase from "firebase/app";
+import source from "./source";
 import SinglePhoto from "./SinglePhoto";
 import UploadForm from "./UploadForm";
 import Pagination from "./Pagination";
-import firebase from "firebase/app";
 import "firebase/database";
 
 export default function Category(props) {
+  const { type } = props;
   const [photos, setPhotos] = useState([]);
   const [currentPage, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
@@ -14,52 +16,51 @@ export default function Category(props) {
   useEffect(() => {
     async function getPhotos() {
       if (!photos.length || photos[photos.length - 1].page !== currentPage) {
-        if (props.type === "wedding") {
+        if (type === "wedding") {
           const photosRef = await firebase.database().ref("photos");
           const photosObj = await photosRef
             .child(currentPage)
             .once("value")
-            .then(function (snapshot) {
+            .then((snapshot) => {
               return snapshot.val();
             });
-          let photosArr = [];
-          for (let name in photosObj) {
-            photosArr.push(photosObj[name]);
+          if (photosObj !== null) {
+            const photosArr = Object.values(photosObj);
+            setPhotos(photosArr);
           }
-          setPhotos(photosArr);
         } else {
-          setPhotos(source[props.type]);
+          setPhotos(source[type]);
         }
       }
     }
     async function getLastItem() {
       if (photos.length) {
-        const lastPage = await firebase
+        const newLastPage = await firebase
           .database()
           .ref("photos")
           .child("lastPage")
           .once("value")
-          .then(function (snapshot) {
+          .then((snapshot) => {
             return snapshot.val();
           });
-        if (lastPage) setLastPage(lastPage);
-        const lastIdx = await firebase
+        if (newLastPage) setLastPage(newLastPage);
+        const newLastIdx = await firebase
           .database()
           .ref("photos")
           .child("lastIdx")
           .once("value")
-          .then(function (snapshot) {
+          .then((snapshot) => {
             return snapshot.val();
           });
-        if (lastIdx) setLastIdx(lastIdx);
+        if (newLastIdx) setLastIdx(newLastIdx);
       }
     }
     getLastItem();
     getPhotos();
-  }, [photos, props, currentPage, lastPage]);
+  }, [photos, props, currentPage, lastPage, type]);
   return (
     <div className="category-container">
-      <p className="photo-type-title">{props.type}</p>
+      <p className="photo-type-title">{type}</p>
       <div className="photo-container">
         {photos.length ? (
           photos.map((photo) => {
@@ -74,7 +75,7 @@ export default function Category(props) {
         currentPage={currentPage}
         lastPage={lastPage}
       />
-      {props.type === "wedding" &&
+      {type === "wedding" &&
         firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
             setPhotos={setPhotos}
@@ -90,6 +91,10 @@ export default function Category(props) {
     </div>
   );
 }
+
+Category.propTypes = {
+  type: PropTypes.string.isRequired,
+};
 
 // {props.type === "wedding" &&
 //         firebase.auth().currentUser.email === "guest@email.com" &&

@@ -3,7 +3,7 @@ import flower from "../images/flower-4.png";
 import Category from "./Category";
 import "./Photos.scss";
 
-export default function Photos(props) {
+export default function Photos() {
   const photoTypes = ["wedding", "instagram"];
   return (
     <div id="photos" className="outer-container">

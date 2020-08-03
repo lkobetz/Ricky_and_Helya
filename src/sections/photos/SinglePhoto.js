@@ -3,21 +3,17 @@ import PropTypes from "prop-types";
 
 export default function SinglePhoto(props) {
   const { photo } = props;
-  const { url } = photo;
-  const { caption } = photo;
-  const { submitter } = photo;
-  const [className, changeClass] = useState("single-photo-container");
+  const { url, caption, submitter } = photo;
+  const [imageWrapperClass, changeClass] = useState("single-photo-container");
   function handleClick() {
-    if (className === "single-photo-container") {
+    if (imageWrapperClass === "single-photo-container")
       changeClass("active-photo");
-    } else {
-      changeClass("single-photo-container");
-    }
+    else changeClass("single-photo-container");
   }
   return (
     <div className="photo-and-caption-container">
       <div
-        className={className}
+        className={imageWrapperClass}
         onClick={handleClick}
         role="button"
         tabIndex={0}
@@ -27,7 +23,7 @@ export default function SinglePhoto(props) {
       </div>
       {caption && (
         <p className="caption-text">
-          <i>&quot{caption}&quot</i>
+          <i>&quot;{caption}&quot;</i>
         </p>
       )}
       {submitter && <p className="caption-text">- {submitter}</p>}
