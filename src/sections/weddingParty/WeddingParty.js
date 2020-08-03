@@ -1,6 +1,6 @@
 import React from "react";
 import flower from "../images/flower-3.png";
-import PartyPerson from "./Person.js";
+import PartyPerson from "./Person";
 import { featuredPeople, bridePeople, groomPeople } from "./People";
 import "./weddingParty.scss";
 
