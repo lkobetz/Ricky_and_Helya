@@ -1,18 +1,29 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default function ScheduleItem(props) {
-  let type = Object.keys(props.item);
+  const { item } = props;
+  const { time, title, description } = item;
+  let type = Object.keys(item);
   type = type.join("-");
   return (
     <div className={type}>
-      {props.item.time ? (
-        <p className="time">{props.item.time}</p>
+      {time ? (
+        <p className="time">{time}</p>
       ) : (
         <div className="description-container">
-          <p className="description-title">{props.item.title}</p>
-          <p className="description-text">{props.item.description}</p>
+          <p className="description-title">{title}</p>
+          <p className="description-text">{description}</p>
         </div>
       )}
     </div>
   );
 }
+
+ScheduleItem.propTypes = {
+  item: PropTypes.shape({
+    time: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
+};

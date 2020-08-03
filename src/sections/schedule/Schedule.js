@@ -1,7 +1,7 @@
 import React from "react";
 import flower from "../images/flower-9.png";
 import "./Schedule.scss";
-import ScheduleItem from "./ScheduleItem.js";
+import ScheduleItem from "./ScheduleItem";
 
 export default class Schedule extends React.Component {
   constructor() {
@@ -35,7 +35,9 @@ export default class Schedule extends React.Component {
       ],
     };
   }
+
   render() {
+    const { items } = this.state;
     return (
       <div id="schedule" className="outer-container">
         <div className="section">
@@ -45,7 +47,7 @@ export default class Schedule extends React.Component {
             <img className="rightSmallFlower" src={flower} alt="" />
           </div>
           <div id="schedule-container">
-            {this.state.items.map((item) => {
+            {items.map((item) => {
               return (
                 <ScheduleItem
                   item={item}

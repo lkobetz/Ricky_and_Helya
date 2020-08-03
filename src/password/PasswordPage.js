@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Password.scss";
+import * as firebase from "firebase/app";
 import App from "../app/App";
 import bouquet1 from "../images/bouquet-9a.png";
 import bouquet2 from "../images/bouquet-10.png";
-import * as firebase from "firebase/app";
 import "firebase/auth";
 
 export default function PasswordPage() {
@@ -34,6 +34,7 @@ export default function PasswordPage() {
       }
       changeCorrect(true);
     }
+    return true;
   }
   return correct ? (
     <App password={password} />
@@ -45,11 +46,11 @@ export default function PasswordPage() {
           <p className="info-text">{text1}</p>{" "}
           <p className="info-text">{text2}</p>
           <form
-            className={"password-form"}
+            className="password-form"
             onSubmit={(event) => checkPassword(event)}
           >
             <input
-              className={"pw-input"}
+              className="pw-input"
               type="password"
               value={password}
               onChange={(event) => changePassword(event.target.value)}

@@ -50,6 +50,10 @@
   }
 }
 
+.image-container:focus {
+  outline: 0;
+}
+
 .location-list {
   position: relative;
   z-index: -1;

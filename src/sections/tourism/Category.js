@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import LocationList from "./LocationList";
 
 export default function Category(props) {
+  const { item } = props;
+  const { image, name } = item;
   const [className, changeClass] = useState("location-list");
   function handleClick() {
     if (className === "location-list") {
@@ -13,12 +16,25 @@ export default function Category(props) {
   return (
     <div className="category-item-container">
       <div className="category-item">
-        <div className="image-container" onClick={() => handleClick()}>
-          <img className="category-image" src={props.item.image} alt="" />
+        <div
+          className="image-container"
+          onClick={() => handleClick()}
+          role="button"
+          tabIndex={0}
+          onKeyPress={() => {}}
+        >
+          <img className="category-image" src={image} alt="" />
         </div>
-        <p className="category-name">{props.item.name}</p>
+        <p className="category-name">{name}</p>
       </div>
-      <LocationList category={props.item.name} class={className} />
+      <LocationList category={name} class={className} />
     </div>
   );
 }
+
+Category.propTypes = {
+  item: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+};

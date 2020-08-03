@@ -2,7 +2,7 @@ import React from "react";
 import flower from "../images/flower-6 — копия.png";
 import RSVPFormFunctions from "./RSVPFormFunctions";
 
-export default function RSVP(props) {
+export default function RSVP() {
   return (
     <div id="rsvp" className="outer-container">
       {" "}
