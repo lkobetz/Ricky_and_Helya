@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import header_photo from "../images/header_photo.png";
+import headerPhoto from "../images/header_photo.png";
 import useWindowDimensions from "../useWindowDimensions";
 import "./Hero.scss";
 
@@ -17,14 +17,14 @@ export default function Hero() {
         <div className="hero">
           <div id="hero-row">
             <p className="hero-text">October 10, 2021</p>
-            <img id="header-photo" src={header_photo} alt={""} />
+            <img id="header-photo" src={headerPhoto} alt="" />
             <p className="hero-text">#AGhaffariTaleWedding</p>
           </div>
           <p id="hero-title">Helya and Ricky are Getting Married!</p>
         </div>
       ) : (
         <div className="hero">
-          <img id="header-photo" src={header_photo} alt={""} />
+          <img id="header-photo" src={headerPhoto} alt="" />
           <p id="hero-title">Helya and Ricky are Getting Married!</p>
           <p className="hero-text">October 10, 2021</p>
           <p id="hashtag">#AGhaffariTaleWedding</p>

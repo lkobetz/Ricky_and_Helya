@@ -15,36 +15,36 @@ export default function Navbar() {
   return (
     <div id="nav-outer-container">
       {!portrait ? (
-        <div id={"navbar-container"}>
-          <p className={"navbar-item"}>
+        <div id="navbar-container">
+          <p className="navbar-item">
             <a href="#rsvp">RSVP</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#schedule">Schedule</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#wedding-party">Wedding Party</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#venue">Venue</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#transportation">Transportation</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#tourism">Tourism</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#registry">Registry</a>
           </p>
           <p>|</p>
-          <p className={"navbar-item"}>
+          <p className="navbar-item">
             <a href="#photos">Photos</a>
           </p>
         </div>
@@ -53,9 +53,15 @@ export default function Navbar() {
           <p className="initials">H&R</p>
           <p>October 10, 2021</p>
           <p>#AGhaffariTaleWedding</p>
-          <p id="nav-toggle" onClick={() => toggleMenu(!menu)}>
-            &#9776;
-          </p>
+          <div
+            id="nav-toggle"
+            onClick={() => toggleMenu(!menu)}
+            role="button"
+            tabIndex={0}
+            onKeyPress={() => {}}
+          >
+            <p>&#9776;</p>
+          </div>
         </div>
       )}
       <Menu menu={menu} portrait={portrait} toggleMenu={toggleMenu} />

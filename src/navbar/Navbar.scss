@@ -25,6 +25,10 @@
   }
 }
 
+#nav-toggle:focus {
+  outline: 0;
+}
+
 a:link {
   color: black;
   text-decoration: none;
@@ -85,6 +89,10 @@ a:visited {
   top: 30px;
   left: 30px;
   border-bottom: $border;
+}
+
+.close:focus {
+  outline: 0;
 }
 
 .navbar-item {
