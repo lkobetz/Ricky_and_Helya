@@ -22,8 +22,8 @@ export default function ScheduleItem(props) {
 
 ScheduleItem.propTypes = {
   item: PropTypes.shape({
-    time: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    time: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
   }).isRequired,
 };

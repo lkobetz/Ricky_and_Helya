@@ -27,7 +27,7 @@ export default function Category(props) {
         </div>
         <p className="category-name">{name}</p>
       </div>
-      <LocationList category={name} class={className} />
+      <LocationList category={name} className={className} />
     </div>
   );
 }
