@@ -1,6 +1,12 @@
-import rosie from "./images/rosie.png";
 import rita from "./images/rita.png";
 import larissa from "./images/larissa.jpg";
+import jasonMorris from "./images/jason_morris.jpeg";
+import jimMorris from "./images/jim_morris.jpeg";
+import jimSchimpf from "./images/jim_schimpf.jpeg";
+import jonKoury from "./images/jon_koury.jpeg";
+import paulHawk from "./images/paul_hawk.jpeg";
+import richMasella from "./images/rich_masella.jpeg";
+import alexBelyus from "./images/alex_belyus.jpeg";
 
 export const featuredPeople = [
   {
@@ -64,52 +70,52 @@ export const groomPeople = [
       "Even the Cock-lane ghost had been laid only a round dozen of years, after rapping out its messages, as the spirits of this very year last past (supernaturally deficient in originality) rapped out theirs. Mere messages in the earthly order of events had lately come to the English Crown and People, from a congress of British subjects in America: which, strange to relate, have proved more important to the human race than any communications yet received through any of the chickens of the Cock-lane brood.",
   },
   {
-    photo: rita,
+    photo: jonKoury,
     title: "Best Man",
     name: "Jon Khoury",
     description:
-      "France, less favoured on the whole as to matters spiritual than her sister of the shield and trident, rolled with exceeding smoothness down hill, making paper money and spending it. Under the guidance of her Christian pastors, she entertained herself, besides, with such humane achievements as sentencing a youth to have his hands cut off, his tongue torn out with pincers, and his body burned alive, because he had not kneeled down in the rain to do honour to a dirty procession of monks which passed within his view, at a distance of some fifty or sixty yards.",
+      "Jon has been friends with Ricky since freshman year at Gettysburg College. He is a diehard fan of the NY Giants as well as the Huston Livestock Show and Rodeo.",
   },
   {
-    photo: rosie,
+    photo: jasonMorris,
     title: "Groomsman",
     name: "Jason Morris",
     description:
-      "Thus did the year one thousand seven hundred and seventy-five conduct their Greatnesses, and myriads of small creatures—the creatures of this chronicle among the rest—along the roads that lay before them.",
+      "Jason is Ricky’s cousin. Jay enjoys spartan races and winning the dance floor.",
   },
   {
-    photo: rosie,
+    photo: jimMorris,
     title: "Groomsman",
-    name: "Jimmy Morris",
+    name: "Jim Morris",
     description:
-      "There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever.",
+      "Jim is Ricky’s cousin. He enjoys finding flea market flips and keeping up with his two year old daughter.",
   },
   {
-    photo: rosie,
+    photo: paulHawk,
     title: "Groomsman",
     name: "Paul Hawk",
     description:
-      "There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever.",
+      "Paul’s friendship with Ricky dates back to the kindergarten school bus. Paul loves the great outdoors and spending time with Jimbo.",
   },
   {
-    photo: rosie,
+    photo: alexBelyus,
     title: "Groomsman",
     name: "Alex Belyus",
     description:
-      "There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever.",
+      "Alex and Ricky Became friends at St. Andrew’s preschool. He is passionate about backyard barbecues and the Jersey Shore.",
   },
   {
-    photo: rosie,
+    photo: jimSchimpf,
     title: "Groomsman",
     name: "Jim Schimpf",
     description:
-      "There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever.",
+      "Jim and Ricky played high school football together. His smile lights up the room.",
   },
   {
-    photo: rosie,
+    photo: richMasella,
     title: "Groomsman",
-    name: "Rich ?",
+    name: "Rich Masella",
     description:
-      "There were a king with a large jaw and a queen with a plain face, on the throne of England; there were a king with a large jaw and a queen with a fair face, on the throne of France. In both countries it was clearer than crystal to the lords of the State preserves of loaves and fishes, that things in general were settled for ever.",
+      "Rich has been friends with Ricky since freshman year at Gettysburg College. He enjoys New Jersey bagels and the Oregon outdoors.",
   },
 ];
