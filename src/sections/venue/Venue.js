@@ -16,10 +16,12 @@ export default function Venue() {
         <div id="venue-info-container">
           <img src={mansion} alt="" />
           <p id="venue-title">Strong Mansion</p>
-          <div id="venue-address-container">
-            <p>7802B Comus Rd,</p>
-            <p>Dickerson, MD 20842</p>
-          </div>
+          <a href="https://www.google.com/maps/place/7802+Comus+Rd,+Dickerson,+MD+20842/@39.2510303,-77.4033266,17z/data=!3m1!4b1!4m5!3m4!1s0x89b6263588ad03a9:0x6bc1b40a16a42af6!8m2!3d39.2510262!4d-77.4011379">
+            <div id="venue-address-container">
+              <p>7802B Comus Rd,</p>
+              <p>Dickerson, MD 20842</p>
+            </div>
+          </a>
           <p className="info-text">
             <i>
               "...those who appreciate natural beauty will be better people,
