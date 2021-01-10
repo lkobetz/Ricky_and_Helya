@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import useWindowDimensions from "../useWindowDimensions";
 import "./CouplePhoto.scss";
-// import pictureFrame from '../images/picture_frame.jpg'
 
 export default function CouplePhoto(props) {
   const { couple, bouquet1, bouquet2 } = props;
@@ -18,8 +17,9 @@ export default function CouplePhoto(props) {
       {!portrait ? (
         <div className="couple-photo">
           <img className="background-flower" src={bouquet2} alt="" />
-          {/* <img className="HR-photos" src={pictureFrame} alt="" /> */}
-          <img className="HR-photos" src={couple} alt="" />
+          <div className="frame">
+            <img className="HR-photos" src={couple} alt="" />
+          </div>
           <img className="background-flower" src={bouquet1} alt="" />
         </div>
       ) : (

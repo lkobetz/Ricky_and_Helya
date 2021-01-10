@@ -9,17 +9,28 @@
   margin-right: 15%;
 }
 
-.HR-photos {
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/2.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
   height: 500px;
-  width: 370px;
-  margin-top: 5%;
+  width: 500px;
+}
+
+.HR-photos {
+  height: 76%;
+  width: 76%;
+  margin-top: 10%;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: $shadow;
 }
 
 .background-flower {
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
 }
 
 .couple-photo-container {
