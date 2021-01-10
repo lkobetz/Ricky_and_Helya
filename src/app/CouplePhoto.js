@@ -23,7 +23,9 @@ export default function CouplePhoto(props) {
           <img className="background-flower" src={bouquet1} alt="" />
         </div>
       ) : (
-        <img className="HR-photos-portrait" src={couple} alt="" />
+        <div className="frame-portrait">
+          <img className="HR-photos-portrait" src={couple} alt="" />
+        </div>
       )}
     </div>
   );

@@ -12,7 +12,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width:100%;
+  width: 100%;
 }
 
 #header-photo {
@@ -46,7 +46,7 @@
 #date {
   font-family: $text-font;
   font-size: 20px;
-  margin-bottom:1%;
+  margin-bottom: 1%;
 }
 
 .hero-text {
@@ -58,7 +58,7 @@
 }
 
 .hero-text:before {
-  content: ""; /* This is necessary for the pseudo element to work. */
+  content: ''; /* This is necessary for the pseudo element to work. */
   display: block; /* This will put the pseudo element on its own line. */
   margin: 0 auto; /* This will center the border. */
   width: 55%; /* Change this to whatever width you want. */
@@ -67,7 +67,7 @@
 }
 
 .hero-text:after {
-  content: ""; /* This is necessary for the pseudo element to work. */
+  content: ''; /* This is necessary for the pseudo element to work. */
   display: block; /* This will put the pseudo element on its own line. */
   margin: 0 auto; /* This will center the border. */
   width: 55%; /* Change this to whatever width you want. */
@@ -81,5 +81,4 @@
   color: dimgrey;
   margin-top: -4%;
   margin-bottom: 0%;
-
 }

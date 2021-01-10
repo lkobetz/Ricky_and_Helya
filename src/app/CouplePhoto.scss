@@ -38,9 +38,21 @@
   justify-content: center;
 }
 
+.frame-portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/2.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 350px;
+  width: 350px;
+}
+
 .HR-photos-portrait {
-  height: 400px;
-  width: 300px;
-  box-shadow: $shadow;
-  border-radius: 25px;
+  margin-top: 10%;
+  height: 76%;
+  width: 76%;
+  object-fit: cover;
+  border-radius: 50%;
 }
