@@ -3,13 +3,15 @@
 #tourism-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  align-self: center;
+  justify-content: space-between;
   margin-top: 2%;
+  width: 90%;
 }
 
 .category-item {
   position: relative;
-  margin-bottom: -20%;
+  margin-bottom: -50%;
   width: 350px;
   height: 300px;
   transition: all 0.5s ease;
@@ -91,6 +93,13 @@
 
 .link-item {
   margin-left: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  #tourism-content {
+    align-self: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 450px) {
