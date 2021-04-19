@@ -36,7 +36,7 @@ export default function PasswordPage() {
     return true;
   }
   return correct ? (
-    <App password={password} />
+    <App />
   ) : (
     <div id="pw-container">
       <div id="pw-flowers">
