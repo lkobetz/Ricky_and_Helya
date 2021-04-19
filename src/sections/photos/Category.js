@@ -76,6 +76,7 @@ export default function Category(props) {
         lastPage={lastPage}
       />
       {type === "wedding" &&
+        firebase.auth().currentUser !== null &&
         firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
             setPhotos={setPhotos}
@@ -95,22 +96,3 @@ export default function Category(props) {
 Category.propTypes = {
   type: PropTypes.string.isRequired,
 };
-
-// {props.type === "wedding" &&
-//         firebase.auth().currentUser.email === "guest@email.com" &&
-//         (currentPage === lastPage ? (
-//           <UploadForm
-//             setPhotos={setPhotos}
-//             photos={photos}
-//             lastIdx={lastIdx}
-//             lastPage={lastPage}
-//             setLastIdx={setLastIdx}
-//             currentPage={currentPage}
-//             setPage={setPage}
-//             setLastPage={setLastPage}
-//           />
-//         ) : (
-//           <p className="photo-button" onClick={() => setPage(lastPage)}>
-//             Upload a photo →
-//           </p>
-//         ))}
