@@ -84,7 +84,7 @@ export default function RSVPform() {
     return [attending, notAttending];
   }
 
-  async function adjustGuestCount(op) {
+  async function adjustGuestCount(op, plusOne) {
     const oldCount = await firebase
       .database()
       .ref("guestCount")
@@ -92,7 +92,8 @@ export default function RSVPform() {
       .then((snapshot) => {
         return snapshot.val();
       });
-    const newCount = op === "add" ? oldCount + 1 : oldCount - 1;
+    const guestCount = plusOne ? 2 : 1;
+    const newCount = op === "add" ? oldCount + guestCount : oldCount - guestCount;
     await firebase.database().ref("guestCount").set(newCount);
   }
 
@@ -114,7 +115,7 @@ export default function RSVPform() {
         .child(lastName)
         .child(firstName)
         .set({ dietaryRestrictions: diet, plusOne, email });
-      adjustGuestCount("add");
+      adjustGuestCount("add", plusOne);
     } else if (notAttending) {
       firebase
         .database()
