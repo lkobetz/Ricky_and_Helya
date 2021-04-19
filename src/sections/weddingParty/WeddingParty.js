@@ -1,7 +1,7 @@
 import React from "react";
 import flower from "../images/flower-3.png";
 import PartyPerson from "./Person";
-import { featuredPeople, bridePeople, groomPeople } from "./People";
+import { bridePeople, groomPeople } from "./People";
 import "./weddingParty.scss";
 
 export default function WeddingParty() {
@@ -15,9 +15,6 @@ export default function WeddingParty() {
           <img className="rightSmallFlower" src={flower} alt="" />
         </div>
         <div className="people-list">
-          {featuredPeople.map((person) => {
-            return <PartyPerson person={person} key={person.name} />;
-          })}
           {bridePeople.map((person) => {
             return <PartyPerson person={person} key={person.name} />;
           })}

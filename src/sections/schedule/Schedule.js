@@ -9,28 +9,58 @@ export default class Schedule extends React.Component {
     this.state = {
       items: [
         {
-          time: "12:00-1:00",
+          time: "3:30pm",
+        },
+        {
+          title: "First Trip from Hotel",
+        },
+        {
+          time: "4:30pm",
+        },
+        {
+          title: "Second Trip from Hotel",
+        },
+        {
+          time: "4:00pm",
+        },
+        {
+          title: "Guests Arrive at Strong Mansion",
+        },
+        {
+          time: "5:15pm",
         },
         {
           title: "Ceremony",
-          description: `Our ceremony will include both modern and traditional Persian elements. The following will provide some background information on the Persian traditions we've decided to include.`,
         },
         {
-          time: "1:00-2:00",
+          time: "6:00pm",
         },
         {
-          title: "Photos / Refreshments",
-          description: `While the wedding party sticks around the garden for photos, all
-          other guests may help themselves to refreshments in the
-          reception tent. There will be alcoholic as well as non-alcoholic
-          options.`,
+          title: "Cocktail Hour",
         },
         {
-          time: "2:00-12:00",
+          time: "7:00pm",
         },
         {
-          title: "Reception",
-          description: `There will be champagne, speeches, dinner and dancing! Bring your dancing shoes! Or take them off and go wild!`,
+          title: "Dinner and Reception",
+        },
+        {
+          time: "10:30pm",
+        },
+        {
+          title: "First Trip Back to Hotel",
+        },
+        {
+          time: "11:30pm",
+        },
+        {
+          title: "Second Trip Back to Hotel",
+        },
+        {
+          time: "11:00pm",
+        },
+        {
+          title: "After Party",
         },
       ],
     };

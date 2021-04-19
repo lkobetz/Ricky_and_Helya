@@ -29,7 +29,7 @@
   .image-container {
     position: relative;
     transition: all 0.5s ease;
-    opacity: .2;
+    opacity: 0.2;
   }
   .category-name {
     @extend .category-name;
@@ -60,7 +60,7 @@
   opacity: 0;
   margin-top: -200px;
   transition: all 1s;
-  height:150px;
+  height: 150px;
 }
 
 .animate-list {
@@ -85,9 +85,12 @@
 
 .list-link {
   @extend .list-text;
-  color:  #3a013a;
+  color: #3a013a;
   text-decoration: underline;
-  margin-left: 100%;
+}
+
+.link-item {
+  margin-left: 30px;
 }
 
 @media screen and (max-width: 450px) {
@@ -104,11 +107,9 @@
   }
   .category-name {
     font-size: 30px;
-    top:-45%;
+    top: -45%;
   }
   .list-text {
     font-size: 15px;
   }
 }
-
-

@@ -43,10 +43,10 @@ export default function Navbar() {
           <p className="navbar-item">
             <a href="#registry">Registry</a>
           </p>
-          <p>|</p>
+          {/* <p>|</p>
           <p className="navbar-item">
             <a href="#photos">Photos</a>
-          </p>
+          </p> */}
         </div>
       ) : (
         <div id="navbar-container-portrait">

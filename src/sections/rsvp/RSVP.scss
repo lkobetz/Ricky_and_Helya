@@ -2,6 +2,7 @@
 
 #rsvp-title {
   font-family: $title-font;
+  margin-bottom: 0.01%;
 }
 
 #form-container {
@@ -43,7 +44,7 @@
   flex: 2;
 }
 .form-input:focus {
-  outline:none;
+  outline: none;
 }
 
 .form-checkbox {

@@ -18,11 +18,10 @@ export default function PasswordPage() {
   async function checkPassword(event) {
     event.preventDefault();
     let email = "";
-    if (password[1] === "e") email = "guest@email.com";
-    if (password[1] === "o") email = "viewer@email.com";
-    else if (!email) {
-      changeText1(`Sorry, that password is incorrect!`);
-      changeText2(`Please try again:`);
+    if (password === "portfolio") {
+      email = "viewer@email.com";
+    } else {
+      email = "guest@email.com";
     }
     if (email) {
       try {

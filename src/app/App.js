@@ -42,7 +42,7 @@ function App() {
         bouquet1={bouquet1}
         bouquet2={bouquet2}
       />
-      <Photos />
+      {/* <Photos /> */}
       <div id="footer">
         <p>
           This website was designed and built by{" "}

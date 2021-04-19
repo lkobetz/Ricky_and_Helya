@@ -1,18 +1,17 @@
 import React from "react";
 
-export default function LocationItem(props) {
-  const site = props.info.url ? true : false;
-  const map = props.info.map ? true : false;
+export default function LocationItem({ info }) {
+  const { url, map, text } = info
   return (
     <div className="list-item">
-      <p className="list-text">➺ {props.info.text}</p>
-      {site && (
-        <a href={props.info.url}>
+      <p className="list-text">➺ {text}</p>
+      {url && (
+        <a href={url} className="link-item">
           <p className="list-link">Site</p>
         </a>
       )}
       {map && (
-        <a href={props.info.map}>
+        <a href={map} className="link-item">
           <p className="list-link">Map</p>
         </a>
       )}
