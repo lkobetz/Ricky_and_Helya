@@ -47,6 +47,14 @@
   align-self: center;
 }
 
+.info-text-link {
+  @extend .info-text;
+}
+
+.info-text-link:hover {
+  color: dimgrey;
+}
+
 .info-text:focus {
   outline: 0;
 }
@@ -62,15 +70,15 @@ button {
   background-color: #f9f1f5;
   border: 1px solid black;
   border-radius: 3px;
-  font-family: "Poiret One";
+  font-family: 'Poiret One';
   max-width: 100px;
   align-self: center;
-  padding-left: .5rem;
-  padding-right: .5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 button:focus {
-  outline:none;
+  outline: none;
 }
 
 button:hover {
@@ -83,9 +91,9 @@ button:active {
 
 #footer {
   p {
-  font-family: $text-font;
-  font-size: 16px;
-  text-align: center;
+    font-family: $text-font;
+    font-size: 16px;
+    text-align: center;
   }
   a {
     color: maroon;

@@ -1,4 +1,3 @@
-import rita from "./images/rita.png";
 import larissa from "./images/larissa.jpg";
 import jasonMorris from "./images/jason_morris.jpeg";
 import jimMorris from "./images/jim_morris.jpeg";
@@ -13,6 +12,7 @@ import leila from "./images/leila.png";
 import mary from "./images/Mary.jpg";
 import roxanne from "./images/Roxanne.JPG";
 import sonya from "./images/Sonya.jpeg";
+import hillary from "./images/hillary.jpeg";
 
 export const bridePeople = [
   {
@@ -21,6 +21,13 @@ export const bridePeople = [
     name: "Leila Ghaffari",
     description:
       "Helya and Leila met at Holy Cross Hospital in a delivery room. Since then she has given Helya the joy of being a big sister. Helya likes to take credit for Leila's music taste, but her talent is all her own. Leila plays multiple instruments and has sang as long as she could talk. She is also quite the fashionista and keeps the women in the household stylish. Though the youngest of the family, she is often the one with the most wisdom. ",
+  },
+  {
+    photo: roxanne,
+    title: "Sister Of The Groom",
+    name: "Roxanne Brewer",
+    description:
+      "As long as Helya could remember, she’s always wanted an older sister. So she could not wait to meet Ricky’s vivacious, charming, and super cool big sis Roxanne. When they met there was an immediate bond. After all, Roxanne was the only other woman who truly understood the quirks of living with Ricky. More than that, Roxanne has become Helya’s role model and confidante. She enjoys plants, playing party games, working out, and recently discovered she has a natural talent at dairy farming.",
   },
   {
     photo: jane,
@@ -44,7 +51,7 @@ export const bridePeople = [
       "Like most things magical, no one really knows where Sonya and Helya’s friendship came from. It was like the two misfit puzzle pieces finally found each other. Since then, they’ve tried to understand the important mysteries in life like why someone would pay $8 to drink a tiny vial of ginger infused water? Importantly, Sonya has shown Helya the joy of embracing the strangeness in all of us. Sonya enjoys all things derpy, dogs, dancing, and drinking beer.",
   },
   {
-    photo: rita,
+    photo: hillary,
     title: "Bridesmaid",
     name: "Hillary Jenny",
     description:
@@ -67,13 +74,6 @@ export const bridePeople = [
 ];
 export const groomPeople = [
   {
-    photo: roxanne,
-    title: "Sister Of The Groom",
-    name: "Roxanne Brewer",
-    description:
-      "As long as Helya could remember, she’s always wanted an older sister. So she could not wait to meet Ricky’s vivacious, charming, and super cool big sis Roxanne. When they met there was an immediate bond. After all, Roxanne was the only other woman who truly understood the quirks of living with Ricky. More than that, Roxanne has become Helya’s role model and confidante. She enjoys plants, playing party games, working out, and recently discovered she has a natural talent at dairy farming.",
-  },
-  {
     photo: jonKoury,
     title: "Best Man",
     name: "Jon Khoury",
@@ -92,7 +92,7 @@ export const groomPeople = [
     title: "Groomsman",
     name: "Jim Morris",
     description:
-      "Jim is Ricky’s cousin. He enjoys finding flea market flips and keeping up with his two year old daughter.",
+      "Jim is Ricky’s cousin. He enjoys finding flea market flips and keeping up with his three year old daughter.",
   },
   {
     photo: paulHawk,

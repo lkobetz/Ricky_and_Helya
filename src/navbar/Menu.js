@@ -44,11 +44,11 @@ export default function Menu(props) {
         <p>Venue</p>
       </a>
       <a
-        href="#transportation"
+        href="#accommodations"
         className="navbar-item"
         onClick={() => props.toggleMenu(false)}
       >
-        <p>Transportation</p>
+        <p>Accommodations</p>
       </a>
       <a
         href="#tourism"
@@ -69,7 +69,7 @@ export default function Menu(props) {
         className="navbar-item"
         onClick={() => props.toggleMenu(false)}
       >
-        <p>Photos</p>
+        {/* <p>Photos</p> */}
       </a>
     </div>
   );

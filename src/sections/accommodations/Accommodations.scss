@@ -1,0 +1,17 @@
+.hotel-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.hotel-info {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.hotel-photo {
+  height: 250px;
+  width: 320px;
+  object-fit: cover;
+}

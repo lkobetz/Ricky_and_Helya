@@ -33,7 +33,7 @@ export default function Navbar() {
           </p>
           <p>|</p>
           <p className="navbar-item">
-            <a href="#transportation">Transportation</a>
+            <a href="#accommodations">Accommodations</a>
           </p>
           <p>|</p>
           <p className="navbar-item">
