@@ -6,9 +6,9 @@ import NavBar from "../navbar/Navbar";
 import RSVP from "../sections/rsvp/RSVP";
 import Schedule from "../sections/schedule/Schedule";
 import Venue from "../sections/venue/Venue";
-import Registry from "../sections/registry/Registry";
+// import Registry from "../sections/registry/Registry";
 import Accommodations from "../sections/accommodations/Accommodations";
-import Photos from "../sections/photos/Photos";
+// import Photos from "../sections/photos/Photos";
 import Tourism from "../sections/tourism/Tourism";
 import WeddingParty from "../sections/weddingParty/WeddingParty";
 import HRgif from "../images/HR_gif.gif";
@@ -36,7 +36,7 @@ function App() {
       <Venue />
       <Accommodations />
       <Tourism />
-      <Registry />
+      {/* <Registry /> */}
       <CouplePhoto
         couple={HRsparkler}
         bouquet1={bouquet1}
