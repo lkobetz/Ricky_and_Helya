@@ -22,13 +22,27 @@ export default function Venue() {
               <p>Dickerson, MD 20842</p>
             </div>
           </a>
+          <br />
+          <br />
+          <p className="info-text">
+            Located in Sugarloaf Mountain, Strong Mansion was built in 1912 and served as the home of Gordon and Louise Strong, where they raised their 9 adopted sons. Gordon fell in love with Sugarloaf Mountain when cycling with a friend. He began acquiring woodlots, eventually owning 3,000 acres. Now the property and home is owned by Stronghold Incorporated, a nonprofit organization founded by Gordon and Louise Strong, with the mission of preserving the natural beauty of Sugarloaf mountain while keeping it open for public enjoyment.
+          </p>
+          <br />
           <p className="info-text">
             <i>
               "...those who appreciate natural beauty will be better people,
               people who treat each other better."
             </i>
           </p>
-          <p className="info-text">-Gordon Strong, Founder of Strong Mansion</p>
+          <p className="info-text">
+            -Gordon Strong, Founder of Strong Mansion
+          </p>
+          <br />
+          <p className="info-text">
+            <b>
+              Catering services provided by Celebrations Catering.
+            </b>
+            </p>
         </div>
         <Map />
       </div>

@@ -45,8 +45,8 @@ function App() {
       {/* <Photos /> */}
       <div id="footer">
         <p>
-          This website was designed and built by{" "}
-          <a href="https://lkobetz.github.io/">Larissa Kobetz</a>.
+          This website was designed and built by Larissa Kobetz.
+          {/* <a href="https://lkobetz.github.io/">Larissa Kobetz</a>. */}
         </p>
       </div>
     </div>

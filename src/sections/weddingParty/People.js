@@ -78,7 +78,7 @@ export const groomPeople = [
     title: "Best Man",
     name: "Jon Khoury",
     description:
-      "Jon has been friends with Ricky since freshman year at Gettysburg College. He is a diehard fan of the NY Giants as well as the Huston Livestock Show and Rodeo.",
+      "Jon has been friends with Ricky since freshman year at Gettysburg College. He is a diehard fan of the NY Giants as well as the Houston Livestock Show and Rodeo.",
   },
   {
     photo: jasonMorris,

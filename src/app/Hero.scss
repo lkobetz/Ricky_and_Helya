@@ -49,6 +49,14 @@
   margin-bottom: 1%;
 }
 
+.hero-subtitle {
+  font-family: $text-font;
+  font-size: 5vh;
+  flex: 1;
+  margin-bottom: 6%;
+  color: dimgrey;
+}
+
 .hero-text {
   font-family: $text-font;
   font-size: 3vh;
@@ -75,10 +83,10 @@
   border-bottom: 1px solid dimgrey; /* This creates the border. Replace black with whatever color you want. */
 }
 
-#hashtag {
+.hashtag {
   font-family: $text-font;
   font-size: 2vh;
   color: dimgrey;
   margin-top: -4%;
-  margin-bottom: 0%;
+  margin-bottom: 4%;
 }

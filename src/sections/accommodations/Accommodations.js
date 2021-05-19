@@ -28,6 +28,9 @@ export default function Accommodations() {
               <br />
               (301) 698-2500
             </a>
+            <a className="info-text-link" href="https://group.hamptoninn.com/jx53p">
+              Book a room!
+            </a>
           </div>
           <div className="hotel-info">
             <img src={hilton} className="hotel-photo" alt="Hilton Inn" />
@@ -40,18 +43,21 @@ export default function Accommodations() {
               <br />
               (240) 566-1500
             </a>
+            <a className="info-text-link" href="https://www.hilton.com/en/book/reservation/deeplink/?&ctyhocn=IADFRGI&groupCode=GBWO10&arrival=20211007&departure=20211011&cid=OM,WW,HILTONLINK,en,DirectLink&fromId=HILTONLINKDIRECT">
+              Book a room!
+            </a>
           </div>
         </div>
         <p className="info-text">
           Rooms are available from October 8-11.
         </p>
         <p className="info-text">
-          To book a room, call the hotel and tell them you're staying for the Ghaffari-Brewer wedding.
-        </p>
-        <p className="info-text">
           <b>
             Space is limited and rooms will only be held until a month before the wedding, so please act fast!
           </b>
+        </p>
+        <p className="info-text">
+          Transportation will be provided. A shuttle van will pick guests up guests at these hotels at 3:30pm and 4:30pm, and will drop them off after the reception at 10:30pm and 11:30pm.
         </p>
       </div>
     </div>

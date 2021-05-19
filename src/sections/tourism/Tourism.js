@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import flower from "../images/yello flower.png";
-import Category from "./Category.js";
+import Category from "./Category";
 import "./Tourism.scss";
 import dtf from "./images/dtf.jpg";
 import annapolis from "./images/annapolis_rock.jpg";

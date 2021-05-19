@@ -12,19 +12,19 @@ export default class Schedule extends React.Component {
           time: "3:30pm",
         },
         {
-          title: "First Trip from Hotel",
-        },
-        {
-          time: "4:30pm",
-        },
-        {
-          title: "Second Trip from Hotel",
+          title: "First Shuttle Pick Up from Hotel",
         },
         {
           time: "4:00pm",
         },
         {
           title: "Guests Arrive at Strong Mansion",
+        },
+        {
+          time: "4:30pm",
+        },
+        {
+          title: "Second Shuttle Pick Up from Hotel",
         },
         {
           time: "5:15pm",

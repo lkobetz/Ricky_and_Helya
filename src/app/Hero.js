@@ -16,18 +16,21 @@ export default function Hero() {
       {!portrait ? (
         <div className="hero">
           <div id="hero-row">
-            <p className="hero-text">October 10, 2021</p>
+            <p className="hero-text">#HelyaFoundBrewLove</p>
             <img id="header-photo" src={headerPhoto} alt="" />
             <p className="hero-text">#AGhaffariTaleWedding</p>
           </div>
           <p id="hero-title">Helya and Ricky are Getting Married!</p>
+          <p className="hero-subtitle">October 10, 2021</p>
         </div>
       ) : (
         <div className="hero">
           <img id="header-photo" src={headerPhoto} alt="" />
           <p id="hero-title">Helya and Ricky are Getting Married!</p>
           <p className="hero-text">October 10, 2021</p>
-          <p id="hashtag">#AGhaffariTaleWedding</p>
+          <p className="hashtag">#AGhaffariTaleWedding</p>
+          <br />
+          <p className="hashtag">#HelyaFoundBrewLove</p>
         </div>
       )}
     </div>
