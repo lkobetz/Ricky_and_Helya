@@ -38,11 +38,13 @@ export default function Venue() {
             -Gordon Strong, Founder of Strong Mansion
           </p>
           <br />
-          <p className="info-text">
-            <b>
-              Catering services provided by Celebrations Catering.
-            </b>
+          <a href="https://celebrationsmenu.com/">
+            <p className="info-text">
+              <b>
+                Catering services provided by Celebrations Catering.
+              </b>
             </p>
+          </a>
         </div>
         <Map />
       </div>

@@ -13,6 +13,7 @@ import mary from "./images/Mary.jpg";
 import roxanne from "./images/Roxanne.JPG";
 import sonya from "./images/Sonya.jpeg";
 import hillary from "./images/hillary.jpeg";
+import thomas from "./images/thomas_steiner.jpeg";
 
 export const bridePeople = [
   {
@@ -121,5 +122,12 @@ export const groomPeople = [
     name: "Rich Masella",
     description:
       "Rich has been friends with Ricky since freshman year at Gettysburg College. He enjoys New Jersey bagels and the Oregon outdoors.",
+  },
+  {
+    photo: thomas,
+    title: "Groomsman",
+    name: "Thomas Steiner",
+    description:
+      "Thomas and Ricky have been friends for two years. He has joined Ricky’s family by way of Roxanne. His interests include languages, cuisine and Microsoft excel.",
   },
 ];
