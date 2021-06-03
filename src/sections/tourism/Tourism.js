@@ -12,6 +12,7 @@ export default function Tourism() {
     {
       name: "Downtown",
       image: dtf,
+      imageCred: "google",
     },
     { name: "Nature", image: annapolis, imageCred: "u/jbilous via reddit" },
     { name: "Restaurants", image: food, imageCred: "Hooch and Banter" },
