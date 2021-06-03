@@ -4,7 +4,7 @@ import Category from "./Category";
 import "./Photos.scss";
 
 export default function Photos() {
-  const photoTypes = ["wedding", "instagram"];
+  const photoTypes = ["engagement"];
   return (
     <div id="photos" className="outer-container">
       <div className="section">

@@ -69,7 +69,7 @@ export default function Menu(props) {
         className="navbar-item"
         onClick={() => props.toggleMenu(false)}
       >
-        {/* <p>Photos</p> */}
+        <p>Photos</p>
       </a>
     </div>
   );

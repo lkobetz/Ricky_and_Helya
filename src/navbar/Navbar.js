@@ -43,16 +43,15 @@ export default function Navbar() {
           <p className="navbar-item">
             <a href="#registry">Registry</a>
           </p> */}
-          {/* <p>|</p>
+          <p>|</p>
           <p className="navbar-item">
             <a href="#photos">Photos</a>
-          </p> */}
+          </p>
         </div>
       ) : (
         <div id="navbar-container-portrait">
-          <p className="initials">H&R</p>
+          <p>H&R</p>
           <p>October 10, 2021</p>
-          <p>#AGhaffariTaleWedding</p>
           <div
             id="nav-toggle"
             onClick={() => toggleMenu(!menu)}

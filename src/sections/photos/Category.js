@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import firebase from "firebase/app";
 import source from "./source";
 import SinglePhoto from "./SinglePhoto";
-import UploadForm from "./UploadForm";
+// import UploadForm from "./UploadForm";
 import Pagination from "./Pagination";
 import "firebase/database";
 
@@ -16,7 +16,7 @@ export default function Category(props) {
   useEffect(() => {
     async function getPhotos() {
       if (!photos.length || photos[photos.length - 1].page !== currentPage) {
-        if (type === "wedding") {
+        if (type === "engagement") {
           const photosRef = await firebase.database().ref("photos");
           const photosObj = await photosRef
             .child(currentPage)
@@ -75,7 +75,7 @@ export default function Category(props) {
         currentPage={currentPage}
         lastPage={lastPage}
       />
-      {type === "wedding" &&
+      {/* {type === "wedding" &&
         firebase.auth().currentUser !== null &&
         firebase.auth().currentUser.email === "guest@email.com" && (
           <UploadForm
@@ -88,7 +88,7 @@ export default function Category(props) {
             setPage={setPage}
             setLastPage={setLastPage}
           />
-        )}
+        )} */}
     </div>
   );
 }

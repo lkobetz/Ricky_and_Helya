@@ -8,7 +8,7 @@ import Schedule from "../sections/schedule/Schedule";
 import Venue from "../sections/venue/Venue";
 // import Registry from "../sections/registry/Registry";
 import Accommodations from "../sections/accommodations/Accommodations";
-// import Photos from "../sections/photos/Photos";
+import Photos from "../sections/photos/Photos";
 import Tourism from "../sections/tourism/Tourism";
 import WeddingParty from "../sections/weddingParty/WeddingParty";
 import HRgif from "../images/HR_gif.gif";
@@ -42,7 +42,7 @@ function App() {
         bouquet1={bouquet1}
         bouquet2={bouquet2}
       />
-      {/* <Photos /> */}
+      <Photos />
       <div id="footer">
         <p>
           This website was designed and built by Larissa Kobetz.

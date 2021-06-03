@@ -50,7 +50,7 @@ export default function UploadForm(props) {
         async function onSuccess() {
           changeLoading(null);
           const url = await storageRef.child(`photos/${name}`).getDownloadURL();
-          if (lastIdx > 4) {
+          if (lastIdx > 5) {
             lastPage += 1;
             firebase.database().ref("photos").child("lastPage").set(lastPage);
             setLastPage(lastPage);

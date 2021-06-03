@@ -42,10 +42,10 @@ a:visited {
 #navbar-container-portrait {
   @extend #navbar-container;
   justify-content: space-between;
-  height: 5vw;
+  align-items: center;
+  height: 7vw;
   p {
-    font-size: 3vw;
-    max-height: 3vw;
+    font-size: 1.1em;
   }
   :first-child {
     padding-left: 1%;
@@ -99,11 +99,6 @@ a:visited {
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.initials {
-  font-family: $text-font;
-  font-size: 30px;
 }
 
 // section styling:
